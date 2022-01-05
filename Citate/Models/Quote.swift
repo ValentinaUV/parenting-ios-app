@@ -10,4 +10,5 @@ import Foundation
 struct Quote {
     let title: String
     let author: String
+    let order: Int
 }

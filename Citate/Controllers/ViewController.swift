@@ -19,7 +19,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         quotesManager.quotesService.delegate = self
-        quotesManager.getRandomQuote()
         
         tableView.dataSource = self
         title = Constants.quotesScreen.title
@@ -33,7 +32,8 @@ class ViewController: UIViewController {
     }
     
     func loadQuotes() {
-        quotesManager.getQuotes()
+//        quotesManager.getQuotes()
+        quotesManager.getDailyQuote()
     }
 }
 

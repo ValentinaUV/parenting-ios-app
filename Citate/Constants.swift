@@ -18,6 +18,6 @@ struct Constants {
         static let collectionName = "quotes"
         static let titleField = "title"
         static let authorField = "author"
-        static let dateField = "date"
+        static let orderField = "order"
     }
 }

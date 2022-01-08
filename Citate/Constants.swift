@@ -9,6 +9,8 @@ import Foundation
 
 struct Constants {
     
+    static let dailyQuoteNotificationTitle = "Parenting Daily Quote"
+    
     struct quotesScreen {
         static let title = "Quotes"
         static let quoteCellIdentifier = "QuoteCell"
@@ -20,4 +22,5 @@ struct Constants {
         static let authorField = "author"
         static let orderField = "order"
     }
+    
 }

@@ -41,11 +41,11 @@ struct FirebaseQuotes: CloudQuotesService {
                                 
                                 let quote = Quote(title: title, author: author, order: order)
                                 quotes.append(quote)
-                                
-                                if let delegate = self.delegate {
-                                    delegate.didLoadQuotes(quotes)
-                                }
                             }
+                        }
+                        
+                        if let delegate = self.delegate {
+                            delegate.didLoadQuotes(quotes)
                         }
                     }
                 }

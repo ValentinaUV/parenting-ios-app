@@ -21,15 +21,13 @@ class QuotesViewController: UIViewController{
         quotesTableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
         quotesTableView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
         quotesTableView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
-        quotesTableView.bottomAnchor.constraint(equalTo:view.bottomAnchor).isActive = true
         
         quotesTableView.dataSource = self
         quotesTableView.delegate = self
-        quotesManager.quotesService.delegate = self
-        
         quotesTableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: "quoteCell")
         
-        quotesTableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
+        quotesManager.quotesService.delegate = self
+        
         quotesTableView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         quotesTableView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         quotesTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
@@ -75,7 +73,7 @@ extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 100
+       return UITableView.automaticDimension
     }
 }
 
@@ -87,7 +85,7 @@ extension QuotesViewController: FirebaseQuotesDelegate {
     }
     
     func didLoadQuotes(_ quotes: [Quote]) {
-        print("Quotes: \(quotes)")
+//        print("Quotes: \(quotes)")
         
         self.quotes = quotes
         DispatchQueue.main.async {

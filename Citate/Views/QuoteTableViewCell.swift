@@ -25,12 +25,14 @@ class QuoteTableViewCell: UITableViewCell {
         containerView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
         containerView.leadingAnchor.constraint(equalTo:self.favoriteImageView.trailingAnchor, constant:10).isActive = true
         containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant:80).isActive = true
         
-        titleLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor).isActive = true
+        containerView.topAnchor.constraint(equalTo:self.contentView.topAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo:self.contentView.bottomAnchor).isActive = true
+        containerView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, constant: 40).isActive = true
+        
+        titleLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor, constant: 10).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
-        titleLabel.numberOfLines = 3
         
         authorLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
         authorLabel.topAnchor.constraint(equalTo:self.titleLabel.bottomAnchor, constant:5).isActive = true
@@ -55,23 +57,23 @@ class QuoteTableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         return label
     }()
     
     let authorLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        label.textColor = #colorLiteral(red: 0.2078431373, green: 0.4705882353, blue: 0.737254902, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let containerView:UIView = {
-      let view = UIView()
-      view.translatesAutoresizingMaskIntoConstraints = false
-      view.clipsToBounds = true // this will make sure its children do not go out of the boundary
-      return view
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true // this will make sure its children do not go out of the boundary
+        return view
     }()
 
     var quote:Quote? {

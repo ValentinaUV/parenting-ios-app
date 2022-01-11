@@ -10,7 +10,7 @@ import UserNotifications
 
 class LocalNotificationManager {
     
-    var notifications = [Notification]()
+    var notifications:[Notification] = [Notification]()
     
     func listScheduledNotifications() {
         UNUserNotificationCenter.current().getPendingNotificationRequests { notifications in
@@ -21,40 +21,14 @@ class LocalNotificationManager {
         }
     }
     
-    private func requestAuthorization() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
-            granted, error in
-
-            if granted == true && error == nil {
-                self.scheduleNotifications()
-            }
-        }
-    }
-    
-    func schedule() {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-
-            switch settings.authorizationStatus {
-                case .notDetermined: self.requestAuthorization()
-                case .authorized, .provisional: self.scheduleNotifications()
-                default: break
-            }
-        }
-    }
-    
-    private func scheduleNotifications() {
+    func scheduleNotifications() {
         for notification in notifications {
             let content = UNMutableNotificationContent()
             content.title = notification.title
             content.body = notification.body
             content.sound = .default
-            
-            var date = DateComponents()
-            date.hour = 14
-            date.minute = 55
 
-//            let trigger = UNCalendarNotificationTrigger(dateMatching: notification.datetime, repeats: false)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: notification.datetime, repeats: notification.repeats)
             let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
             
             UNUserNotificationCenter.current().add(request) { error in
@@ -75,4 +49,5 @@ struct Notification {
     var title: String
     var body: String
     var datetime: DateComponents
+    var repeats: Bool = false
 }

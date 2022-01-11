@@ -23,6 +23,8 @@
 		A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD872788A55600530EFB /* QuotesViewController.swift */; };
 		A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
+		A787DAF0278CA08C0050CA44 /* DailyQuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787DAEF278CA08C0050CA44 /* DailyQuoteManager.swift */; };
+		A787DAF2278D9E9A0050CA44 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787DAF1278D9E9A0050CA44 /* TaskManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		A731DD872788A55600530EFB /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
 		A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A787DAEF278CA08C0050CA44 /* DailyQuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuoteManager.swift; sourceTree = "<group>"; };
+		A787DAF1278D9E9A0050CA44 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 				A731DD772780176C00530EFB /* QuotesManager.swift */,
 				A731DD79278018D400530EFB /* FirebaseQuotes.swift */,
 				A731DD852787453A00530EFB /* LocalNotificationManager.swift */,
+				A787DAEF278CA08C0050CA44 /* DailyQuoteManager.swift */,
+				A787DAF1278D9E9A0050CA44 /* TaskManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A731DD782780176C00530EFB /* QuotesManager.swift in Sources */,
+				A787DAF0278CA08C0050CA44 /* DailyQuoteManager.swift in Sources */,
 				A731DD76278016DF00530EFB /* Quote.swift in Sources */,
 				A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */,
 				A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */,
@@ -261,6 +268,7 @@
 				A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */,
 				A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */,
 				A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */,
+				A787DAF2278D9E9A0050CA44 /* TaskManager.swift in Sources */,
 				A731DD7A278018D400530EFB /* FirebaseQuotes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

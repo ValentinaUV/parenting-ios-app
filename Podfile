@@ -7,5 +7,4 @@ target 'Citate' do
 
   # Pods for Citate
 
-
 end

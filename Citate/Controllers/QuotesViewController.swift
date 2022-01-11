@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuotesViewController: UIViewController{
+class QuotesViewController: UIViewController {
 
     let quotesTableView = UITableView()
     var quotes: [Quote] = []
@@ -85,38 +85,10 @@ extension QuotesViewController: FirebaseQuotesDelegate {
     }
     
     func didLoadQuotes(_ quotes: [Quote]) {
-//        print("Quotes: \(quotes)")
         
         self.quotes = quotes
         DispatchQueue.main.async {
             self.quotesTableView.reloadData()
         }
     }
-    
-    func didLoadRandomQuote(_ quote: Quote) {
-        print("The quote: ")
-        print(quote)
-    }
-    
-    func didLoadDailyQuote(_ quote: Quote) {
-        print("The quote: ")
-        print(quote)
-        
-        let manager = LocalNotificationManager()
-        let title = Constants.dailyQuoteNotificationTitle
-        let body = "\"\(quote.title)\" \(quote.author)"
-        let calendar = Calendar.current
-        let date = calendar.date(byAdding: .minute, value: 2, to: Date())
-        print("let date: \(date!)")
-        let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date!)
-        print("dateComponents: \(dateComponents)")
-
-        manager.notifications = [
-            Notification(id: UUID().uuidString, title: title, body: body, datetime: dateComponents)
-        ]
-
-        manager.schedule()
-    }
-    
-    
 }

@@ -10,6 +10,8 @@ import Foundation
 struct Constants {
     
     static let dailyQuoteNotificationTitle = "Parenting Daily Quote"
+    static let BGTaskAppRefreshId = "com.valentinaungurean.citate.backgroundAppRefreshIdentifier"
+    static let BGProcessingTaskrequestId = "com.valentinaungurean.citate.backgroundProcessingIdentifier"
     
     struct quotesScreen {
         static let title = "Quotes"

@@ -11,8 +11,7 @@ protocol CloudQuotesService {
     var delegate: FirebaseQuotesDelegate? {get set}
     
     func getQuotes()
-    func getRandomQuote()
-    func getDailyQuote()
+    func getQuotesBy(order: Int, limit: Int)
 }
 
 struct QuotesManager {
@@ -23,11 +22,7 @@ struct QuotesManager {
         quotesService.getQuotes()
     }
     
-    func getRandomQuote() {
-        quotesService.getRandomQuote()
-    }
-    
-    func getDailyQuote() {
-        quotesService.getDailyQuote()
+    func getQuotesBy(order: Int, limit: Int) {
+        quotesService.getQuotesBy(order: order, limit: limit)
     }
 }

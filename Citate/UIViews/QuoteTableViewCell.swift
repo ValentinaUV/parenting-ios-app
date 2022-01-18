@@ -16,7 +16,14 @@ class QuoteTableViewCell: UITableViewCell {
         containerView.addSubview(titleLabel)
         containerView.addSubview(authorLabel)
         self.contentView.addSubview(containerView)
-        
+    //todo: additional method to write constrains, this part can also be moved to a setupConstraints method
+//        NSLayoutConstraint.activate([
+//            favoriteImageView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor),
+//            favoriteImageView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10),
+//            favoriteImageView.widthAnchor.constraint(equalToConstant:30),
+//            favoriteImageView.heightAnchor.constraint(equalToConstant:30),
+//        ])
+//
         favoriteImageView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
         favoriteImageView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true
         favoriteImageView.widthAnchor.constraint(equalToConstant:30).isActive = true

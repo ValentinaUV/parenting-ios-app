@@ -8,6 +8,8 @@
 import UIKit
 
 class QuotesViewController: UIViewController {
+    
+    var presenter: QuotesPresenter?
 
     let quotesTableView = UITableView()
     var quotes: [Quote] = []
@@ -27,7 +29,7 @@ class QuotesViewController: UIViewController {
         quotesTableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: "quoteCell")
         
         quotesManager.quotesService.delegate = self
-        
+        //todo: you are adding leading+trailing constraints already in relation to the view
         quotesTableView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         quotesTableView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         quotesTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
@@ -64,7 +66,7 @@ extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        //todo: always use quard instead of force unwrap
         let cell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as! QuoteTableViewCell
 
         cell.quote = quotes[indexPath.row]
@@ -76,10 +78,11 @@ extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
        return UITableView.automaticDimension
     }
 }
-
+//todo: fetching the quotes should be moved to presenter
 extension QuotesViewController: FirebaseQuotesDelegate {
     
     func didFailWithError(error: Error) {
+        //todo: remove all prints from the project, it's ok to use them as a fast debuging tool, but it shouldn't be present when pushing the code
         print("Failed to retrieve the quotes.")
         print(error.localizedDescription)
     }
@@ -91,4 +94,8 @@ extension QuotesViewController: FirebaseQuotesDelegate {
             self.quotesTableView.reloadData()
         }
     }
+}
+
+extension QuotesViewController: QuotesView {
+    
 }

@@ -14,6 +14,7 @@ protocol CloudQuotesService {
     func getQuotesBy(order: Int, limit: Int)
 }
 
+//todo: why struct?
 struct QuotesManager {
     
     var quotesService: CloudQuotesService

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4BAAAF2796EEA00073149D /* QuotesPresenter.swift */; };
+		0A4BAAB22796EEBA0073149D /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4BAAB12796EEBA0073149D /* QuotesView.swift */; };
+		0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */; };
 		1FE024B00BA340E1BD830F0C /* Pods_Citate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38C04212F18D03F65265A7F /* Pods_Citate.framework */; };
 		A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD57277A0B9700530EFB /* AppDelegate.swift */; };
 		A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD59277A0B9700530EFB /* SceneDelegate.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A4BAAAF2796EEA00073149D /* QuotesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesPresenter.swift; sourceTree = "<group>"; };
+		0A4BAAB12796EEBA0073149D /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
+		0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LocalNotifications.swift"; sourceTree = "<group>"; };
 		182EADCFCD284E5B1C9B5AD9 /* Pods-Citate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citate.release.xcconfig"; path = "Target Support Files/Pods-Citate/Pods-Citate.release.xcconfig"; sourceTree = "<group>"; };
 		4216A082519FFBCB92FA837F /* Pods-Citate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citate.debug.xcconfig"; path = "Target Support Files/Pods-Citate/Pods-Citate.debug.xcconfig"; sourceTree = "<group>"; };
 		A38C04212F18D03F65265A7F /* Pods_Citate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +70,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A4BAAAD2796EE510073149D /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				0A4BAAAF2796EEA00073149D /* QuotesPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		0A4BAAAE2796EE7F0073149D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A4BAAB12796EEBA0073149D /* QuotesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6CE1B71EF5D62E6164FA55A2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,16 +126,19 @@
 		A731DD56277A0B9700530EFB /* Citate */ = {
 			isa = PBXGroup;
 			children = (
+				0A4BAAAE2796EE7F0073149D /* Views */,
+				0A4BAAAD2796EE510073149D /* Presenters */,
 				A731DD70277A147F00530EFB /* GoogleService-Info.plist */,
 				A731DD57277A0B9700530EFB /* AppDelegate.swift */,
 				A731DD59277A0B9700530EFB /* SceneDelegate.swift */,
 				A731DD7B2780195500530EFB /* Constants.swift */,
 				A731DD732780169500530EFB /* Models */,
-				A731DD74278016A900530EFB /* Views */,
+				A731DD74278016A900530EFB /* UIViews */,
 				A731DD722780168800530EFB /* Controllers */,
 				A731DD60277A0B9B00530EFB /* Assets.xcassets */,
 				A731DD62277A0B9B00530EFB /* LaunchScreen.storyboard */,
 				A731DD65277A0B9B00530EFB /* Info.plist */,
+				0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */,
 			);
 			path = Citate;
 			sourceTree = "<group>";
@@ -139,12 +164,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A731DD74278016A900530EFB /* Views */ = {
+		A731DD74278016A900530EFB /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
 				A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */,
 			);
-			path = Views;
+			path = UIViews;
 			sourceTree = "<group>";
 		};
 		A787DAE62789ED140050CA44 /* Documentation */ = {
@@ -266,8 +291,11 @@
 				A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */,
 				A731DD7C2780195500530EFB /* Constants.swift in Sources */,
 				A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */,
+				0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */,
+				0A4BAAB22796EEBA0073149D /* QuotesView.swift in Sources */,
 				A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */,
 				A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */,
+				0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */,
 				A787DAF2278D9E9A0050CA44 /* TaskManager.swift in Sources */,
 				A731DD7A278018D400530EFB /* FirebaseQuotes.swift in Sources */,
 			);

@@ -6,12 +6,17 @@
 //
 
 import Foundation
-
+//todo: Managers are a quick method to get code smells in your code
 class DailyQuoteManager: FirebaseQuotesDelegate {
     
+
     var quotesManager = QuotesManager(quotesService: FirebaseQuotes())
     var date: String
     var order: Int
+    
+   //todo: You can inject the quotes service using the init, the concrete class should be decided when using this class
+   //init(quotesService: CloudQuotesService)
+    
     
     init() {
         let defaults = UserDefaults.standard
@@ -34,7 +39,7 @@ class DailyQuoteManager: FirebaseQuotesDelegate {
             return
         }
     }
-    
+ //todo: this should be in DateFormatter or String extension file
     private func getToday() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -42,18 +47,19 @@ class DailyQuoteManager: FirebaseQuotesDelegate {
         
         return today
     }
-    
+    //todo: this function name doesn't reflect what the metod does(setting date and order).
     private func setDateforDailyQuote(date: String, withOrder order: Int) {
         let defaults = UserDefaults.standard
         defaults.set(order, forKey: "dailyQuoteOrder")
         defaults.set(date, forKey: "dailyQuoteDate")
     }
-    
+   //todo: this is not used
     private func setOrderForDailyQuote(_ order: Int) {
         let defaults = UserDefaults.standard
         defaults.set(order, forKey: "dailyQuoteOrder")
     }
     
+    //todo: is this method going to handle the error? if not it should be removed
     func didFailWithError(error: Error) {
         print("Failed to retrieve the quotes.")
         print(error.localizedDescription)
@@ -71,7 +77,7 @@ class DailyQuoteManager: FirebaseQuotesDelegate {
         let title = Constants.dailyQuoteNotificationTitle
         let today = Date()
         var daysToAdd = 0
-        
+        //todo: try to have smaller methods, date calculation part can be a separate method
         for quote in quotes {
             daysToAdd += 1
             let body = "\"\(quote.title)\" \(quote.author)"

@@ -8,11 +8,13 @@
 import Foundation
 import Firebase
 
+//todo: this should be renamed, it's not firebase depenedent
 protocol FirebaseQuotesDelegate {
     func didFailWithError(error: Error)
     func didLoadQuotes(_ quotes: [Quote])
 }
 
+//todo: why struct?
 struct FirebaseQuotes: CloudQuotesService {
     
     let db = Firestore.firestore()

@@ -10,25 +10,28 @@ import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
         registerLocalNotification()
-        
+        setupMainView()
         return true
     }
     
-    func registerLocalNotification() {
-        let notificationCenter = UNUserNotificationCenter.current()
-        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+    private func setupMainView() {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let navigationController = UINavigationController()
+        let initialViewController = QuotesViewController()
+        let presenter = QuotesPresenter(view: initialViewController, quotesManager: QuotesManager(quotesService: FirebaseQuotes()))
+        initialViewController.presenter = presenter
+        navigationController.pushViewController(initialViewController, animated: false)
 
-        notificationCenter.requestAuthorization(options: options) {
-            (didAllow, error) in
-            if !didAllow {
-                print("User has declined notifications")
-            }
-        }
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
+   
 }
 

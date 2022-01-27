@@ -12,7 +12,6 @@ class TaskManager {
     
     func registerBackgroundTaks() {
         
-        print("registerBackgroundTaks func")
         BGTaskScheduler.shared.register(forTaskWithIdentifier: Constants.BGTaskAppRefreshId, using: nil) { task in
             self.handleDailyQuoteTask(task: task as! BGAppRefreshTask)
         }
@@ -33,7 +32,6 @@ class TaskManager {
 //        request.requiresExternalPower = false
         let request = BGAppRefreshTaskRequest(identifier: Constants.BGTaskAppRefreshId)
         request.earliestBeginDate = Date(timeIntervalSinceNow: 1 * 60) // Schedule notification after 1 minute.
-        print("scheduleDailyQuote func")
         
         do {
             try BGTaskScheduler.shared.submit(request)
@@ -45,7 +43,6 @@ class TaskManager {
     
     private func handleDailyQuoteTask(task: BGAppRefreshTask) {
         scheduleDailyQuote()
-        print("handleDailyQuoteTask func")
         
         task.expirationHandler = {
             task.setTaskCompleted(success: false)
@@ -56,7 +53,6 @@ class TaskManager {
     }
     
     private func scheduleDailyLocalNotifications() {
-        print("scheduleDailyLocalNotification func")
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.getNotificationSettings { (settings) in
             if settings.authorizationStatus == .authorized {

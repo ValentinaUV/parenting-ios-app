@@ -16,6 +16,21 @@ class QuotesPresenter {
     init(view: QuotesView, quotesManager: QuotesManager) {
         self.view = view
         self.quotesManager = quotesManager
+        self.quotesManager.service.delegate = self
     }
     
+    func getQuotes() {
+        quotesManager.getQuotes()
+    }
+}
+
+extension QuotesPresenter: FirestoreQuotesDelegate {
+    
+    func didFailWithError(error: Error) {
+        view.showAlert(title: "", message: "Failed to retrieve the quotes.")
+    }
+    
+    func didLoadQuotes(_ quotes: [Quote]) {
+        view.reloadQuotes(quotes)
+    }
 }

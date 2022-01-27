@@ -13,7 +13,6 @@ class QuotesViewController: UIViewController {
 
     let quotesTableView = UITableView()
     var quotes: [Quote] = []
-    var quotesManager = QuotesManager(quotesService: FirebaseQuotes())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +26,6 @@ class QuotesViewController: UIViewController {
         quotesTableView.dataSource = self
         quotesTableView.delegate = self
         quotesTableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: "quoteCell")
-        
-        quotesManager.quotesService.delegate = self
-        //todo: you are adding leading+trailing constraints already in relation to the view
-        quotesTableView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        quotesTableView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         quotesTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 
         loadQuotes()
@@ -54,7 +48,7 @@ class QuotesViewController: UIViewController {
     }
     
     func loadQuotes() {
-        quotesManager.getQuotes()
+        presenter?.getQuotes()
     }
 
 }
@@ -66,11 +60,11 @@ extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //todo: always use quard instead of force unwrap
-        let cell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as! QuoteTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as? QuoteTableViewCell else {
+            return UITableViewCell()
+        }
 
         cell.quote = quotes[indexPath.row]
-        
         return cell
     }
     
@@ -78,24 +72,22 @@ extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
        return UITableView.automaticDimension
     }
 }
-//todo: fetching the quotes should be moved to presenter
-extension QuotesViewController: FirebaseQuotesDelegate {
+
+extension QuotesViewController: QuotesView {
     
-    func didFailWithError(error: Error) {
-        //todo: remove all prints from the project, it's ok to use them as a fast debuging tool, but it shouldn't be present when pushing the code
-        print("Failed to retrieve the quotes.")
-        print(error.localizedDescription)
-    }
-    
-    func didLoadQuotes(_ quotes: [Quote]) {
-        
+    func reloadQuotes(_ quotes: [Quote]) {
         self.quotes = quotes
         DispatchQueue.main.async {
             self.quotesTableView.reloadData()
         }
     }
-}
-
-extension QuotesViewController: QuotesView {
     
+    func showAlert(title: String, message: String) {
+
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
+        dialogMessage.addAction(okButton)
+        
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
 }

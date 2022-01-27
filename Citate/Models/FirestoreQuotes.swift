@@ -1,5 +1,5 @@
 //
-//  FirebaseQuotes.swift
+//  FirestoreQuotes.swift
 //  Citate
 //
 //  Created by Ungurean Valentina on 01.01.2022.
@@ -8,19 +8,17 @@
 import Foundation
 import Firebase
 
-//todo: this should be renamed, it's not firebase depenedent
-protocol FirebaseQuotesDelegate {
+protocol FirestoreQuotesDelegate {
     func didFailWithError(error: Error)
     func didLoadQuotes(_ quotes: [Quote])
 }
 
-//todo: why struct?
-struct FirebaseQuotes: CloudQuotesService {
+class FirestoreQuotes: CloudQuotesService {
     
     let db = Firestore.firestore()
-    var delegate: FirebaseQuotesDelegate?
+    var delegate: FirestoreQuotesDelegate?
     
-    func getQuotes(){
+    func getQuotes() {
         var quotes: [Quote] = []
         
         db.collection(Constants.FStoreQuotes.collectionName)
@@ -53,7 +51,6 @@ struct FirebaseQuotes: CloudQuotesService {
     }
     
     func getQuotesBy(order: Int, limit: Int) {
-        print("getDailyQuote")
         var quotes: [Quote] = []
         db.collection(Constants.FStoreQuotes.collectionName)
             .whereField(Constants.FStoreQuotes.orderField, isGreaterThanOrEqualTo: order)

@@ -8,22 +8,25 @@
 import Foundation
 
 protocol CloudQuotesService {
-    var delegate: FirebaseQuotesDelegate? {get set}
+    var delegate: FirestoreQuotesDelegate? {get set}
     
     func getQuotes()
     func getQuotesBy(order: Int, limit: Int)
 }
 
-//todo: why struct?
-struct QuotesManager {
+class QuotesManager {
     
-    var quotesService: CloudQuotesService
+    var service: CloudQuotesService
+    
+    init(service: CloudQuotesService) {
+        self.service = service
+    }
     
     func getQuotes() {
-        quotesService.getQuotes()
+        service.getQuotes()
     }
     
     func getQuotesBy(order: Int, limit: Int) {
-        quotesService.getQuotesBy(order: order, limit: limit)
+        service.getQuotesBy(order: order, limit: limit)
     }
 }

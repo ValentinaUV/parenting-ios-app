@@ -20,7 +20,7 @@
 		A731DD71277A147F00530EFB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A731DD70277A147F00530EFB /* GoogleService-Info.plist */; };
 		A731DD76278016DF00530EFB /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD75278016DF00530EFB /* Quote.swift */; };
 		A731DD782780176C00530EFB /* QuotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD772780176C00530EFB /* QuotesManager.swift */; };
-		A731DD7A278018D400530EFB /* FirebaseQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD79278018D400530EFB /* FirebaseQuotes.swift */; };
+		A731DD7A278018D400530EFB /* FirestoreQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD79278018D400530EFB /* FirestoreQuotes.swift */; };
 		A731DD7C2780195500530EFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD7B2780195500530EFB /* Constants.swift */; };
 		A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD852787453A00530EFB /* LocalNotificationManager.swift */; };
 		A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD872788A55600530EFB /* QuotesViewController.swift */; };
@@ -46,7 +46,7 @@
 		A731DD70277A147F00530EFB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A731DD75278016DF00530EFB /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		A731DD772780176C00530EFB /* QuotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesManager.swift; sourceTree = "<group>"; };
-		A731DD79278018D400530EFB /* FirebaseQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseQuotes.swift; sourceTree = "<group>"; };
+		A731DD79278018D400530EFB /* FirestoreQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreQuotes.swift; sourceTree = "<group>"; };
 		A731DD7B2780195500530EFB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A731DD852787453A00530EFB /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		A731DD872788A55600530EFB /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +130,7 @@
 				0A4BAAAD2796EE510073149D /* Presenters */,
 				A731DD70277A147F00530EFB /* GoogleService-Info.plist */,
 				A731DD57277A0B9700530EFB /* AppDelegate.swift */,
+				0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */,
 				A731DD59277A0B9700530EFB /* SceneDelegate.swift */,
 				A731DD7B2780195500530EFB /* Constants.swift */,
 				A731DD732780169500530EFB /* Models */,
@@ -138,7 +139,6 @@
 				A731DD60277A0B9B00530EFB /* Assets.xcassets */,
 				A731DD62277A0B9B00530EFB /* LaunchScreen.storyboard */,
 				A731DD65277A0B9B00530EFB /* Info.plist */,
-				0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */,
 			);
 			path = Citate;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 			children = (
 				A731DD75278016DF00530EFB /* Quote.swift */,
 				A731DD772780176C00530EFB /* QuotesManager.swift */,
-				A731DD79278018D400530EFB /* FirebaseQuotes.swift */,
+				A731DD79278018D400530EFB /* FirestoreQuotes.swift */,
 				A731DD852787453A00530EFB /* LocalNotificationManager.swift */,
 				A787DAEF278CA08C0050CA44 /* DailyQuoteManager.swift */,
 				A787DAF1278D9E9A0050CA44 /* TaskManager.swift */,
@@ -297,7 +297,7 @@
 				A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */,
 				0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */,
 				A787DAF2278D9E9A0050CA44 /* TaskManager.swift in Sources */,
-				A731DD7A278018D400530EFB /* FirebaseQuotes.swift in Sources */,
+				A731DD7A278018D400530EFB /* FirestoreQuotes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

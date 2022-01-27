@@ -10,26 +10,28 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-//    var taskManager: TaskManager?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+
         guard let winScene = (scene as? UIWindowScene) else { return }
         
-        // Create the root view controller as needed
-        let vc = QuotesViewController()
-        let nc = UINavigationController(rootViewController: vc)
-
-        // Create the window. Be sure to use this initializer and not the frame one.
-        let win = UIWindow(windowScene: winScene)
-        win.rootViewController = nc
-        win.makeKeyAndVisible()
-        window = win
+        setupMainView(winScene)
+    }
+    
+    private func setupMainView(_ winScene: UIWindowScene) {
         
-//        taskManager = TaskManager()
-//        taskManager!.registerBackgroundTaks()
+        window = UIWindow(windowScene: winScene)
+        let navigationController = UINavigationController()
+        let initialViewController = QuotesViewController()
+        let presenter = QuotesPresenter(view: initialViewController, quotesManager: QuotesManager(service: FirestoreQuotes()))
+        initialViewController.presenter = presenter
+        navigationController.pushViewController(initialViewController, animated: false)
+        
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -59,13 +61,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
         
-//        if let taskM = taskManager {
-//            print("sceneDidEnterBackground")
-//            taskM.runTasks()
-//        }
-        
-        let dailyQuoteManager = DailyQuoteManager()
-        dailyQuoteManager.sendDailyQuoteNotifications()
+//        let dailyQuoteManager = DailyQuoteManager()
+//        dailyQuoteManager.sendDailyQuoteNotifications()
     }
 }
 

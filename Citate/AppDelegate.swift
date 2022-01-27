@@ -16,22 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         registerLocalNotification()
-        setupMainView()
         return true
     }
-    
-    private func setupMainView() {
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController()
-        let initialViewController = QuotesViewController()
-        let presenter = QuotesPresenter(view: initialViewController, quotesManager: QuotesManager(quotesService: FirebaseQuotes()))
-        initialViewController.presenter = presenter
-        navigationController.pushViewController(initialViewController, animated: false)
-
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
-    }
-   
 }
 

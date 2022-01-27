@@ -7,10 +7,10 @@
 
 import Foundation
 //todo: Managers are a quick method to get code smells in your code
-class DailyQuoteManager: FirebaseQuotesDelegate {
+class DailyQuoteManager: FirestoreQuotesDelegate {
     
 
-    var quotesManager = QuotesManager(quotesService: FirebaseQuotes())
+    var quotesManager = QuotesManager(service: FirestoreQuotes())
     var date: String
     var order: Int
     
@@ -24,7 +24,7 @@ class DailyQuoteManager: FirebaseQuotesDelegate {
         order = defaults.integer(forKey: "dailyQuoteOrder")
         date = savedDate ?? "00/00/0000"
         
-        quotesManager.quotesService.delegate = self
+        quotesManager.service.delegate = self
     }
     
     func sendDailyQuoteNotifications() {

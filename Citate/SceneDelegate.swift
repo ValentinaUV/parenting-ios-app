@@ -10,6 +10,9 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    var quotesTabNavigationController : UINavigationController!
+    var dailyQuoteTabNavigationController : UINavigationController!
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -24,14 +27,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func setupMainView(_ winScene: UIWindowScene) {
         
         window = UIWindow(windowScene: winScene)
-        let navigationController = UINavigationController()
-        let initialViewController = QuotesViewController()
-        let presenter = QuotesPresenter(view: initialViewController, quotesManager: QuotesManager(service: FirestoreQuotes()))
-        initialViewController.presenter = presenter
-        navigationController.pushViewController(initialViewController, animated: false)
+        window?.backgroundColor = .white
         
-        window?.rootViewController = navigationController
+        let tabBarController = UITabBarController()
+        setQuotesTabNavigationController()
+        setDailyQuoteTabNavigationController()
+        
+        tabBarController.viewControllers = [quotesTabNavigationController, dailyQuoteTabNavigationController]
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemTeal], for: .selected)
+        
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+    }
+    
+    private func setQuotesTabNavigationController() {
+        let quotesViewController = QuotesViewController()
+        let presenter = QuotesPresenter(view: quotesViewController, quotesManager: QuotesManager(service: FirestoreQuotes()))
+        quotesViewController.presenter = presenter
+        quotesTabNavigationController = UINavigationController.init(rootViewController: quotesViewController)
+        
+        let quotesImage = UIImage(systemName: "house.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let quotesItem = UITabBarItem(title: Constants.quotesScreen.title, image: quotesImage, tag: 0)
+        quotesItem.selectedImage = UIImage(systemName: "house.fill")?.withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+        quotesTabNavigationController.tabBarItem = quotesItem
+    }
+    
+    private func setDailyQuoteTabNavigationController() {
+        let dailyQuoteViewController = DailyQuoteViewController()
+        let dailyQuotePresenter = QuotesPresenter(view: dailyQuoteViewController, quotesManager: QuotesManager(service: FirestoreQuotes()))
+        dailyQuoteViewController.presenter = dailyQuotePresenter
+        dailyQuoteTabNavigationController = UINavigationController.init(rootViewController: dailyQuoteViewController)
+        
+        let dailyImage = UIImage(systemName: "giftcard.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let dailyQuoteItem = UITabBarItem(title: Constants.quoteScreen.title, image:  dailyImage, tag: 1)
+        dailyQuoteItem.selectedImage = UIImage(systemName: "giftcard.fill")?.withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+        dailyQuoteTabNavigationController.tabBarItem = dailyQuoteItem
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

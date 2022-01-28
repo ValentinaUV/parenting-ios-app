@@ -16,37 +16,32 @@ class QuoteTableViewCell: UITableViewCell {
         containerView.addSubview(titleLabel)
         containerView.addSubview(authorLabel)
         self.contentView.addSubview(containerView)
-    //todo: additional method to write constrains, this part can also be moved to a setupConstraints method
-//        NSLayoutConstraint.activate([
-//            favoriteImageView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor),
-//            favoriteImageView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10),
-//            favoriteImageView.widthAnchor.constraint(equalToConstant:30),
-//            favoriteImageView.heightAnchor.constraint(equalToConstant:30),
-//        ])
-//
-        favoriteImageView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
-        favoriteImageView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true
-        favoriteImageView.widthAnchor.constraint(equalToConstant:30).isActive = true
-        favoriteImageView.heightAnchor.constraint(equalToConstant:30).isActive = true
         
-        containerView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
-        containerView.leadingAnchor.constraint(equalTo:self.favoriteImageView.trailingAnchor, constant:10).isActive = true
-        containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
-        
-        containerView.topAnchor.constraint(equalTo:self.contentView.topAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo:self.contentView.bottomAnchor).isActive = true
-        containerView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, constant: 40).isActive = true
-        
-        titleLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor, constant: 10).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
-        
-        authorLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
-        authorLabel.topAnchor.constraint(equalTo:self.titleLabel.bottomAnchor, constant:5).isActive = true
+        setupConstraints()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            favoriteImageView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor),
+            favoriteImageView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10),
+            favoriteImageView.widthAnchor.constraint(equalToConstant:30),
+            favoriteImageView.heightAnchor.constraint(equalToConstant:30),
+            containerView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor),
+            containerView.leadingAnchor.constraint(equalTo:self.favoriteImageView.trailingAnchor, constant:10),
+            containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10),
+            containerView.topAnchor.constraint(equalTo:self.contentView.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo:self.contentView.bottomAnchor),
+            containerView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, constant: 40),
+            titleLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor, constant: 10),
+            titleLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor),
+            authorLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor),
+            authorLabel.topAnchor.constraint(equalTo:self.titleLabel.bottomAnchor, constant:5)
+        ])
     }
     
     let favoriteImageView:UIImageView = {
@@ -55,7 +50,7 @@ class QuoteTableViewCell: UITableViewCell {
         img.translatesAutoresizingMaskIntoConstraints = false // enable autolayout
         img.clipsToBounds = true
         img.image = UIImage(systemName: "heart.fill")
-        img.tintColor = UIColor(named: "BrandLightBlue")
+        img.tintColor = UIColor.systemTeal
         return img
     }()
     
@@ -71,7 +66,7 @@ class QuoteTableViewCell: UITableViewCell {
     let authorLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = #colorLiteral(red: 0.2078431373, green: 0.4705882353, blue: 0.737254902, alpha: 1)
+        label.textColor = UIColor.systemTeal
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuotesViewController: UIViewController {
+class QuotesViewController: ViewController {
     
     var presenter: QuotesPresenter?
 
@@ -31,26 +31,14 @@ class QuotesViewController: UIViewController {
         loadQuotes()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        setUpNavigation()
-    }
-    
-    private func setUpNavigation() {
-        guard let navBar = self.navigationController?.navigationBar else {fatalError("Navigation controller does not exist.")}
-
-        navigationItem.title = Constants.quotesScreen.title
-
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .systemTeal
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
-        navBar.standardAppearance = appearance
-        navBar.scrollEdgeAppearance = appearance
-    }
-    
-    func loadQuotes() {
+    private func loadQuotes() {
         presenter?.getQuotes()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = Constants.quotesScreen.title
+    }
 }
 
 extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {

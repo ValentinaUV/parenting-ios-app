@@ -53,11 +53,6 @@ class DailyQuoteManager: FirestoreQuotesDelegate {
         defaults.set(order, forKey: "dailyQuoteOrder")
         defaults.set(date, forKey: "dailyQuoteDate")
     }
-   //todo: this is not used
-    private func setOrderForDailyQuote(_ order: Int) {
-        let defaults = UserDefaults.standard
-        defaults.set(order, forKey: "dailyQuoteOrder")
-    }
     
     //todo: is this method going to handle the error? if not it should be removed
     func didFailWithError(error: Error) {

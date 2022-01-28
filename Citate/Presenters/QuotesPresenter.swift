@@ -22,6 +22,23 @@ class QuotesPresenter {
     func getQuotes() {
         quotesManager.getQuotes()
     }
+    
+    func getDailyQuote() {
+        
+        let defaults = UserDefaults.standard
+        let savedDate = defaults.string(forKey: Constants.userDefaults.dateKey)
+        var order = defaults.integer(forKey: Constants.userDefaults.dateKey)
+        let date = savedDate ?? "00/00/0000"
+        let today = DateFormatter().getToday()
+        
+        if date < today {
+            order += 1
+            defaults.set(order, forKey: "dailyQuoteOrder")
+            defaults.set(today, forKey: "dailyQuoteDate")
+        }
+        
+        quotesManager.getQuotesBy(order: order, limit: 1)
+    }
 }
 
 extension QuotesPresenter: FirestoreQuotesDelegate {

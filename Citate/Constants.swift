@@ -18,6 +18,10 @@ struct Constants {
         static let quoteCellIdentifier = "QuoteCell"
     }
     
+    struct quoteScreen {
+        static let title = "Daily Quote"
+    }
+    
     struct FStoreQuotes {
         static let collectionName = "quotes"
         static let titleField = "title"
@@ -25,4 +29,8 @@ struct Constants {
         static let orderField = "order"
     }
     
+    struct userDefaults {
+        static let orderKey = "dailyQuoteOrder"
+        static let dateKey = "dailyQuoteDate"
+    }
 }

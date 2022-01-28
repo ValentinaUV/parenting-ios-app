@@ -11,6 +11,10 @@
 		0A4BAAB22796EEBA0073149D /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4BAAB12796EEBA0073149D /* QuotesView.swift */; };
 		0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */; };
 		1FE024B00BA340E1BD830F0C /* Pods_Citate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38C04212F18D03F65265A7F /* Pods_Citate.framework */; };
+		A700DD3927A3174400283AD3 /* DailyQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */; };
+		A700DD3D27A319FF00283AD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3C27A319FF00283AD3 /* ViewController.swift */; };
+		A700DD3F27A354F300283AD3 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3E27A354F300283AD3 /* DateFormatter.swift */; };
+		A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */; };
 		A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD57277A0B9700530EFB /* AppDelegate.swift */; };
 		A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD59277A0B9700530EFB /* SceneDelegate.swift */; };
 		A731DD61277A0B9B00530EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A731DD60277A0B9B00530EFB /* Assets.xcassets */; };
@@ -37,6 +41,10 @@
 		182EADCFCD284E5B1C9B5AD9 /* Pods-Citate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citate.release.xcconfig"; path = "Target Support Files/Pods-Citate/Pods-Citate.release.xcconfig"; sourceTree = "<group>"; };
 		4216A082519FFBCB92FA837F /* Pods-Citate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citate.debug.xcconfig"; path = "Target Support Files/Pods-Citate/Pods-Citate.debug.xcconfig"; sourceTree = "<group>"; };
 		A38C04212F18D03F65265A7F /* Pods_Citate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuoteViewController.swift; sourceTree = "<group>"; };
+		A700DD3C27A319FF00283AD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A700DD3E27A354F300283AD3 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		A731DD54277A0B9700530EFB /* Citate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Citate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A731DD57277A0B9700530EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A731DD59277A0B9700530EFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +90,10 @@
 			isa = PBXGroup;
 			children = (
 				0A4BAAB12796EEBA0073149D /* QuotesView.swift */,
+				A731DD872788A55600530EFB /* QuotesViewController.swift */,
+				A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */,
+				A700DD3C27A319FF00283AD3 /* ViewController.swift */,
+				A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,20 +147,11 @@
 				A731DD7B2780195500530EFB /* Constants.swift */,
 				A731DD732780169500530EFB /* Models */,
 				A731DD74278016A900530EFB /* UIViews */,
-				A731DD722780168800530EFB /* Controllers */,
 				A731DD60277A0B9B00530EFB /* Assets.xcassets */,
 				A731DD62277A0B9B00530EFB /* LaunchScreen.storyboard */,
 				A731DD65277A0B9B00530EFB /* Info.plist */,
 			);
 			path = Citate;
-			sourceTree = "<group>";
-		};
-		A731DD722780168800530EFB /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				A731DD872788A55600530EFB /* QuotesViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		A731DD732780169500530EFB /* Models */ = {
@@ -160,6 +163,7 @@
 				A731DD852787453A00530EFB /* LocalNotificationManager.swift */,
 				A787DAEF278CA08C0050CA44 /* DailyQuoteManager.swift */,
 				A787DAF1278D9E9A0050CA44 /* TaskManager.swift */,
+				A700DD3E27A354F300283AD3 /* DateFormatter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,19 +288,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A700DD3927A3174400283AD3 /* DailyQuoteViewController.swift in Sources */,
 				A731DD782780176C00530EFB /* QuotesManager.swift in Sources */,
 				A787DAF0278CA08C0050CA44 /* DailyQuoteManager.swift in Sources */,
 				A731DD76278016DF00530EFB /* Quote.swift in Sources */,
 				A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */,
 				A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */,
 				A731DD7C2780195500530EFB /* Constants.swift in Sources */,
+				A700DD3F27A354F300283AD3 /* DateFormatter.swift in Sources */,
 				A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */,
 				0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */,
+				A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */,
 				0A4BAAB22796EEBA0073149D /* QuotesView.swift in Sources */,
 				A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */,
 				A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */,
 				0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */,
 				A787DAF2278D9E9A0050CA44 /* TaskManager.swift in Sources */,
+				A700DD3D27A319FF00283AD3 /* ViewController.swift in Sources */,
 				A731DD7A278018D400530EFB /* FirestoreQuotes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

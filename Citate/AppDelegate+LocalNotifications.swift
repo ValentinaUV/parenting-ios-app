@@ -15,9 +15,23 @@ extension AppDelegate {
 
         notificationCenter.requestAuthorization(options: options) {
             (didAllow, error) in
-            if !didAllow {
-                print("User has declined notifications")
-            }
         }
     }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+      func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
+                                  withCompletionHandler completionHandler: @escaping () -> Void) {
+          
+          guard let rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
+              return
+          }
+          
+          if let tabBarController = rootViewController as? UITabBarController {
+              tabBarController.selectedIndex = 1
+          }
+          
+          completionHandler()
+      }
 }

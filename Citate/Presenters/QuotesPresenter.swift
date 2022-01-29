@@ -7,7 +7,6 @@
 
 import Foundation
 
-//todo: here you can add all the bussines logic for fetching the quotes
 class QuotesPresenter {
     
     private var view: QuotesView
@@ -16,7 +15,7 @@ class QuotesPresenter {
     init(view: QuotesView, quotesManager: QuotesManager) {
         self.view = view
         self.quotesManager = quotesManager
-        self.quotesManager.service.delegate = self
+        self.quotesManager.repository.delegate = self
     }
     
     func getQuotes() {
@@ -27,21 +26,21 @@ class QuotesPresenter {
         
         let defaults = UserDefaults.standard
         let savedDate = defaults.string(forKey: Constants.userDefaults.dateKey)
-        var order = defaults.integer(forKey: Constants.userDefaults.orderKey)
+        var quoteOrder = defaults.integer(forKey: Constants.userDefaults.quoteOrderKey)
         let date = savedDate ?? "00/00/0000"
         let today = DateFormatter().getToday()
         
         if date < today {
-            order += 1
-            defaults.set(order, forKey: Constants.userDefaults.orderKey)
+            quoteOrder += 1
+            defaults.set(quoteOrder, forKey: Constants.userDefaults.quoteOrderKey)
             defaults.set(today, forKey: Constants.userDefaults.dateKey)
         }
         
-        quotesManager.getQuotesBy(order: order, limit: 1)
+        quotesManager.getQuotesBy(order: quoteOrder, limit: 1)
     }
 }
 
-extension QuotesPresenter: FirestoreQuotesDelegate {
+extension QuotesPresenter: FirestoreQuotesRepositoryDelegate {
     
     func didFailWithError(error: Error) {
         view.showAlert(title: "", message: "Failed to retrieve the quotes.")

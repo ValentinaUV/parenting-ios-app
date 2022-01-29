@@ -12,15 +12,6 @@ class LocalNotificationManager {
     
     var notifications:[Notification] = [Notification]()
     
-    func listScheduledNotifications() {
-        UNUserNotificationCenter.current().getPendingNotificationRequests { notifications in
-
-            for notification in notifications {
-                print(notification)
-            }
-        }
-    }
-    
     func scheduleNotifications() {
         for notification in notifications {
             let content = UNMutableNotificationContent()
@@ -32,12 +23,9 @@ class LocalNotificationManager {
             let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
             
             UNUserNotificationCenter.current().add(request) { error in
-                if let e = error {
-                    print("Notification error: \(e)")
+                if let _ = error {
                     return
                 }
-
-                print("Notification scheduled! — ID = \(notification.id)")
             }
         }
     }

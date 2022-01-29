@@ -30,7 +30,8 @@ struct Constants {
     }
     
     struct userDefaults {
-        static let orderKey = "dailyQuoteOrder"
+        static let quoteOrderKey = "dailyQuoteOrder"
         static let dateKey = "dailyQuoteDate"
+        static let notificationQuoteOrderKey = "notificationQuoteOrder"
     }
 }

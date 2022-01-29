@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func setQuotesTabNavigationController() {
         let quotesViewController = QuotesViewController()
-        let presenter = QuotesPresenter(view: quotesViewController, quotesManager: QuotesManager(service: FirestoreQuotes()))
+        let presenter = QuotesPresenter(view: quotesViewController, quotesManager: QuotesManager(repository: FirestoreQuotesRepository()))
         quotesViewController.presenter = presenter
         quotesTabNavigationController = UINavigationController.init(rootViewController: quotesViewController)
         
@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func setDailyQuoteTabNavigationController() {
         let dailyQuoteViewController = DailyQuoteViewController()
-        let dailyQuotePresenter = QuotesPresenter(view: dailyQuoteViewController, quotesManager: QuotesManager(service: FirestoreQuotes()))
+        let dailyQuotePresenter = QuotesPresenter(view: dailyQuoteViewController, quotesManager: QuotesManager(repository: FirestoreQuotesRepository()))
         dailyQuoteViewController.presenter = dailyQuotePresenter
         dailyQuoteTabNavigationController = UINavigationController.init(rootViewController: dailyQuoteViewController)
         
@@ -91,8 +91,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
         
-//        let dailyQuoteManager = DailyQuoteManager()
-//        dailyQuoteManager.sendDailyQuoteNotifications()
+        let quoteNotificationPresenter = QuoteNotificationPresenter(
+            view: QuoteNotificationView(),
+            quotesManager: QuotesManager(repository: FirestoreQuotesRepository())
+        )
+        quoteNotificationPresenter.scheduleNotificationQuote()
     }
 }
-

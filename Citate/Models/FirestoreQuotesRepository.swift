@@ -1,5 +1,5 @@
 //
-//  FirestoreQuotes.swift
+//  FirestoreQuotesRepository.swift
 //  Citate
 //
 //  Created by Ungurean Valentina on 01.01.2022.
@@ -8,15 +8,19 @@
 import Foundation
 import Firebase
 
-protocol FirestoreQuotesDelegate {
+protocol FirestoreQuotesRepositoryDelegate {
     func didFailWithError(error: Error)
     func didLoadQuotes(_ quotes: [Quote])
 }
 
-class FirestoreQuotes: CloudQuotesService {
+extension FirestoreQuotesRepositoryDelegate {
+    func didFailWithError(error: Error) {}
+}
+
+class FirestoreQuotesRepository: CloudQuotesRepository {
     
     let db = Firestore.firestore()
-    var delegate: FirestoreQuotesDelegate?
+    var delegate: FirestoreQuotesRepositoryDelegate?
     
     func getQuotes() {
         var quotes: [Quote] = []
@@ -63,6 +67,11 @@ class FirestoreQuotes: CloudQuotesService {
                     self.delegate?.didFailWithError(error: e)
                 } else {
                     if let snapshotDocuments = querySnapshot?.documents {
+                        if snapshotDocuments.isEmpty && order != 1 {
+                            self.getQuotesBy(order: 1, limit: limit)
+                            return
+                        }
+                        
                         for doc in snapshotDocuments {
                             let data = doc.data()
 

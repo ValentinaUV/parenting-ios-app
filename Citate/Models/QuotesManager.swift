@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol CloudQuotesService {
-    var delegate: FirestoreQuotesDelegate? {get set}
+protocol CloudQuotesRepository {
+    var delegate: FirestoreQuotesRepositoryDelegate? {get set}
     
     func getQuotes()
     func getQuotesBy(order: Int, limit: Int)
@@ -16,17 +16,17 @@ protocol CloudQuotesService {
 
 class QuotesManager {
     
-    var service: CloudQuotesService
+    var repository: CloudQuotesRepository
     
-    init(service: CloudQuotesService) {
-        self.service = service
+    init(repository: CloudQuotesRepository) {
+        self.repository = repository
     }
     
     func getQuotes() {
-        service.getQuotes()
+        repository.getQuotes()
     }
     
     func getQuotesBy(order: Int, limit: Int) {
-        service.getQuotesBy(order: order, limit: limit)
+        repository.getQuotesBy(order: order, limit: limit)
     }
 }

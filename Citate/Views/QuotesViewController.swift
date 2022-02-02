@@ -41,6 +41,7 @@ class QuotesViewController: ViewController {
     }
 }
 
+//MARK: - UITableViewDataSource, UITableViewDelegate
 extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,6 +62,7 @@ extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+//MARK: - QuotesView
 extension QuotesViewController: QuotesView {
     
     func reloadQuotes(_ quotes: [Quote]) {

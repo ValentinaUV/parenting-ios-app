@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol CloudQuotesRepository {
-    var delegate: FirestoreQuotesRepositoryDelegate? {get set}
+protocol QuotesRepository {
+    var delegate: QuotesRepositoryDelegate? {get set}
     
     func getQuotes()
     func getQuotesBy(order: Int, limit: Int)
@@ -16,9 +16,9 @@ protocol CloudQuotesRepository {
 
 class QuotesManager {
     
-    var repository: CloudQuotesRepository
+    var repository: QuotesRepository
     
-    init(repository: CloudQuotesRepository) {
+    init(repository: QuotesRepository) {
         self.repository = repository
     }
     

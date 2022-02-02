@@ -70,7 +70,7 @@ class DailyQuoteViewController: ViewController {
     let containerView:UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.clipsToBounds = true // this will make sure its children do not go out of the boundary
+        view.clipsToBounds = true
         return view
     }()
     
@@ -80,6 +80,7 @@ class DailyQuoteViewController: ViewController {
     }
 }
 
+//MARK: - QuotesView
 extension DailyQuoteViewController: QuotesView {
     
     func reloadQuotes(_ quotes: [Quote]) {

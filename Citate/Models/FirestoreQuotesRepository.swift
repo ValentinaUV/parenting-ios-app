@@ -8,19 +8,19 @@
 import Foundation
 import Firebase
 
-protocol FirestoreQuotesRepositoryDelegate {
+protocol QuotesRepositoryDelegate {
     func didFailWithError(error: Error)
     func didLoadQuotes(_ quotes: [Quote])
 }
 
-extension FirestoreQuotesRepositoryDelegate {
+extension QuotesRepositoryDelegate {
     func didFailWithError(error: Error) {}
 }
 
-class FirestoreQuotesRepository: CloudQuotesRepository {
+class FirestoreQuotesRepository: QuotesRepository {
     
     let db = Firestore.firestore()
-    var delegate: FirestoreQuotesRepositoryDelegate?
+    var delegate: QuotesRepositoryDelegate?
     
     func getQuotes() {
         var quotes: [Quote] = []
@@ -30,28 +30,30 @@ class FirestoreQuotesRepository: CloudQuotesRepository {
             .getDocuments { querySnapshot, error in
                 quotes = []
                 
-                if let e = error {
-                    self.delegate?.didFailWithError(error: e)
-                } else {
-                    if let snapshotDocuments = querySnapshot?.documents {
-                        for doc in snapshotDocuments {
-                            let data = doc.data()
-                            
-                            if let title = data[Constants.FStoreQuotes.titleField] as? String,
-                                let author = data[Constants.FStoreQuotes.authorField] as? String,
-                                let order = data[Constants.FStoreQuotes.orderField] as? Int {
-                                
-                                let quote = Quote(title: title, author: author, order: order)
-                                quotes.append(quote)
-                            }
+                guard error == nil else { self.delegate?.didFailWithError(error: error!); return}
+
+                if let snapshotDocuments = querySnapshot?.documents {
+                    for doc in snapshotDocuments {
+                        if let quote = self.decodeData(data: doc.data()) {
+                            quotes.append(quote)
                         }
-                        
-                        if let delegate = self.delegate {
-                            delegate.didLoadQuotes(quotes)
-                        }
+                    }
+                    
+                    if let delegate = self.delegate {
+                        delegate.didLoadQuotes(quotes)
                     }
                 }
             }
+    }
+    
+    private func decodeData(data: [String: Any]) -> Quote? {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: data, options: []) {
+            do {
+                let quote = try JSONDecoder().decode(Quote.self, from: jsonData)
+                return quote
+            } catch {}
+        }
+        return nil
     }
     
     func getQuotesBy(order: Int, limit: Int) {
@@ -63,30 +65,22 @@ class FirestoreQuotesRepository: CloudQuotesRepository {
             .getDocuments { querySnapshot, error in
                 quotes = []
                 
-                if let e = error {
-                    self.delegate?.didFailWithError(error: e)
-                } else {
-                    if let snapshotDocuments = querySnapshot?.documents {
-                        if snapshotDocuments.isEmpty && order != 1 {
-                            self.getQuotesBy(order: 1, limit: limit)
-                            return
+                guard error == nil else { self.delegate?.didFailWithError(error: error!); return}
+                
+                if let snapshotDocuments = querySnapshot?.documents {
+                    if snapshotDocuments.isEmpty && order != 1 {
+                        self.getQuotesBy(order: 1, limit: limit)
+                        return
+                    }
+                    
+                    for doc in snapshotDocuments {
+                        if let quote = self.decodeData(data: doc.data()) {
+                            quotes.append(quote)
                         }
-                        
-                        for doc in snapshotDocuments {
-                            let data = doc.data()
-
-                            if let title = data[Constants.FStoreQuotes.titleField] as? String,
-                                let author = data[Constants.FStoreQuotes.authorField] as? String,
-                                let order = data[Constants.FStoreQuotes.orderField] as? Int {
-                                
-                                let quote = Quote(title: title, author: author, order: order)
-                                quotes.append(quote)
-
-                                if let delegate = self.delegate {
-                                    delegate.didLoadQuotes(quotes)
-                                }
-                            }
-                        }
+                    }
+                    
+                    if let delegate = self.delegate {
+                        delegate.didLoadQuotes(quotes)
                     }
                 }
             }

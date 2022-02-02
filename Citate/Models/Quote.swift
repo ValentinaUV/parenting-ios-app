@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Quote {
+struct Quote: Codable {
     let title: String
     let author: String
     let order: Int

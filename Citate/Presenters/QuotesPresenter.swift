@@ -40,7 +40,8 @@ class QuotesPresenter {
     }
 }
 
-extension QuotesPresenter: FirestoreQuotesRepositoryDelegate {
+//MARK: - QuotesRepositoryDelegate
+extension QuotesPresenter: QuotesRepositoryDelegate {
     
     func didFailWithError(error: Error) {
         view.showAlert(title: "", message: "Failed to retrieve the quotes.")

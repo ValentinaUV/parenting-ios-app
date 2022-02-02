@@ -47,7 +47,8 @@ class QuoteNotificationPresenter {
     }
 }
 
-extension QuoteNotificationPresenter: FirestoreQuotesRepositoryDelegate {
+//MARK: - QuotesRepositoryDelegate
+extension QuoteNotificationPresenter: QuotesRepositoryDelegate {
     
     func didLoadQuotes(_ quotes: [Quote]) {
         view.addNotification(quote: quotes[0])

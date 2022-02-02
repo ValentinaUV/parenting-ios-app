@@ -46,8 +46,8 @@ class QuoteTableViewCell: UITableViewCell {
     
     let favoriteImageView:UIImageView = {
         let img = UIImageView()
-        img.contentMode = .scaleAspectFill // image will never be strecthed vertially or horizontally
-        img.translatesAutoresizingMaskIntoConstraints = false // enable autolayout
+        img.contentMode = .scaleAspectFill
+        img.translatesAutoresizingMaskIntoConstraints = false
         img.clipsToBounds = true
         img.image = UIImage(systemName: "heart.fill")
         img.tintColor = UIColor.systemTeal
@@ -74,7 +74,7 @@ class QuoteTableViewCell: UITableViewCell {
     let containerView:UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.clipsToBounds = true // this will make sure its children do not go out of the boundary
+        view.clipsToBounds = true
         return view
     }()
 

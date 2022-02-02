@@ -31,6 +31,7 @@
 		A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */; };
 		A7724F9C27A557FD00756AE8 /* QuoteNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7724F9B27A557FD00756AE8 /* QuoteNotificationView.swift */; };
 		A7724F9E27A5D19600756AE8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7724F9D27A5D19600756AE8 /* NotificationView.swift */; };
+		A775C2B827AB19FB006BAAC5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2B727AB19FB006BAAC5 /* TabBarController.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
 		A787DAF0278CA08C0050CA44 /* QuoteNotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787DAEF278CA08C0050CA44 /* QuoteNotificationPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		A7724F9B27A557FD00756AE8 /* QuoteNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteNotificationView.swift; sourceTree = "<group>"; };
 		A7724F9D27A5D19600756AE8 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		A775C2B727AB19FB006BAAC5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A787DAEF278CA08C0050CA44 /* QuoteNotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteNotificationPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 				A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */,
 				A7724F9D27A5D19600756AE8 /* NotificationView.swift */,
 				A7724F9B27A557FD00756AE8 /* QuoteNotificationView.swift */,
+				A775C2B727AB19FB006BAAC5 /* TabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */,
 				0A4BAAB22796EEBA0073149D /* QuotesView.swift in Sources */,
 				A7724F9C27A557FD00756AE8 /* QuoteNotificationView.swift in Sources */,
+				A775C2B827AB19FB006BAAC5 /* TabBarController.swift in Sources */,
 				A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */,
 				A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */,
 				0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */,

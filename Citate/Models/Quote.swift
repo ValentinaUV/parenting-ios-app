@@ -8,7 +8,7 @@
 import Foundation
 
 struct Quote: Codable {
-    let title: String
-    let author: String
-    let order: Int
+  let title: String
+  let author: String
+  let order: Int
 }

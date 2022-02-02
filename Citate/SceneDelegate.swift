@@ -8,34 +8,34 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
-    var window: UIWindow?
-
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
-        guard let winScene = (scene as? UIWindowScene) else { return }
-        
-        setupMainView(winScene)
-    }
+  
+  var window: UIWindow?
+  
+  func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     
-    private func setupMainView(_ winScene: UIWindowScene) {
-        
-        window = UIWindow(windowScene: winScene)
-        window?.backgroundColor = .white
-        
-        let tabBarController = TabBarController()
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemTeal], for: .selected)
-        
-        window?.rootViewController = tabBarController
-        window?.makeKeyAndVisible()
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        
-        let quoteNotificationPresenter = QuoteNotificationPresenter(
-            view: QuoteNotificationView(),
-            quotesManager: QuotesManager(repository: FirestoreQuotesRepository())
-        )
-        quoteNotificationPresenter.scheduleNotificationQuote()
-    }
+    guard let winScene = (scene as? UIWindowScene) else { return }
+    
+    setupMainView(winScene)
+  }
+  
+  private func setupMainView(_ winScene: UIWindowScene) {
+    
+    window = UIWindow(windowScene: winScene)
+    window?.backgroundColor = .white
+    
+    let tabBarController = TabBarController()
+    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemTeal], for: .selected)
+    
+    window?.rootViewController = tabBarController
+    window?.makeKeyAndVisible()
+  }
+  
+  func sceneDidEnterBackground(_ scene: UIScene) {
+    
+    let quoteNotificationPresenter = QuoteNotificationPresenter(
+      view: QuoteNotificationView(),
+      quotesManager: QuotesManager(repository: FirestoreQuotesRepository())
+    )
+    quoteNotificationPresenter.scheduleNotificationQuote()
+  }
 }

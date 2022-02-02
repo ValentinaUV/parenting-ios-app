@@ -8,7 +8,7 @@
 import Foundation
 
 protocol QuotesView {
-    
-    func reloadQuotes(_ quotes: [Quote])
-    func showAlert(title: String, message: String)
+  
+  func reloadQuotes(_ quotes: [Quote])
+  func showAlert(title: String, message: String)
 }

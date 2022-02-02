@@ -8,12 +8,12 @@
 import Foundation
 
 extension DateFormatter {
+  
+  func getToday() -> String {
     
-    func getToday() -> String {
-        
-        self.dateFormat = "dd/MM/yyyy"
-        let today = self.string(from: Date())
-        
-        return today
-    }
+    self.dateFormat = "dd/MM/yyyy"
+    let today = self.string(from: Date())
+    
+    return today
+  }
 }

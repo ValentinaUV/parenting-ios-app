@@ -8,6 +8,6 @@
 import Foundation
 
 protocol NotificationView {
-    
-    func addNotification(quote: Quote)
+  
+  func addNotification(quote: Quote)
 }

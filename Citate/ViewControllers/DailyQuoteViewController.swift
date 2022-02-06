@@ -9,7 +9,7 @@ import UIKit
 
 class DailyQuoteViewController: ViewController {
   
-  var presenter: QuotesPresenter?
+  var presenter: DailyQuotePresenter?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -81,20 +81,11 @@ class DailyQuoteViewController: ViewController {
 }
 
 //MARK: - QuotesView
-extension DailyQuoteViewController: QuotesView {
+extension DailyQuoteViewController: DailyQuotesView {
   
-  func reloadQuotes(_ quotes: [Quote]) {
+  func reloadQuote(_ quote: Quote) {
     DispatchQueue.main.async {
-      self.display(quote: quotes[0])
+      self.display(quote: quote)
     }
-  }
-  
-  func showAlert(title: String, message: String) {
-    
-    let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let okButton = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
-    dialogMessage.addAction(okButton)
-    
-    self.present(dialogMessage, animated: true, completion: nil)
   }
 }

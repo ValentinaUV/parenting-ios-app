@@ -9,10 +9,6 @@ import Foundation
 
 struct Constants {
   
-  static let dailyQuoteNotificationTitle = "Parenting Daily Quote"
-  static let BGTaskAppRefreshId = "com.valentinaungurean.citate.backgroundAppRefreshIdentifier"
-  static let BGProcessingTaskrequestId = "com.valentinaungurean.citate.backgroundProcessingIdentifier"
-  
   struct quotesScreen {
     static let title = "Quotes"
     static let quoteCellIdentifier = "QuoteCell"
@@ -33,5 +29,11 @@ struct Constants {
     static let quoteOrderKey = "dailyQuoteOrder"
     static let dateKey = "dailyQuoteDate"
     static let notificationQuoteOrderKey = "notificationQuoteOrder"
+  }
+  
+  struct notifications {
+    static let dailyNotificationTitle = "Parenting Daily Quote"
+    static let dailyNotificationId = "dailyQuoteNotification"
+    static let dailyNotificationContent = "Get inspired with today's quote!"
   }
 }

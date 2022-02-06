@@ -10,9 +10,7 @@ import UIKit
 class QuotesViewController: ViewController {
   
   var presenter: QuotesPresenter?
-  
   let quotesTableView = UITableView()
-  var quotes: [Quote] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,7 +43,7 @@ class QuotesViewController: ViewController {
 extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return quotes.count
+    return presenter?.getNumberOfQuotes() ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,7 +51,7 @@ extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
       return UITableViewCell()
     }
     
-    cell.quote = quotes[indexPath.row]
+    cell.quote = presenter?.getQuote(by: indexPath.row)
     return cell
   }
   
@@ -63,21 +61,11 @@ extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 //MARK: - QuotesView
-extension QuotesViewController: QuotesView {
+extension QuotesViewController: AllQuotesView {
   
   func reloadQuotes(_ quotes: [Quote]) {
-    self.quotes = quotes
     DispatchQueue.main.async {
       self.quotesTableView.reloadData()
     }
-  }
-  
-  func showAlert(title: String, message: String) {
-    
-    let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let okButton = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
-    dialogMessage.addAction(okButton)
-    
-    self.present(dialogMessage, animated: true, completion: nil)
   }
 }

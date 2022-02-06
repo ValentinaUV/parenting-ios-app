@@ -8,11 +8,13 @@
 import Foundation
 import UserNotifications
 
-class LocalNotificationManager {
+protocol NotificationManager {
+  func scheduleNotifications(_ notifications: [Notification])
+}
+
+class LocalNotificationManager: NotificationManager {
   
-  var notifications:[Notification] = [Notification]()
-  
-  func scheduleNotifications() {
+  func scheduleNotifications(_ notifications: [Notification]) {
     for notification in notifications {
       let content = UNMutableNotificationContent()
       content.title = notification.title

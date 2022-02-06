@@ -31,11 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
   
   func sceneDidEnterBackground(_ scene: UIScene) {
-    
-    let quoteNotificationPresenter = QuoteNotificationPresenter(
-      view: QuoteNotificationView(),
-      quotesManager: QuotesManager(repository: FirestoreQuotesRepository())
-    )
-    quoteNotificationPresenter.scheduleNotificationQuote()
+    let quoteNotificationManager = QuoteNotificationManager(notificationManager: LocalNotificationManager())
+    quoteNotificationManager.addNotification()
   }
 }

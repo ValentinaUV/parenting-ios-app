@@ -26,4 +26,13 @@ class ViewController: UIViewController {
     navBar.standardAppearance = appearance
     navBar.scrollEdgeAppearance = appearance
   }
+  
+  func showAlert(title: String, message: String) {
+    
+    let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    let okButton = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in })
+    dialogMessage.addAction(okButton)
+    
+    self.present(dialogMessage, animated: true, completion: nil)
+  }
 }

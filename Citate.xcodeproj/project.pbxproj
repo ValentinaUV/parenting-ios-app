@@ -29,11 +29,11 @@
 		A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD852787453A00530EFB /* LocalNotificationManager.swift */; };
 		A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD872788A55600530EFB /* QuotesViewController.swift */; };
 		A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */; };
-		A7724F9C27A557FD00756AE8 /* QuoteNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7724F9B27A557FD00756AE8 /* QuoteNotificationView.swift */; };
-		A7724F9E27A5D19600756AE8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7724F9D27A5D19600756AE8 /* NotificationView.swift */; };
+		A7724F9C27A557FD00756AE8 /* QuoteNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7724F9B27A557FD00756AE8 /* QuoteNotificationManager.swift */; };
 		A775C2B827AB19FB006BAAC5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2B727AB19FB006BAAC5 /* TabBarController.swift */; };
+		A775C2C427B022E4006BAAC5 /* DailyQuotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2C327B022E4006BAAC5 /* DailyQuotePresenter.swift */; };
+		A775C2C827B02641006BAAC5 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2C727B02641006BAAC5 /* UserPreferences.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
-		A787DAF0278CA08C0050CA44 /* QuoteNotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A787DAEF278CA08C0050CA44 /* QuoteNotificationPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,11 +61,11 @@
 		A731DD852787453A00530EFB /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		A731DD872788A55600530EFB /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
 		A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
-		A7724F9B27A557FD00756AE8 /* QuoteNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteNotificationView.swift; sourceTree = "<group>"; };
-		A7724F9D27A5D19600756AE8 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		A7724F9B27A557FD00756AE8 /* QuoteNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteNotificationManager.swift; sourceTree = "<group>"; };
 		A775C2B727AB19FB006BAAC5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A775C2C327B022E4006BAAC5 /* DailyQuotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuotePresenter.swift; sourceTree = "<group>"; };
+		A775C2C727B02641006BAAC5 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A787DAEF278CA08C0050CA44 /* QuoteNotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteNotificationPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0A4BAAAF2796EEA00073149D /* QuotesPresenter.swift */,
-				A787DAEF278CA08C0050CA44 /* QuoteNotificationPresenter.swift */,
+				A775C2C327B022E4006BAAC5 /* DailyQuotePresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -95,12 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				0A4BAAB12796EEBA0073149D /* QuotesView.swift */,
-				A700DD3C27A319FF00283AD3 /* ViewController.swift */,
-				A731DD872788A55600530EFB /* QuotesViewController.swift */,
-				A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */,
-				A7724F9D27A5D19600756AE8 /* NotificationView.swift */,
-				A7724F9B27A557FD00756AE8 /* QuoteNotificationView.swift */,
-				A775C2B727AB19FB006BAAC5 /* TabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -146,14 +140,14 @@
 			isa = PBXGroup;
 			children = (
 				A731DD732780169500530EFB /* Models */,
-				0A4BAAAE2796EE7F0073149D /* Views */,
 				0A4BAAAD2796EE510073149D /* Presenters */,
+				0A4BAAAE2796EE7F0073149D /* Views */,
+				A775C2C627B02575006BAAC5 /* ViewControllers */,
 				A731DD74278016A900530EFB /* UIViews */,
+				A775C2C527B02518006BAAC5 /* Utilities */,
 				A731DD70277A147F00530EFB /* GoogleService-Info.plist */,
 				A731DD57277A0B9700530EFB /* AppDelegate.swift */,
-				0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */,
 				A731DD59277A0B9700530EFB /* SceneDelegate.swift */,
-				A731DD7B2780195500530EFB /* Constants.swift */,
 				A731DD60277A0B9B00530EFB /* Assets.xcassets */,
 				A731DD62277A0B9B00530EFB /* LaunchScreen.storyboard */,
 				A731DD65277A0B9B00530EFB /* Info.plist */,
@@ -165,10 +159,10 @@
 			isa = PBXGroup;
 			children = (
 				A731DD75278016DF00530EFB /* Quote.swift */,
-				A731DD772780176C00530EFB /* QuotesManager.swift */,
 				A731DD79278018D400530EFB /* FirestoreQuotesRepository.swift */,
+				A731DD772780176C00530EFB /* QuotesManager.swift */,
 				A731DD852787453A00530EFB /* LocalNotificationManager.swift */,
-				A700DD3E27A354F300283AD3 /* DateFormatter.swift */,
+				A7724F9B27A557FD00756AE8 /* QuoteNotificationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +174,28 @@
 				A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */,
 			);
 			path = UIViews;
+			sourceTree = "<group>";
+		};
+		A775C2C527B02518006BAAC5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */,
+				A700DD3E27A354F300283AD3 /* DateFormatter.swift */,
+				A731DD7B2780195500530EFB /* Constants.swift */,
+				A775C2C727B02641006BAAC5 /* UserPreferences.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A775C2C627B02575006BAAC5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A700DD3C27A319FF00283AD3 /* ViewController.swift */,
+				A731DD872788A55600530EFB /* QuotesViewController.swift */,
+				A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */,
+				A775C2B727AB19FB006BAAC5 /* TabBarController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		A787DAE62789ED140050CA44 /* Documentation */ = {
@@ -296,7 +312,6 @@
 			files = (
 				A700DD3927A3174400283AD3 /* DailyQuoteViewController.swift in Sources */,
 				A731DD782780176C00530EFB /* QuotesManager.swift in Sources */,
-				A787DAF0278CA08C0050CA44 /* QuoteNotificationPresenter.swift in Sources */,
 				A731DD76278016DF00530EFB /* Quote.swift in Sources */,
 				A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */,
 				A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */,
@@ -305,15 +320,16 @@
 				A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */,
 				0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */,
 				A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */,
+				A775C2C427B022E4006BAAC5 /* DailyQuotePresenter.swift in Sources */,
 				0A4BAAB22796EEBA0073149D /* QuotesView.swift in Sources */,
-				A7724F9C27A557FD00756AE8 /* QuoteNotificationView.swift in Sources */,
+				A7724F9C27A557FD00756AE8 /* QuoteNotificationManager.swift in Sources */,
 				A775C2B827AB19FB006BAAC5 /* TabBarController.swift in Sources */,
 				A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */,
 				A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */,
 				0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */,
 				A700DD3D27A319FF00283AD3 /* ViewController.swift in Sources */,
 				A731DD7A278018D400530EFB /* FirestoreQuotesRepository.swift in Sources */,
-				A7724F9E27A5D19600756AE8 /* NotificationView.swift in Sources */,
+				A775C2C827B02641006BAAC5 /* UserPreferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

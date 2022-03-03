@@ -35,7 +35,10 @@ class TabBarController: UITabBarController {
   
   private func setDailyQuoteTabNavigationController() {
     let dailyQuoteViewController = DailyQuoteViewController()
-    let dailyQuotePresenter = DailyQuotePresenter(view: dailyQuoteViewController, quotesManager: QuotesManager(repository: FirestoreQuotesRepository()))
+    let dailyQuotePresenter = DailyQuotePresenter(
+      view: dailyQuoteViewController,
+      quotesManager: QuotesManager(repository: FirestoreQuotesRepository()),
+      preferences: UserPreferences())
     dailyQuoteViewController.presenter = dailyQuotePresenter
     dailyQuoteTabNavigationController = UINavigationController.init(rootViewController: dailyQuoteViewController)
     

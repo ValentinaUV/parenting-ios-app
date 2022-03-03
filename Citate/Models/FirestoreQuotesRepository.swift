@@ -19,8 +19,12 @@ extension QuotesRepositoryDelegate {
 
 class FirestoreQuotesRepository: QuotesRepository {
   
-  let db = Firestore.firestore()
+  let db: Firestore
   var delegate: QuotesRepositoryDelegate?
+  
+  init() {
+    db = Firestore.firestore()
+  }
   
   func getQuotes() {
     var quotes: [Quote] = []

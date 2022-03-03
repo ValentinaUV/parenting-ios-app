@@ -7,31 +7,33 @@
 
 import Foundation
 
-class UserPreferences {
-  let defaults: UserDefaults
+protocol UserStorage {
+  var dailyQuoteDate: String? {get set}
+  var dailyQuoteOrder: Int? {get set}
+}
+
+class UserPreferences: UserStorage {
+  var userDefaults: UserDefaults
   
   init() {
-    defaults = UserDefaults.standard
+    userDefaults = UserDefaults.standard
   }
   
-  var dailyQuoteDate: String {
+  var dailyQuoteDate: String? {
     get {
-      let savedDate = defaults.string(forKey: Constants.userDefaults.dateKey)
-      let date = savedDate ?? "00/00/0000"
-      return date
+      return userDefaults.string(forKey: Constants.userDefaults.dateKey)
     }
-    set(date) {
-      defaults.set(date, forKey: Constants.userDefaults.dateKey)
+    set {
+      userDefaults.set(newValue, forKey: Constants.userDefaults.dateKey)
     }
   }
   
-  var dailyQuoteOrder: Int {
+  var dailyQuoteOrder: Int? {
     get {
-      let order = defaults.integer(forKey: Constants.userDefaults.quoteOrderKey)
-      return order
+      return userDefaults.integer(forKey: Constants.userDefaults.quoteOrderKey)
     }
-    set(order) {
-      defaults.set(order, forKey: Constants.userDefaults.quoteOrderKey)
+    set {
+      userDefaults.set(newValue, forKey: Constants.userDefaults.quoteOrderKey)
     }
   }
 }

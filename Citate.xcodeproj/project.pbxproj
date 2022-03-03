@@ -33,8 +33,31 @@
 		A775C2B827AB19FB006BAAC5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2B727AB19FB006BAAC5 /* TabBarController.swift */; };
 		A775C2C427B022E4006BAAC5 /* DailyQuotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2C327B022E4006BAAC5 /* DailyQuotePresenter.swift */; };
 		A775C2C827B02641006BAAC5 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2C727B02641006BAAC5 /* UserPreferences.swift */; };
+		A775C2D927C5815B006BAAC5 /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2D827C5815B006BAAC5 /* DateFormatterTests.swift */; };
+		A775C2DB27CCF210006BAAC5 /* DailyQuotePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2DA27CCF210006BAAC5 /* DailyQuotePresenterTests.swift */; };
+		A775C2DF27CCFB5A006BAAC5 /* MockUserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2DE27CCFB5A006BAAC5 /* MockUserStorage.swift */; };
+		A775C2E127CE1754006BAAC5 /* QuotesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2E027CE1754006BAAC5 /* QuotesManagerTests.swift */; };
+		A775C2E827CE1A08006BAAC5 /* MockFirestoreQuotesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C2E727CE1A08006BAAC5 /* MockFirestoreQuotesRepository.swift */; };
+		A775C30E27CF9851006BAAC5 /* MockDailyQuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C30D27CF9851006BAAC5 /* MockDailyQuotesView.swift */; };
+		A775C31027CF9981006BAAC5 /* MockQuotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C30F27CF9981006BAAC5 /* MockQuotesManager.swift */; };
+		A775C31327D0204F006BAAC5 /* MockNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31227D0204F006BAAC5 /* MockNotificationManager.swift */; };
+		A775C31527D021EC006BAAC5 /* QuoteNotificationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31427D021EC006BAAC5 /* QuoteNotificationManagerTests.swift */; };
+		A775C31727D0B3A8006BAAC5 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31627D0B3A8006BAAC5 /* Notification.swift */; };
+		A775C31827D0BB1F006BAAC5 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31627D0B3A8006BAAC5 /* Notification.swift */; };
+		A775C31D27D0DE58006BAAC5 /* QuotesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31C27D0DE58006BAAC5 /* QuotesPresenterTests.swift */; };
+		A775C31F27D0DFBD006BAAC5 /* MockAllQuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31E27D0DFBD006BAAC5 /* MockAllQuotesView.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A775C2D327C57F8E006BAAC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A731DD4C277A0B9700530EFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A731DD53277A0B9700530EFB;
+			remoteInfo = Citate;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0A4BAAAF2796EEA00073149D /* QuotesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesPresenter.swift; sourceTree = "<group>"; };
@@ -65,6 +88,19 @@
 		A775C2B727AB19FB006BAAC5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A775C2C327B022E4006BAAC5 /* DailyQuotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuotePresenter.swift; sourceTree = "<group>"; };
 		A775C2C727B02641006BAAC5 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		A775C2CF27C57F8E006BAAC5 /* CitateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A775C2D827C5815B006BAAC5 /* DateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
+		A775C2DA27CCF210006BAAC5 /* DailyQuotePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuotePresenterTests.swift; sourceTree = "<group>"; };
+		A775C2DE27CCFB5A006BAAC5 /* MockUserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserStorage.swift; sourceTree = "<group>"; };
+		A775C2E027CE1754006BAAC5 /* QuotesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesManagerTests.swift; sourceTree = "<group>"; };
+		A775C2E727CE1A08006BAAC5 /* MockFirestoreQuotesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirestoreQuotesRepository.swift; sourceTree = "<group>"; };
+		A775C30D27CF9851006BAAC5 /* MockDailyQuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDailyQuotesView.swift; sourceTree = "<group>"; };
+		A775C30F27CF9981006BAAC5 /* MockQuotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockQuotesManager.swift; sourceTree = "<group>"; };
+		A775C31227D0204F006BAAC5 /* MockNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationManager.swift; sourceTree = "<group>"; };
+		A775C31427D021EC006BAAC5 /* QuoteNotificationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteNotificationManagerTests.swift; sourceTree = "<group>"; };
+		A775C31627D0B3A8006BAAC5 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		A775C31C27D0DE58006BAAC5 /* QuotesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesPresenterTests.swift; sourceTree = "<group>"; };
+		A775C31E27D0DFBD006BAAC5 /* MockAllQuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAllQuotesView.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +112,13 @@
 				A731DD6D277A0D5600530EFB /* FirebaseAuth in Frameworks */,
 				A731DD6F277A0D5600530EFB /* FirebaseFirestore in Frameworks */,
 				1FE024B00BA340E1BD830F0C /* Pods_Citate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A775C2CC27C57F8E006BAAC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +165,7 @@
 				A787DAE72789ED290050CA44 /* README.md */,
 				A787DAE62789ED140050CA44 /* Documentation */,
 				A731DD56277A0B9700530EFB /* Citate */,
+				A775C2D027C57F8E006BAAC5 /* CitateTests */,
 				A731DD55277A0B9700530EFB /* Products */,
 				6CE1B71EF5D62E6164FA55A2 /* Pods */,
 				8CC49EC65C1863DE65F3740D /* Frameworks */,
@@ -132,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				A731DD54277A0B9700530EFB /* Citate.app */,
+				A775C2CF27C57F8E006BAAC5 /* CitateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,6 +206,7 @@
 				A731DD75278016DF00530EFB /* Quote.swift */,
 				A731DD79278018D400530EFB /* FirestoreQuotesRepository.swift */,
 				A731DD772780176C00530EFB /* QuotesManager.swift */,
+				A775C31627D0B3A8006BAAC5 /* Notification.swift */,
 				A731DD852787453A00530EFB /* LocalNotificationManager.swift */,
 				A7724F9B27A557FD00756AE8 /* QuoteNotificationManager.swift */,
 			);
@@ -198,6 +244,56 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		A775C2D027C57F8E006BAAC5 /* CitateTests */ = {
+			isa = PBXGroup;
+			children = (
+				A775C2E227CE17D6006BAAC5 /* Mocks */,
+				A775C31127CFA002006BAAC5 /* Presenters */,
+				A775C2E327CE1828006BAAC5 /* Models */,
+				A775C2E427CE1854006BAAC5 /* Utilities */,
+			);
+			path = CitateTests;
+			sourceTree = "<group>";
+		};
+		A775C2E227CE17D6006BAAC5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A775C2DE27CCFB5A006BAAC5 /* MockUserStorage.swift */,
+				A775C2E727CE1A08006BAAC5 /* MockFirestoreQuotesRepository.swift */,
+				A775C31E27D0DFBD006BAAC5 /* MockAllQuotesView.swift */,
+				A775C30D27CF9851006BAAC5 /* MockDailyQuotesView.swift */,
+				A775C30F27CF9981006BAAC5 /* MockQuotesManager.swift */,
+				A775C31227D0204F006BAAC5 /* MockNotificationManager.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A775C2E327CE1828006BAAC5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A775C2E027CE1754006BAAC5 /* QuotesManagerTests.swift */,
+				A775C31427D021EC006BAAC5 /* QuoteNotificationManagerTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A775C2E427CE1854006BAAC5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A775C2D827C5815B006BAAC5 /* DateFormatterTests.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A775C31127CFA002006BAAC5 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				A775C31C27D0DE58006BAAC5 /* QuotesPresenterTests.swift */,
+				A775C2DA27CCF210006BAAC5 /* DailyQuotePresenterTests.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		A787DAE62789ED140050CA44 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +326,24 @@
 			productReference = A731DD54277A0B9700530EFB /* Citate.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A775C2CE27C57F8E006BAAC5 /* CitateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A775C2D527C57F8E006BAAC5 /* Build configuration list for PBXNativeTarget "CitateTests" */;
+			buildPhases = (
+				A775C2CB27C57F8E006BAAC5 /* Sources */,
+				A775C2CC27C57F8E006BAAC5 /* Frameworks */,
+				A775C2CD27C57F8E006BAAC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A775C2D427C57F8E006BAAC5 /* PBXTargetDependency */,
+			);
+			name = CitateTests;
+			productName = CitateTests;
+			productReference = A775C2CF27C57F8E006BAAC5 /* CitateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -242,6 +356,10 @@
 				TargetAttributes = {
 					A731DD53277A0B9700530EFB = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					A775C2CE27C57F8E006BAAC5 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = A731DD53277A0B9700530EFB;
 					};
 				};
 			};
@@ -262,6 +380,7 @@
 			projectRoot = "";
 			targets = (
 				A731DD53277A0B9700530EFB /* Citate */,
+				A775C2CE27C57F8E006BAAC5 /* CitateTests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,6 +394,13 @@
 				A731DD71277A147F00530EFB /* GoogleService-Info.plist in Resources */,
 				A787DAE82789ED290050CA44 /* README.md in Resources */,
 				A731DD61277A0B9B00530EFB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A775C2CD27C57F8E006BAAC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,13 +453,41 @@
 				A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */,
 				A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */,
 				0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */,
+				A775C31727D0B3A8006BAAC5 /* Notification.swift in Sources */,
 				A700DD3D27A319FF00283AD3 /* ViewController.swift in Sources */,
 				A731DD7A278018D400530EFB /* FirestoreQuotesRepository.swift in Sources */,
 				A775C2C827B02641006BAAC5 /* UserPreferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A775C2CB27C57F8E006BAAC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A775C2E127CE1754006BAAC5 /* QuotesManagerTests.swift in Sources */,
+				A775C31F27D0DFBD006BAAC5 /* MockAllQuotesView.swift in Sources */,
+				A775C2DF27CCFB5A006BAAC5 /* MockUserStorage.swift in Sources */,
+				A775C2E827CE1A08006BAAC5 /* MockFirestoreQuotesRepository.swift in Sources */,
+				A775C2D927C5815B006BAAC5 /* DateFormatterTests.swift in Sources */,
+				A775C31D27D0DE58006BAAC5 /* QuotesPresenterTests.swift in Sources */,
+				A775C31327D0204F006BAAC5 /* MockNotificationManager.swift in Sources */,
+				A775C30E27CF9851006BAAC5 /* MockDailyQuotesView.swift in Sources */,
+				A775C31827D0BB1F006BAAC5 /* Notification.swift in Sources */,
+				A775C31027CF9981006BAAC5 /* MockQuotesManager.swift in Sources */,
+				A775C2DB27CCF210006BAAC5 /* DailyQuotePresenterTests.swift in Sources */,
+				A775C31527D021EC006BAAC5 /* QuoteNotificationManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A775C2D427C57F8E006BAAC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A731DD53277A0B9700530EFB /* Citate */;
+			targetProxy = A775C2D327C57F8E006BAAC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A731DD62277A0B9B00530EFB /* LaunchScreen.storyboard */ = {
@@ -519,6 +673,52 @@
 			};
 			name = Release;
 		};
+		A775C2D627C57F8E006BAAC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 99HLL2MZ5J;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.valentinaungurean.CitateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Citate.app/Citate";
+			};
+			name = Debug;
+		};
+		A775C2D727C57F8E006BAAC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 99HLL2MZ5J;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.valentinaungurean.CitateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Citate.app/Citate";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -536,6 +736,15 @@
 			buildConfigurations = (
 				A731DD69277A0B9B00530EFB /* Debug */,
 				A731DD6A277A0B9B00530EFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A775C2D527C57F8E006BAAC5 /* Build configuration list for PBXNativeTarget "CitateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A775C2D627C57F8E006BAAC5 /* Debug */,
+				A775C2D727C57F8E006BAAC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -31,13 +31,4 @@ class LocalNotificationManager: NotificationManager {
       }
     }
   }
-  
-}
-
-struct Notification {
-  var id: String
-  var title: String
-  var body: String
-  var datetime: DateComponents
-  var repeats: Bool = false
 }

@@ -34,4 +34,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let quoteNotificationManager = QuoteNotificationManager(notificationManager: LocalNotificationManager())
     quoteNotificationManager.addNotification()
   }
+  
+  func sceneWillEnterForeground(_ scene: UIScene) {
+    let authController = AuthViewController()
+    authController.authenticate()
+  }
 }

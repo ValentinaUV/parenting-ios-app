@@ -7,20 +7,29 @@
 
 import UIKit
 
-class AuthViewController: UIViewController {
+protocol AuthDelegate {
+  func didSucceed()
+}
+
+class AuthViewController: ViewController {
   
   private var authViewModel : AuthViewModel!
+  var delegate: AuthDelegate!
 
   override func viewDidLoad() {
     super.viewDidLoad()
   }
     
   func authenticate() {
+    
     authViewModel = AuthViewModel()
     authViewModel.bindAuthViewModelToController = {
-      if !self.authViewModel.authSucceeded {
+      guard self.authViewModel.authSucceeded else {
         self.authFailedError()
+        return
       }
+      
+      self.delegate.didSucceed()
     }
   }
   

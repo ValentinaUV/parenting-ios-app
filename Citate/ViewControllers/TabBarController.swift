@@ -9,16 +9,18 @@ import UIKit
 
 class TabBarController: UITabBarController {
   
-  var quotesTabNavigationController : UINavigationController!
-  var dailyQuoteTabNavigationController : UINavigationController!
+  var quotesTabNavigationController: UINavigationController!
+  var dailyQuoteTabNavigationController: UINavigationController!
+  var settingsTabNavigationController: UINavigationController!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setQuotesTabNavigationController()
     setDailyQuoteTabNavigationController()
+    setSettingsTabNavigationController()
     
-    viewControllers = [quotesTabNavigationController, dailyQuoteTabNavigationController]
+    viewControllers = [quotesTabNavigationController, dailyQuoteTabNavigationController, settingsTabNavigationController]
   }
   
   private func setQuotesTabNavigationController() {
@@ -27,10 +29,10 @@ class TabBarController: UITabBarController {
     quotesViewController.presenter = presenter
     quotesTabNavigationController = UINavigationController.init(rootViewController: quotesViewController)
     
-    let quotesImage = UIImage(systemName: "house.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-    let quotesItem = UITabBarItem(title: Constants.quotesScreen.title, image: quotesImage, tag: 0)
-    quotesItem.selectedImage = UIImage(systemName: "house.fill")?.withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
-    quotesTabNavigationController.tabBarItem = quotesItem
+    let image = UIImage(systemName: "house.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+    let item = UITabBarItem(title: Constants.quotesScreen.title, image: image, tag: 0)
+    item.selectedImage = UIImage(systemName: "house.fill")?.withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+    quotesTabNavigationController.tabBarItem = item
   }
   
   private func setDailyQuoteTabNavigationController() {
@@ -42,9 +44,21 @@ class TabBarController: UITabBarController {
     dailyQuoteViewController.presenter = dailyQuotePresenter
     dailyQuoteTabNavigationController = UINavigationController.init(rootViewController: dailyQuoteViewController)
     
-    let dailyImage = UIImage(systemName: "giftcard.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-    let dailyQuoteItem = UITabBarItem(title: Constants.quoteScreen.title, image:  dailyImage, tag: 1)
-    dailyQuoteItem.selectedImage = UIImage(systemName: "giftcard.fill")?.withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
-    dailyQuoteTabNavigationController.tabBarItem = dailyQuoteItem
+    let image = UIImage(systemName: "giftcard.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+    let item = UITabBarItem(title: Constants.quoteScreen.title, image:  image, tag: 1)
+    item.selectedImage = UIImage(systemName: "giftcard.fill")?.withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+    dailyQuoteTabNavigationController.tabBarItem = item
+  }
+  
+  private func setSettingsTabNavigationController() {
+    let settingsViewController = SettingsViewController()
+//    let presenter = QuotesPresenter(view: quotesViewController, quotesManager: QuotesManager(repository: FirestoreQuotesRepository()))
+//    quotesViewController.presenter = presenter
+    settingsTabNavigationController = UINavigationController.init(rootViewController: settingsViewController)
+    
+    let image = UIImage(systemName: "gearshape.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+    let item = UITabBarItem(title: Constants.settingsScreen.title, image: image, tag: 2)
+    item.selectedImage = UIImage(systemName: "gearshape.fill")?.withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+    settingsTabNavigationController.tabBarItem = item
   }
 }

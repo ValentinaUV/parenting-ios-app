@@ -18,6 +18,11 @@ struct Constants {
     static let title = "Daily Quote"
   }
   
+  struct settingsScreen {
+    static let title = "Settings"
+    static let authLabel = "Authentication"
+  }
+  
   struct FStoreQuotes {
     static let collectionName = "quotes"
     static let titleField = "title"

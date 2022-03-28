@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     window?.rootViewController = tabBarController
     window?.makeKeyAndVisible()
-    showPrivacyProtectionWindow()
+//    showPrivacyProtectionWindow()
   }
   
   func sceneDidEnterBackground(_ scene: UIScene) {
@@ -38,9 +38,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
   
   func sceneWillEnterForeground(_ scene: UIScene) {
-    let authController = AuthViewController()
-    authController.delegate = self
-    authController.authenticate()
+//    let authController = AuthViewController()
+//    authController.delegate = self
+//    authController.authenticate()
   }
   
   // MARK: Privacy Protection

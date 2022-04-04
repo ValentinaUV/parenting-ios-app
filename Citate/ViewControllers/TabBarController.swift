@@ -51,9 +51,7 @@ class TabBarController: UITabBarController {
   }
   
   private func setSettingsTabNavigationController() {
-    let settingsViewController = SettingsViewController()
-//    let presenter = QuotesPresenter(view: quotesViewController, quotesManager: QuotesManager(repository: FirestoreQuotesRepository()))
-//    quotesViewController.presenter = presenter
+    let settingsViewController = SettingsAuthViewController()
     settingsTabNavigationController = UINavigationController.init(rootViewController: settingsViewController)
     
     let image = UIImage(systemName: "gearshape.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)

@@ -9,13 +9,7 @@ import UIKit
 
 class AuthViewCell: SettingsViewCell {
   
-  private(set) var authSwitch : Bool {
-    didSet {
-      self.bindAuthViewCellToController()
-    }
-  }
-  
-  var bindAuthViewCellToController : (() -> ()) = {}
+  @Published var authSwitch: Bool
   
   public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     authSwitch = false
@@ -30,11 +24,11 @@ class AuthViewCell: SettingsViewCell {
   override func initView() {
     super.initView()
     textLabel?.text = "Authentication"
-    imageView?.tintColor = .systemTeal
 
     let switchView = UISwitch(frame: .zero)
-    switchView.setOn(authSwitch , animated: true)
+    switchView.setOn(false , animated: true)
     switchView.tag = 1
+    switchView.onTintColor = .systemTeal
     switchView.addTarget(self, action: #selector(self.authSwitchChanged(_:)), for: .valueChanged)
     accessoryView = switchView
   }

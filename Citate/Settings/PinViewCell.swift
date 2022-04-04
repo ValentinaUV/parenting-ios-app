@@ -8,6 +8,7 @@
 import UIKit
 
 class PinViewCell: SettingsViewCell {
+  
   public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     initView()

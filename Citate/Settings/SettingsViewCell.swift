@@ -15,10 +15,6 @@ class SettingsViewCell: UITableViewCell {
     super.awakeFromNib()
     initView()
   }
-
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-  }
   
   func initView() {}
 

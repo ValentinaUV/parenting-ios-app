@@ -53,9 +53,6 @@
 		A775C31F27D0DFBD006BAAC5 /* MockAllQuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31E27D0DFBD006BAAC5 /* MockAllQuotesView.swift */; };
 		A775C32227D24F26006BAAC5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C32127D24F26006BAAC5 /* AuthViewController.swift */; };
 		A775C32427D61230006BAAC5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C32327D61230006BAAC5 /* AuthViewModel.swift */; };
-		A785945727F643070022AC10 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785945627F643070022AC10 /* ListViewController.swift */; };
-		A785945927F643180022AC10 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785945827F643180022AC10 /* ListViewModel.swift */; };
-		A785945D27F77D4E0022AC10 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785945C27F77D4E0022AC10 /* SettingsService.swift */; };
 		A785946127F994C20022AC10 /* SettingsAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946027F994C20022AC10 /* SettingsAuthViewController.swift */; };
 		A785946327FC1E0A0022AC10 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946227FC1E0A0022AC10 /* Settings.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
@@ -120,9 +117,6 @@
 		A775C31E27D0DFBD006BAAC5 /* MockAllQuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAllQuotesView.swift; sourceTree = "<group>"; };
 		A775C32127D24F26006BAAC5 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A775C32327D61230006BAAC5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		A785945627F643070022AC10 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		A785945827F643180022AC10 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
-		A785945C27F77D4E0022AC10 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		A785946027F994C20022AC10 /* SettingsAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthViewController.swift; sourceTree = "<group>"; };
 		A785946227FC1E0A0022AC10 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -221,7 +215,6 @@
 		A731DD56277A0B9700530EFB /* Citate */ = {
 			isa = PBXGroup;
 			children = (
-				A785945527F642B50022AC10 /* SettingsList */,
 				A728E1D827E1E91E00A7656F /* Settings */,
 				A775C32027D24E7E006BAAC5 /* Auth */,
 				A731DD732780169500530EFB /* Models */,
@@ -342,16 +335,6 @@
 				A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */,
 			);
 			path = Auth;
-			sourceTree = "<group>";
-		};
-		A785945527F642B50022AC10 /* SettingsList */ = {
-			isa = PBXGroup;
-			children = (
-				A785945627F643070022AC10 /* ListViewController.swift */,
-				A785945827F643180022AC10 /* ListViewModel.swift */,
-				A785945C27F77D4E0022AC10 /* SettingsService.swift */,
-			);
-			path = SettingsList;
 			sourceTree = "<group>";
 		};
 		A787DAE62789ED140050CA44 /* Documentation */ = {
@@ -501,7 +484,6 @@
 				A731DD782780176C00530EFB /* QuotesManager.swift in Sources */,
 				A731DD76278016DF00530EFB /* Quote.swift in Sources */,
 				A728E1D727DBA09200A7656F /* PrivacyProtectionViewController.swift in Sources */,
-				A785945D27F77D4E0022AC10 /* SettingsService.swift in Sources */,
 				A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */,
 				A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */,
 				A731DD7C2780195500530EFB /* Constants.swift in Sources */,
@@ -510,7 +492,6 @@
 				A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */,
 				0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */,
 				A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */,
-				A785945727F643070022AC10 /* ListViewController.swift in Sources */,
 				A775C2C427B022E4006BAAC5 /* DailyQuotePresenter.swift in Sources */,
 				A785946327FC1E0A0022AC10 /* Settings.swift in Sources */,
 				0A4BAAB22796EEBA0073149D /* QuotesView.swift in Sources */,
@@ -528,7 +509,6 @@
 				A731DD7A278018D400530EFB /* FirestoreQuotesRepository.swift in Sources */,
 				A728E1E427EC517600A7656F /* PinViewCell.swift in Sources */,
 				A775C2C827B02641006BAAC5 /* UserPreferences.swift in Sources */,
-				A785945927F643180022AC10 /* ListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

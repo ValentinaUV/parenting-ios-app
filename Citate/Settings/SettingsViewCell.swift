@@ -7,15 +7,6 @@
 
 import UIKit
 
-class SettingsViewCell: UITableViewCell {
-  
-  class var identifier: String { return String(describing: self) }
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    initView()
-  }
-  
-  func initView() {}
-
+protocol SettingsViewCell {
+  static var identifier: String {get}
 }

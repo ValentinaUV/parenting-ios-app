@@ -7,7 +7,9 @@
 
 import UIKit
 
-class PinViewCell: SettingsViewCell {
+class PinViewCell: UITableViewCell, SettingsViewCell {
+  
+  static var identifier: String { return String(describing: self) }
   
   public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -18,8 +20,12 @@ class PinViewCell: SettingsViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func initView() {
-    super.initView()
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    initView()
+  }
+  
+  private func initView() {
     textLabel?.text = "Change PIN"
     imageView?.tintColor = .systemTeal
     accessoryType = .disclosureIndicator

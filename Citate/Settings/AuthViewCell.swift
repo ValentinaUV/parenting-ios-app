@@ -7,8 +7,9 @@
 
 import UIKit
 
-class AuthViewCell: SettingsViewCell {
+class AuthViewCell: UITableViewCell, SettingsViewCell {
   
+  static var identifier: String { return String(describing: self) }
   @Published var authSwitch: Bool
   
   public override init (style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -21,8 +22,12 @@ class AuthViewCell: SettingsViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func initView() {
-    super.initView()
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    initView()
+  }
+  
+  private func initView() {
     textLabel?.text = "Authentication"
 
     let switchView = UISwitch(frame: .zero)

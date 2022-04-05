@@ -16,13 +16,10 @@
 		A700DD3F27A354F300283AD3 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3E27A354F300283AD3 /* DateFormatter.swift */; };
 		A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */; };
 		A728E1D727DBA09200A7656F /* PrivacyProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */; };
-		A728E1DA27E1E95500A7656F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1D927E1E95500A7656F /* SettingsViewController.swift */; };
 		A728E1DE27EA1E5300A7656F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */; };
 		A728E1E027EA459C00A7656F /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1DF27EA459C00A7656F /* SettingsViewCell.swift */; };
 		A728E1E227EC513900A7656F /* AuthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1E127EC513900A7656F /* AuthViewCell.swift */; };
 		A728E1E427EC517600A7656F /* PinViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1E327EC517600A7656F /* PinViewCell.swift */; };
-		A728E1E627EC7FE800A7656F /* AuthCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1E527EC7FE800A7656F /* AuthCellViewModel.swift */; };
-		A728E1E827EC832600A7656F /* PinCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1E727EC832600A7656F /* PinCellViewModel.swift */; };
 		A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD57277A0B9700530EFB /* AppDelegate.swift */; };
 		A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD59277A0B9700530EFB /* SceneDelegate.swift */; };
 		A731DD61277A0B9B00530EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A731DD60277A0B9B00530EFB /* Assets.xcassets */; };
@@ -56,6 +53,11 @@
 		A775C31F27D0DFBD006BAAC5 /* MockAllQuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31E27D0DFBD006BAAC5 /* MockAllQuotesView.swift */; };
 		A775C32227D24F26006BAAC5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C32127D24F26006BAAC5 /* AuthViewController.swift */; };
 		A775C32427D61230006BAAC5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C32327D61230006BAAC5 /* AuthViewModel.swift */; };
+		A785945727F643070022AC10 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785945627F643070022AC10 /* ListViewController.swift */; };
+		A785945927F643180022AC10 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785945827F643180022AC10 /* ListViewModel.swift */; };
+		A785945D27F77D4E0022AC10 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785945C27F77D4E0022AC10 /* SettingsService.swift */; };
+		A785946127F994C20022AC10 /* SettingsAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946027F994C20022AC10 /* SettingsAuthViewController.swift */; };
+		A785946327FC1E0A0022AC10 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946227FC1E0A0022AC10 /* Settings.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -81,13 +83,10 @@
 		A700DD3E27A354F300283AD3 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyProtectionViewController.swift; path = Citate/Auth/PrivacyProtectionViewController.swift; sourceTree = SOURCE_ROOT; };
-		A728E1D927E1E95500A7656F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A728E1DF27EA459C00A7656F /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		A728E1E127EC513900A7656F /* AuthViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewCell.swift; sourceTree = "<group>"; };
 		A728E1E327EC517600A7656F /* PinViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewCell.swift; sourceTree = "<group>"; };
-		A728E1E527EC7FE800A7656F /* AuthCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCellViewModel.swift; sourceTree = "<group>"; };
-		A728E1E727EC832600A7656F /* PinCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCellViewModel.swift; sourceTree = "<group>"; };
 		A731DD54277A0B9700530EFB /* Citate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Citate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A731DD57277A0B9700530EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A731DD59277A0B9700530EFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +120,11 @@
 		A775C31E27D0DFBD006BAAC5 /* MockAllQuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAllQuotesView.swift; sourceTree = "<group>"; };
 		A775C32127D24F26006BAAC5 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A775C32327D61230006BAAC5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		A785945627F643070022AC10 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		A785945827F643180022AC10 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		A785945C27F77D4E0022AC10 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		A785946027F994C20022AC10 /* SettingsAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthViewController.swift; sourceTree = "<group>"; };
+		A785946227FC1E0A0022AC10 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,13 +186,12 @@
 		A728E1D827E1E91E00A7656F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A728E1D927E1E95500A7656F /* SettingsViewController.swift */,
+				A785946227FC1E0A0022AC10 /* Settings.swift */,
+				A785946027F994C20022AC10 /* SettingsAuthViewController.swift */,
 				A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */,
 				A728E1DF27EA459C00A7656F /* SettingsViewCell.swift */,
 				A728E1E127EC513900A7656F /* AuthViewCell.swift */,
-				A728E1E527EC7FE800A7656F /* AuthCellViewModel.swift */,
 				A728E1E327EC517600A7656F /* PinViewCell.swift */,
-				A728E1E727EC832600A7656F /* PinCellViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 		A731DD56277A0B9700530EFB /* Citate */ = {
 			isa = PBXGroup;
 			children = (
+				A785945527F642B50022AC10 /* SettingsList */,
 				A728E1D827E1E91E00A7656F /* Settings */,
 				A775C32027D24E7E006BAAC5 /* Auth */,
 				A731DD732780169500530EFB /* Models */,
@@ -338,6 +342,16 @@
 				A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		A785945527F642B50022AC10 /* SettingsList */ = {
+			isa = PBXGroup;
+			children = (
+				A785945627F643070022AC10 /* ListViewController.swift */,
+				A785945827F643180022AC10 /* ListViewModel.swift */,
+				A785945C27F77D4E0022AC10 /* SettingsService.swift */,
+			);
+			path = SettingsList;
 			sourceTree = "<group>";
 		};
 		A787DAE62789ED140050CA44 /* Documentation */ = {
@@ -487,16 +501,18 @@
 				A731DD782780176C00530EFB /* QuotesManager.swift in Sources */,
 				A731DD76278016DF00530EFB /* Quote.swift in Sources */,
 				A728E1D727DBA09200A7656F /* PrivacyProtectionViewController.swift in Sources */,
+				A785945D27F77D4E0022AC10 /* SettingsService.swift in Sources */,
 				A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */,
 				A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */,
 				A731DD7C2780195500530EFB /* Constants.swift in Sources */,
-				A728E1DA27E1E95500A7656F /* SettingsViewController.swift in Sources */,
+				A785946127F994C20022AC10 /* SettingsAuthViewController.swift in Sources */,
 				A700DD3F27A354F300283AD3 /* DateFormatter.swift in Sources */,
 				A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */,
 				0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */,
 				A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */,
-				A728E1E827EC832600A7656F /* PinCellViewModel.swift in Sources */,
+				A785945727F643070022AC10 /* ListViewController.swift in Sources */,
 				A775C2C427B022E4006BAAC5 /* DailyQuotePresenter.swift in Sources */,
+				A785946327FC1E0A0022AC10 /* Settings.swift in Sources */,
 				0A4BAAB22796EEBA0073149D /* QuotesView.swift in Sources */,
 				A7724F9C27A557FD00756AE8 /* QuoteNotificationManager.swift in Sources */,
 				A775C2B827AB19FB006BAAC5 /* TabBarController.swift in Sources */,
@@ -505,7 +521,6 @@
 				A728E1E027EA459C00A7656F /* SettingsViewCell.swift in Sources */,
 				A775C32427D61230006BAAC5 /* AuthViewModel.swift in Sources */,
 				0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */,
-				A728E1E627EC7FE800A7656F /* AuthCellViewModel.swift in Sources */,
 				A728E1E227EC513900A7656F /* AuthViewCell.swift in Sources */,
 				A728E1DE27EA1E5300A7656F /* SettingsViewModel.swift in Sources */,
 				A775C31727D0B3A8006BAAC5 /* Notification.swift in Sources */,
@@ -513,6 +528,7 @@
 				A731DD7A278018D400530EFB /* FirestoreQuotesRepository.swift in Sources */,
 				A728E1E427EC517600A7656F /* PinViewCell.swift in Sources */,
 				A775C2C827B02641006BAAC5 /* UserPreferences.swift in Sources */,
+				A785945927F643180022AC10 /* ListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

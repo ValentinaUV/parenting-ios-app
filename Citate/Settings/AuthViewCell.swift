@@ -11,7 +11,7 @@ class AuthViewCell: SettingsViewCell {
   
   @Published var authSwitch: Bool
   
-  public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+  public override init (style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     authSwitch = false
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     initView()
@@ -26,7 +26,7 @@ class AuthViewCell: SettingsViewCell {
     textLabel?.text = "Authentication"
 
     let switchView = UISwitch(frame: .zero)
-    switchView.setOn(false , animated: true)
+    switchView.setOn(authSwitch , animated: true)
     switchView.tag = 1
     switchView.onTintColor = .systemTeal
     switchView.addTarget(self, action: #selector(self.authSwitchChanged(_:)), for: .valueChanged)

@@ -21,6 +21,7 @@ struct Constants {
   struct settingsScreen {
     static let title = "Settings"
     static let authLabel = "Authentication"
+    static let pinLabel = "Change PIN"
     
     struct pinAlert {
       static let title = "Set New PIN"

@@ -51,7 +51,7 @@ class TabBarController: UITabBarController {
   }
   
   private func setSettingsTabNavigationController() {
-    let settingsViewController = SettingsAuthViewController()
+    let settingsViewController = SettingsViewController()
     settingsTabNavigationController = UINavigationController.init(rootViewController: settingsViewController)
     
     let image = UIImage(systemName: "gearshape.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)

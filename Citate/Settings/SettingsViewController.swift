@@ -1,5 +1,5 @@
 //
-//  SettingsAuthViewController.swift
+//  SettingsViewController.swift
 //  Citate
 //
 //  Created by Ungurean Valentina on 03.04.2022.
@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class SettingsAuthViewController: ViewController {
+class SettingsViewController: ViewController {
   
   let tableView: UITableView = {
     let table = UITableView(frame: .zero, style: .insetGrouped)
@@ -55,25 +55,18 @@ class SettingsAuthViewController: ViewController {
   
   private func subscribeToAuthSwitch() {
     authCell.$authSwitch
-      .sink (receiveCompletion: { completion in
-        switch completion {
-          case .finished:
-            break
-          case .failure(let error):
-            print("Error message for authSwitch: \(error.localizedDescription)")
+      .sink { auth in
+        if let status = auth {
+          self.pinCell.changeStatus(status)
         }
-      }, receiveValue: { auth in
-        self.pinCell.isUserInteractionEnabled = auth
-        self.pinCell.textLabel?.isEnabled = auth
-        self.viewModel.settings.auth = auth
-      })
+      }
       .store(in: &cancellables)
   }
 }
 
 // MARK: - UITableViewDataSource
 
-extension SettingsAuthViewController: UITableViewDelegate, UITableViewDataSource {
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
     return viewModel.cells.count
   }
@@ -87,18 +80,21 @@ extension SettingsAuthViewController: UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cellType = viewModel.getCellType(at: indexPath) else { return UITableViewCell() }
     
-    if indexPath.row == 0 {
-      guard let authCell = tableView.dequeueReusableCell(withIdentifier: AuthViewCell.identifier, for: indexPath) as? AuthViewCell else { fatalError("xib does not exists") }
-//      authCell.authSwitch = viewModel.settings.auth
-      self.authCell = authCell
-      return authCell
-    } else if indexPath.row == 1 {
-      guard let pinCell = tableView.dequeueReusableCell(withIdentifier: PinViewCell.identifier, for: indexPath) as? PinViewCell else { fatalError("xib does not exists") }
-      self.pinCell = pinCell
-      return pinCell
+    switch cellType {
+      case .auth:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AuthViewCell.identifier, for: indexPath) as? AuthViewCell else { fatalError("AuthViewCell xib does not exists") }
+        self.authCell = cell
+        return cell
+      case .pin:
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PinViewCell.identifier, for: indexPath) as? PinViewCell else { fatalError("AuthViewCell xib does not exists") }
+        if let _ = cell.pin {
+          authCell.changeAuthSwitchView(authSwitch: true)
+          tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+        }
+        self.pinCell = cell
+        return cell
     }
-
-    return UITableViewCell()
   }
 }

@@ -12,8 +12,8 @@ class AuthViewCell: UITableViewCell, SettingsViewCell {
   static var identifier: String { return String(describing: self) }
   @Published var authSwitch: Bool!
   
-  private lazy var viewModel = {
-    AuthViewCellModel()
+  private lazy var pinViewModel = {
+    PinViewCellModel()
   }()
   
   private let switchView: UISwitch = {
@@ -32,15 +32,9 @@ class AuthViewCell: UITableViewCell, SettingsViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    initView()
-  }
-  
   private func initView() {
     textLabel?.text = Constants.settingsScreen.authLabel
-
-    switchView.setOn(authSwitch ?? false , animated: true)
+    switchView.setOn(pinViewModel.getSwitchOn(), animated: true)
     switchView.addTarget(self, action: #selector(self.authSwitchChanged(_:)), for: .valueChanged)
     accessoryView = switchView
   }

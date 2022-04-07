@@ -26,6 +26,7 @@ class SettingsViewController: ViewController {
   private var cancellables = Set<AnyCancellable>()
   private var authCell: AuthViewCell!
   private var pinCell: PinViewCell!
+  private var backFromChildView = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,21 +47,19 @@ class SettingsViewController: ViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationItem.title = Constants.settingsScreen.title
+    if backFromChildView {
+      backFromChildView = false
+      authCell.changeAuthSwitchView(authSwitch: false)
+      authCell.authSwitch = false
+    }
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    subscribeToAuthSwitch()
-  }
-  
-  private func subscribeToAuthSwitch() {
-    authCell.$authSwitch
-      .sink { auth in
-        if let status = auth {
-          self.pinCell.changeStatus(status)
-        }
-      }
-      .store(in: &cancellables)
+  private func showPinScreen() {
+    let vc = PinViewController()
+    if let navigationController = self.navigationController {
+      backFromChildView = true
+      navigationController.pushViewController(vc, animated: true)
+    }
   }
 }
 
@@ -86,15 +85,25 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
       case .auth:
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AuthViewCell.identifier, for: indexPath) as? AuthViewCell else { fatalError("AuthViewCell xib does not exists") }
         self.authCell = cell
+        self.subscribeToAuthSwitch()
         return cell
       case .pin:
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PinViewCell.identifier, for: indexPath) as? PinViewCell else { fatalError("AuthViewCell xib does not exists") }
-        if let _ = cell.pin {
-          authCell.changeAuthSwitchView(authSwitch: true)
-          tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
-        }
         self.pinCell = cell
         return cell
     }
+  }
+  
+  private func subscribeToAuthSwitch() {
+    authCell.$authSwitch
+      .sink { auth in
+        if let status = auth {
+          self.pinCell.changeStatus(status)
+          if status {
+            self.showPinScreen()
+          }
+        }
+      }
+      .store(in: &cancellables)
   }
 }

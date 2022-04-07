@@ -21,6 +21,14 @@ class PinViewCellModel {
     return pin
   }
   
+  func getSwitchOn() -> Bool {
+    var switchOn = false
+    if let _ = getPin() {
+      switchOn = true
+    }
+    return switchOn
+  }
+  
   func savePin(pin: String) {
 
     let data = Data(pin.utf8)

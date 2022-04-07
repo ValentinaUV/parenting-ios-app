@@ -18,18 +18,6 @@ struct Constants {
     static let title = "Daily Quote"
   }
   
-  struct settingsScreen {
-    static let title = "Settings"
-    static let authLabel = "Authentication"
-    static let pinLabel = "Change PIN"
-    
-    struct pinAlert {
-      static let title = "Set New PIN"
-      static let pinField = "Enter New PIN"
-      static let confirmPinField = "Confirm New PIN"
-    }
-  }
-  
   struct FStoreQuotes {
     static let collectionName = "quotes"
     static let titleField = "title"
@@ -47,5 +35,21 @@ struct Constants {
     static let dailyNotificationTitle = "Parenting Daily Quote"
     static let dailyNotificationId = "dailyQuoteNotification"
     static let dailyNotificationContent = "Get inspired with today's quote!"
+  }
+  
+  struct settingsScreen {
+    static let title = "Settings"
+    static let authLabel = "Authentication"
+    static let pinLabel = "Change PIN"
+    
+    struct pinAlert {
+      static let title = "Set New PIN"
+      static let pinField = "Enter New PIN"
+      static let confirmPinField = "Confirm New PIN"
+    }
+  }
+  
+  struct pinScreen {
+    static let title = "Change PIN"
   }
 }

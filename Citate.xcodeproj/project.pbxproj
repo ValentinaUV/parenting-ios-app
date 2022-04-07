@@ -54,9 +54,9 @@
 		A775C32227D24F26006BAAC5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C32127D24F26006BAAC5 /* AuthViewController.swift */; };
 		A775C32427D61230006BAAC5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C32327D61230006BAAC5 /* AuthViewModel.swift */; };
 		A785946127F994C20022AC10 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946027F994C20022AC10 /* SettingsViewController.swift */; };
-		A785946527FCA3170022AC10 /* AuthViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946427FCA3170022AC10 /* AuthViewCellModel.swift */; };
 		A785946727FCA5A60022AC10 /* PinViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946627FCA5A60022AC10 /* PinViewCellModel.swift */; };
 		A785946927FD90E70022AC10 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946827FD90E70022AC10 /* KeychainHelper.swift */; };
+		A785946B27FF3B620022AC10 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946A27FF3B620022AC10 /* PinViewController.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -120,9 +120,9 @@
 		A775C32127D24F26006BAAC5 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A775C32327D61230006BAAC5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A785946027F994C20022AC10 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A785946427FCA3170022AC10 /* AuthViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewCellModel.swift; sourceTree = "<group>"; };
 		A785946627FCA5A60022AC10 /* PinViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewCellModel.swift; sourceTree = "<group>"; };
 		A785946827FD90E70022AC10 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		A785946A27FF3B620022AC10 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,9 +188,9 @@
 				A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */,
 				A728E1DF27EA459C00A7656F /* SettingsViewCell.swift */,
 				A728E1E127EC513900A7656F /* AuthViewCell.swift */,
-				A785946427FCA3170022AC10 /* AuthViewCellModel.swift */,
 				A728E1E327EC517600A7656F /* PinViewCell.swift */,
 				A785946627FCA5A60022AC10 /* PinViewCellModel.swift */,
+				A785946A27FF3B620022AC10 /* PinViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -496,6 +496,7 @@
 				A731DD7C2780195500530EFB /* Constants.swift in Sources */,
 				A785946127F994C20022AC10 /* SettingsViewController.swift in Sources */,
 				A700DD3F27A354F300283AD3 /* DateFormatter.swift in Sources */,
+				A785946B27FF3B620022AC10 /* PinViewController.swift in Sources */,
 				A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */,
 				0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */,
 				A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */,
@@ -512,7 +513,6 @@
 				A728E1E227EC513900A7656F /* AuthViewCell.swift in Sources */,
 				A728E1DE27EA1E5300A7656F /* SettingsViewModel.swift in Sources */,
 				A775C31727D0B3A8006BAAC5 /* Notification.swift in Sources */,
-				A785946527FCA3170022AC10 /* AuthViewCellModel.swift in Sources */,
 				A700DD3D27A319FF00283AD3 /* ViewController.swift in Sources */,
 				A731DD7A278018D400530EFB /* FirestoreQuotesRepository.swift in Sources */,
 				A728E1E427EC517600A7656F /* PinViewCell.swift in Sources */,

@@ -24,7 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.backgroundColor = .white
     
     let tabBarController = TabBarController()
-    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemTeal], for: .selected)
+
+//    UIBarButtonItem.appearance().tintColor = .black
     
     window?.rootViewController = tabBarController
     window?.makeKeyAndVisible()

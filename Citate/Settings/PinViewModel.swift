@@ -7,7 +7,12 @@
 
 import Foundation
 
-class PinViewCellModel {
+enum PinError: Error {
+  case minLength(Int)
+  case differentPins
+}
+
+class PinViewModel {
   
   let serviceKey = "auth-pin"
   let accountKey = "quotes"
@@ -27,6 +32,17 @@ class PinViewCellModel {
       switchOn = true
     }
     return switchOn
+  }
+  
+  func validateNewPin(_ pin1: String, _ pin2: String) throws {
+    
+    guard pin1.count >= Constants.pinScreen.pinMinLength else {
+      throw PinError.minLength(Constants.pinScreen.pinMinLength)
+    }
+    
+    guard pin1 == pin2 else {
+      throw PinError.differentPins
+    }
   }
   
   func savePin(pin: String) {

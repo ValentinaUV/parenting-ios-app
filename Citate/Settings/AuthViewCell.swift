@@ -7,13 +7,13 @@
 
 import UIKit
 
-class AuthViewCell: UITableViewCell, SettingsViewCell {
+class AuthViewCell: UITableViewCell, IdentifiableViewCell {
   
   static var identifier: String { return String(describing: self) }
   @Published var authSwitch: Bool!
   
   private lazy var pinViewModel = {
-    PinViewCellModel()
+    PinViewModel()
   }()
   
   private let switchView: UISwitch = {

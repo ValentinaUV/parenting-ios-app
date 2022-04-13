@@ -23,7 +23,7 @@ class QuotesViewController: ViewController {
     
     quotesTableView.dataSource = self
     quotesTableView.delegate = self
-    quotesTableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: "quoteCell")
+    quotesTableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.identifier)
     quotesTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     
     loadQuotes()
@@ -47,7 +47,7 @@ extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as? QuoteTableViewCell else {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: QuoteTableViewCell.identifier, for: indexPath) as? QuoteTableViewCell else {
       return UITableViewCell()
     }
     

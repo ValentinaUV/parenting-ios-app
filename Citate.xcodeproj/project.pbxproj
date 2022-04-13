@@ -17,7 +17,7 @@
 		A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */; };
 		A728E1D727DBA09200A7656F /* PrivacyProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */; };
 		A728E1DE27EA1E5300A7656F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */; };
-		A728E1E027EA459C00A7656F /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1DF27EA459C00A7656F /* SettingsViewCell.swift */; };
+		A728E1E027EA459C00A7656F /* IdentifiableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1DF27EA459C00A7656F /* IdentifiableViewCell.swift */; };
 		A728E1E227EC513900A7656F /* AuthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1E127EC513900A7656F /* AuthViewCell.swift */; };
 		A728E1E427EC517600A7656F /* PinViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1E327EC517600A7656F /* PinViewCell.swift */; };
 		A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731DD57277A0B9700530EFB /* AppDelegate.swift */; };
@@ -54,9 +54,11 @@
 		A775C32227D24F26006BAAC5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C32127D24F26006BAAC5 /* AuthViewController.swift */; };
 		A775C32427D61230006BAAC5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C32327D61230006BAAC5 /* AuthViewModel.swift */; };
 		A785946127F994C20022AC10 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946027F994C20022AC10 /* SettingsViewController.swift */; };
-		A785946727FCA5A60022AC10 /* PinViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946627FCA5A60022AC10 /* PinViewCellModel.swift */; };
+		A785946727FCA5A60022AC10 /* PinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946627FCA5A60022AC10 /* PinViewModel.swift */; };
 		A785946927FD90E70022AC10 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946827FD90E70022AC10 /* KeychainHelper.swift */; };
 		A785946B27FF3B620022AC10 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946A27FF3B620022AC10 /* PinViewController.swift */; };
+		A785946D280096670022AC10 /* PinInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946C280096670022AC10 /* PinInputCell.swift */; };
+		A785946F2800D6B40022AC10 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946E2800D6B40022AC10 /* UITextField.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -83,7 +85,7 @@
 		A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyProtectionViewController.swift; path = Citate/Auth/PrivacyProtectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		A728E1DF27EA459C00A7656F /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		A728E1DF27EA459C00A7656F /* IdentifiableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableViewCell.swift; sourceTree = "<group>"; };
 		A728E1E127EC513900A7656F /* AuthViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewCell.swift; sourceTree = "<group>"; };
 		A728E1E327EC517600A7656F /* PinViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewCell.swift; sourceTree = "<group>"; };
 		A731DD54277A0B9700530EFB /* Citate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Citate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,9 +122,11 @@
 		A775C32127D24F26006BAAC5 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A775C32327D61230006BAAC5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A785946027F994C20022AC10 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A785946627FCA5A60022AC10 /* PinViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewCellModel.swift; sourceTree = "<group>"; };
+		A785946627FCA5A60022AC10 /* PinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewModel.swift; sourceTree = "<group>"; };
 		A785946827FD90E70022AC10 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		A785946A27FF3B620022AC10 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
+		A785946C280096670022AC10 /* PinInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinInputCell.swift; sourceTree = "<group>"; };
+		A785946E2800D6B40022AC10 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +163,7 @@
 		0A4BAAAE2796EE7F0073149D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A728E1DF27EA459C00A7656F /* IdentifiableViewCell.swift */,
 				0A4BAAB12796EEBA0073149D /* QuotesView.swift */,
 			);
 			path = Views;
@@ -186,11 +191,11 @@
 			children = (
 				A785946027F994C20022AC10 /* SettingsViewController.swift */,
 				A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */,
-				A728E1DF27EA459C00A7656F /* SettingsViewCell.swift */,
 				A728E1E127EC513900A7656F /* AuthViewCell.swift */,
 				A728E1E327EC517600A7656F /* PinViewCell.swift */,
-				A785946627FCA5A60022AC10 /* PinViewCellModel.swift */,
+				A785946627FCA5A60022AC10 /* PinViewModel.swift */,
 				A785946A27FF3B620022AC10 /* PinViewController.swift */,
+				A785946C280096670022AC10 /* PinInputCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 			children = (
 				A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */,
 				A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */,
+				A785946E2800D6B40022AC10 /* UITextField.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -489,7 +495,7 @@
 				A700DD3927A3174400283AD3 /* DailyQuoteViewController.swift in Sources */,
 				A731DD782780176C00530EFB /* QuotesManager.swift in Sources */,
 				A731DD76278016DF00530EFB /* Quote.swift in Sources */,
-				A785946727FCA5A60022AC10 /* PinViewCellModel.swift in Sources */,
+				A785946727FCA5A60022AC10 /* PinViewModel.swift in Sources */,
 				A728E1D727DBA09200A7656F /* PrivacyProtectionViewController.swift in Sources */,
 				A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */,
 				A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */,
@@ -500,14 +506,16 @@
 				A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */,
 				0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */,
 				A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */,
+				A785946F2800D6B40022AC10 /* UITextField.swift in Sources */,
 				A775C2C427B022E4006BAAC5 /* DailyQuotePresenter.swift in Sources */,
 				A785946927FD90E70022AC10 /* KeychainHelper.swift in Sources */,
 				0A4BAAB22796EEBA0073149D /* QuotesView.swift in Sources */,
 				A7724F9C27A557FD00756AE8 /* QuoteNotificationManager.swift in Sources */,
 				A775C2B827AB19FB006BAAC5 /* TabBarController.swift in Sources */,
+				A785946D280096670022AC10 /* PinInputCell.swift in Sources */,
 				A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */,
 				A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */,
-				A728E1E027EA459C00A7656F /* SettingsViewCell.swift in Sources */,
+				A728E1E027EA459C00A7656F /* IdentifiableViewCell.swift in Sources */,
 				A775C32427D61230006BAAC5 /* AuthViewModel.swift in Sources */,
 				0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */,
 				A728E1E227EC513900A7656F /* AuthViewCell.swift in Sources */,

@@ -50,6 +50,10 @@ struct Constants {
   }
   
   struct pinScreen {
-    static let title = "Change PIN"
+    static let title = "Set new PIN"
+    static let pinMinLength = 4
+    static let pinMaxLength = 6
+    static let section1 = "New PIN (\(pinScreen.pinMinLength)-\(pinScreen.pinMaxLength) digits)"
+    static let section2 = "Confirm PIN"
   }
 }

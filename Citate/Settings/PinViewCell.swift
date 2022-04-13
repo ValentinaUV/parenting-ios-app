@@ -7,13 +7,13 @@
 
 import UIKit
 
-class PinViewCell: UITableViewCell, SettingsViewCell {
+class PinViewCell: UITableViewCell, IdentifiableViewCell {
   
   static var identifier: String { return String(describing: self) }
   var pin: String!
   
   private lazy var viewModel = {
-    PinViewCellModel()
+    PinViewModel()
   }()
   
   public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

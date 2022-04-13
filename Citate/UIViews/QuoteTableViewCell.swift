@@ -7,7 +7,9 @@
 
 import UIKit
 
-class QuoteTableViewCell: UITableViewCell {
+class QuoteTableViewCell: UITableViewCell, IdentifiableViewCell {
+  
+  static var identifier: String { return String(describing: self) }
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)

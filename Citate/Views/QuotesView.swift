@@ -5,16 +5,12 @@
 //  Created by Codrut Merlusca on 18.01.2022.
 //
 
-import Foundation
+import UIKit
 
-protocol QuotesView {
-  func showAlert(title: String, message: String)
-}
-
-protocol AllQuotesView: QuotesView {
+protocol AllQuotesView: ShowAlert, UIViewController {
   func reloadQuotes(_ quotes: [Quote])
 }
 
-protocol DailyQuotesView: QuotesView {
+protocol DailyQuotesView: ShowAlert, UIViewController {
   func reloadQuote(_ quote: Quote)
 }

@@ -12,7 +12,7 @@
 		0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */; };
 		1FE024B00BA340E1BD830F0C /* Pods_Citate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38C04212F18D03F65265A7F /* Pods_Citate.framework */; };
 		A700DD3927A3174400283AD3 /* DailyQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */; };
-		A700DD3D27A319FF00283AD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3C27A319FF00283AD3 /* ViewController.swift */; };
+		A700DD3D27A319FF00283AD3 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3C27A319FF00283AD3 /* ShowAlert.swift */; };
 		A700DD3F27A354F300283AD3 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3E27A354F300283AD3 /* DateFormatter.swift */; };
 		A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */; };
 		A728E1D727DBA09200A7656F /* PrivacyProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */; };
@@ -60,6 +60,7 @@
 		A785946D280096670022AC10 /* PinInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946C280096670022AC10 /* PinInputCell.swift */; };
 		A785946F2800D6B40022AC10 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946E2800D6B40022AC10 /* UITextField.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
+		A7FAC589281B393C00EE85DD /* ThemeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAC588281B393C00EE85DD /* ThemeConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +81,7 @@
 		4216A082519FFBCB92FA837F /* Pods-Citate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citate.debug.xcconfig"; path = "Target Support Files/Pods-Citate/Pods-Citate.debug.xcconfig"; sourceTree = "<group>"; };
 		A38C04212F18D03F65265A7F /* Pods_Citate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuoteViewController.swift; sourceTree = "<group>"; };
-		A700DD3C27A319FF00283AD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A700DD3C27A319FF00283AD3 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		A700DD3E27A354F300283AD3 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyProtectionViewController.swift; path = Citate/Auth/PrivacyProtectionViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -128,6 +129,7 @@
 		A785946C280096670022AC10 /* PinInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinInputCell.swift; sourceTree = "<group>"; };
 		A785946E2800D6B40022AC10 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A7FAC588281B393C00EE85DD /* ThemeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +264,8 @@
 				A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */,
 				A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */,
 				A785946E2800D6B40022AC10 /* UITextField.swift */,
+				A700DD3C27A319FF00283AD3 /* ShowAlert.swift */,
+				A7FAC588281B393C00EE85DD /* ThemeConfigurator.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -281,7 +285,6 @@
 		A775C2C627B02575006BAAC5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A700DD3C27A319FF00283AD3 /* ViewController.swift */,
 				A731DD872788A55600530EFB /* QuotesViewController.swift */,
 				A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */,
 				A775C2B727AB19FB006BAAC5 /* TabBarController.swift */,
@@ -493,6 +496,7 @@
 			files = (
 				A775C32227D24F26006BAAC5 /* AuthViewController.swift in Sources */,
 				A700DD3927A3174400283AD3 /* DailyQuoteViewController.swift in Sources */,
+				A7FAC589281B393C00EE85DD /* ThemeConfigurator.swift in Sources */,
 				A731DD782780176C00530EFB /* QuotesManager.swift in Sources */,
 				A731DD76278016DF00530EFB /* Quote.swift in Sources */,
 				A785946727FCA5A60022AC10 /* PinViewModel.swift in Sources */,
@@ -521,7 +525,7 @@
 				A728E1E227EC513900A7656F /* AuthViewCell.swift in Sources */,
 				A728E1DE27EA1E5300A7656F /* SettingsViewModel.swift in Sources */,
 				A775C31727D0B3A8006BAAC5 /* Notification.swift in Sources */,
-				A700DD3D27A319FF00283AD3 /* ViewController.swift in Sources */,
+				A700DD3D27A319FF00283AD3 /* ShowAlert.swift in Sources */,
 				A731DD7A278018D400530EFB /* FirestoreQuotesRepository.swift in Sources */,
 				A728E1E427EC517600A7656F /* PinViewCell.swift in Sources */,
 				A775C2C827B02641006BAAC5 /* UserPreferences.swift in Sources */,

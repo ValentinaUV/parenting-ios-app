@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuotesViewController: ViewController {
+class QuotesViewController: UIViewController {
   
   var presenter: QuotesPresenter?
   let quotesTableView = UITableView()
@@ -61,6 +61,7 @@ extension QuotesViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 //MARK: - QuotesView
+
 extension QuotesViewController: AllQuotesView {
   
   func reloadQuotes(_ quotes: [Quote]) {

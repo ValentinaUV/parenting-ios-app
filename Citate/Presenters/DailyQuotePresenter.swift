@@ -39,7 +39,7 @@ class DailyQuotePresenter {
 extension DailyQuotePresenter: QuotesRepositoryDelegate {
   
   func didFailWithError(error: Error) {
-    view.showAlert(title: "", message: "Failed to retrieve the quotes.")
+    view.displayAlert(with: "", message: "Failed to retrieve the quotes.")
   }
   
   func didLoadQuotes(_ quotes: [Quote]) {

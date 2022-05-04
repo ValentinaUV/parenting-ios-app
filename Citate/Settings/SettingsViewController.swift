@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class SettingsViewController: ViewController {
+class SettingsViewController: UIViewController {
   
   let tableView: UITableView = {
     let table = UITableView(frame: .zero, style: .insetGrouped)

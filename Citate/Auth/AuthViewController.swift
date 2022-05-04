@@ -11,7 +11,7 @@ protocol AuthDelegate {
   func didSucceed()
 }
 
-class AuthViewController: ViewController {
+class AuthViewController: UIViewController {
   
   private var authViewModel : AuthViewModel!
   var delegate: AuthDelegate!

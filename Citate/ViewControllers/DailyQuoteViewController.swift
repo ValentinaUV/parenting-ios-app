@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DailyQuoteViewController: ViewController {
+class DailyQuoteViewController: UIViewController {
   
   var presenter: DailyQuotePresenter?
   
@@ -81,6 +81,7 @@ class DailyQuoteViewController: ViewController {
 }
 
 //MARK: - QuotesView
+
 extension DailyQuoteViewController: DailyQuotesView {
   
   func reloadQuote(_ quote: Quote) {

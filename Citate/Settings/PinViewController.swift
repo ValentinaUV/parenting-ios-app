@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class PinViewController: ViewController {
+class PinViewController: UIViewController, ShowAlert {
   
   let tableView: UITableView = {
     let table = UITableView(frame: .zero, style: .insetGrouped)
@@ -69,7 +69,7 @@ class PinViewController: ViewController {
       message = "There is a validation error. Try again."
     }
     
-    showAlert(title: "Cannot validate the PIN", message: message)
+    displayAlert(with: "Cannot validate the PIN", message: message)
     return false
   }
 }

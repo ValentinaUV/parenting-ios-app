@@ -16,8 +16,6 @@ class TabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemTeal], for: .selected)
-    UIBarButtonItem.appearance().tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
     setQuotesTabNavigationController()
     setDailyQuoteTabNavigationController()
     setSettingsTabNavigationController()

@@ -9,7 +9,6 @@ import UIKit
 
 class PinViewCell: UITableViewCell, IdentifiableViewCell {
   
-  static var identifier: String { return String(describing: self) }
   var pin: String!
   
   private lazy var viewModel = {

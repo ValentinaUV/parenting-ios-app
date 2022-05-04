@@ -8,9 +8,7 @@
 import UIKit
 
 final class PinInputCell: UITableViewCell, IdentifiableViewCell, UITextFieldDelegate {
-  
-  static var identifier: String { return String(describing: self) }
-  
+    
   private let textField:UITextField = {
     let field = UITextField()
     field.isSecureTextEntry = true

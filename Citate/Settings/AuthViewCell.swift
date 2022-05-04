@@ -9,7 +9,6 @@ import UIKit
 
 class AuthViewCell: UITableViewCell, IdentifiableViewCell {
   
-  static var identifier: String { return String(describing: self) }
   @Published var authSwitch: Bool!
   
   private lazy var pinViewModel = {

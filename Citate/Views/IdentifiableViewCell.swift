@@ -10,3 +10,7 @@ import UIKit
 protocol IdentifiableViewCell {
   static var identifier: String {get}
 }
+
+extension IdentifiableViewCell {
+  static var identifier: String { return String(describing: self) }
+}

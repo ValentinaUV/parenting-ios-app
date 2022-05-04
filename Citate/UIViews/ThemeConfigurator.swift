@@ -7,9 +7,12 @@
 
 import UIKit
 
-class ThemeConfigurator {
+final class ThemeConfigurator {
   
-  static func setUp() {
+  static let standard = ThemeConfigurator()
+  private init() {}
+  
+  func setUp() {
     let navigationBarAppearance = UINavigationBar.appearance()
     let appearance = UINavigationBarAppearance()
     appearance.backgroundColor = .systemTeal

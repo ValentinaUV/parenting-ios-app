@@ -18,8 +18,10 @@ class PinViewController: UIViewController, ShowAlert {
     return table
   }()
   
-  private lazy var viewModel = {
-    PinViewModel()
+  private lazy var viewModel: PinViewModel = {
+    let storage = KeychainStorage()
+    let model = PinViewModel(storage: storage)
+    return model
   }()
   
   var cells: [PinInputCell] = []

@@ -14,14 +14,16 @@ enum PinError: Error {
 
 class PinViewModel {
   
-  let serviceKey = "auth-pin"
-  let accountKey = "quotes"
+  let storage: SettingsStorage
+  let pinStorageKey = Constants.pinScreen.pinStorageKey
+  
+  init(storage: SettingsStorage) {
+    self.storage = storage
+  }
   
   func getPin() -> String! {
     
-    guard let data = KeychainHelper.standard.read(service: serviceKey, account: accountKey) else {return nil}
-      
-    let pin = String(data: data, encoding: .utf8)!
+    guard let pin = storage.get(by: pinStorageKey) else {return nil}
     print("get the pin: \(pin)")
     return pin
   }
@@ -46,16 +48,10 @@ class PinViewModel {
   }
   
   func savePin(pin: String) {
-
-    let data = Data(pin.utf8)
-    KeychainHelper.standard.save(data, service: serviceKey, account: accountKey)
-    
-    print("pin saved: \(pin)")
+    storage.save(key: pinStorageKey, value: pin)
   }
   
   func deletePin() {
-    KeychainHelper.standard.delete(service: serviceKey, account: accountKey)
-    
-    print("pin deleted")
+    storage.delete(by: pinStorageKey)
   }
 }

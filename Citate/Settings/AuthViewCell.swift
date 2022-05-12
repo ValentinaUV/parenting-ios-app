@@ -11,8 +11,10 @@ class AuthViewCell: UITableViewCell, IdentifiableViewCell {
   
   @Published var authSwitch: Bool!
   
-  private lazy var pinViewModel = {
-    PinViewModel()
+  private lazy var pinViewModel: PinViewModel = {
+    let storage = KeychainStorage()
+    let model = PinViewModel(storage: storage)
+    return model
   }()
   
   private let switchView: UISwitch = {

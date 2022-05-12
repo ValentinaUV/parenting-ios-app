@@ -55,5 +55,6 @@ struct Constants {
     static let pinMaxLength = 6
     static let section1 = "New PIN (\(pinScreen.pinMinLength)-\(pinScreen.pinMaxLength) digits)"
     static let section2 = "Confirm PIN"
+    static let pinStorageKey = "auth-pin"
   }
 }

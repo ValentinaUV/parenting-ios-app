@@ -11,8 +11,10 @@ class PinViewCell: UITableViewCell, IdentifiableViewCell {
   
   var pin: String!
   
-  private lazy var viewModel = {
-    PinViewModel()
+  private lazy var viewModel: PinViewModel = {
+    let storage = KeychainStorage()
+    let model = PinViewModel(storage: storage)
+    return model
   }()
   
   public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -61,6 +61,7 @@
 		A785946F2800D6B40022AC10 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946E2800D6B40022AC10 /* UITextField.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
 		A7FAC589281B393C00EE85DD /* ThemeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAC588281B393C00EE85DD /* ThemeConfigurator.swift */; };
+		A7FAC58B282B8D4D00EE85DD /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAC58A282B8D4D00EE85DD /* KeychainStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		A785946E2800D6B40022AC10 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A7FAC588281B393C00EE85DD /* ThemeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeConfigurator.swift; sourceTree = "<group>"; };
+		A7FAC58A282B8D4D00EE85DD /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				A785946627FCA5A60022AC10 /* PinViewModel.swift */,
 				A785946A27FF3B620022AC10 /* PinViewController.swift */,
 				A785946C280096670022AC10 /* PinInputCell.swift */,
+				A7FAC58A282B8D4D00EE85DD /* KeychainStorage.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				A700DD3F27A354F300283AD3 /* DateFormatter.swift in Sources */,
 				A785946B27FF3B620022AC10 /* PinViewController.swift in Sources */,
 				A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */,
+				A7FAC58B282B8D4D00EE85DD /* KeychainStorage.swift in Sources */,
 				0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */,
 				A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */,
 				A785946F2800D6B40022AC10 /* UITextField.swift in Sources */,

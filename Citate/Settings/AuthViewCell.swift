@@ -11,11 +11,13 @@ class AuthViewCell: UITableViewCell, IdentifiableViewCell {
   
   @Published var authSwitch: Bool!
   
-  private lazy var pinViewModel: PinViewModel = {
-    let storage = KeychainStorage()
-    let model = PinViewModel(storage: storage)
-    return model
-  }()
+  
+  //TODO remove model from this class
+//  private lazy var pinViewModel: PinViewModel = {
+//    let storage = KeychainStorage()
+//    let model = PinViewModel(storage: storage)
+//    return model
+//  }()
   
   private let switchView: UISwitch = {
     let switchView = UISwitch(frame: .zero)
@@ -24,18 +26,16 @@ class AuthViewCell: UITableViewCell, IdentifiableViewCell {
     return switchView
   }()
   
-  public override init (style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
+  func setupCell(authSwitch: Bool) {
+    self.authSwitch = authSwitch
     initView()
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
   }
   
   private func initView() {
     textLabel?.text = Constants.settingsScreen.authLabel
-    switchView.setOn(pinViewModel.getSwitchOn(), animated: true)
+    switchView.setOn(authSwitch, animated: true)
+//    switchView.setOn(pinViewModel.getSwitchOn(), animated: true)
+
     switchView.addTarget(self, action: #selector(self.authSwitchChanged(_:)), for: .valueChanged)
     accessoryView = switchView
   }

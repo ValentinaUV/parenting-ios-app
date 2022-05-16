@@ -13,18 +13,13 @@ class PinViewCell: UITableViewCell, IdentifiableViewCell {
   
   private lazy var viewModel: PinViewModel = {
     let storage = KeychainStorage()
-    let model = PinViewModel(storage: storage)
+    let model = PinViewModel(storage: storage, action: .create)
     return model
   }()
   
-  public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
+  func setupCell() {
     pin = viewModel.getPin()
     initView()
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
   }
   
   private func initView() {

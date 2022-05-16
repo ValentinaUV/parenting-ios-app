@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PinInputCell: UITableViewCell, IdentifiableViewCell, UITextFieldDelegate {
+final class PinInputCell: UITableViewCell, IdentifiableViewCell {
     
   private let textField:UITextField = {
     let field = UITextField()
@@ -19,14 +19,9 @@ final class PinInputCell: UITableViewCell, IdentifiableViewCell, UITextFieldDele
     return field
   }()
   
-  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
+  func setupCell() {
     textField.delegate = self
     initView()
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
   }
   
   private func initView() {
@@ -44,12 +39,14 @@ final class PinInputCell: UITableViewCell, IdentifiableViewCell, UITextFieldDele
     ])
   }
   
+  func getInputValue() -> String! {
+    return textField.text
+  }
+}
+
+extension PinInputCell: UITextFieldDelegate {
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     let updatedString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
     return updatedString.count <= Constants.pinScreen.pinMaxLength
-  }
-  
-  func getInputValue() -> String! {
-    return textField.text
   }
 }

@@ -20,7 +20,7 @@ class PinViewController: UIViewController, ShowAlert {
   
   private lazy var viewModel: PinViewModel = {
     let storage = KeychainStorage()
-    let model = PinViewModel(storage: storage)
+    let model = PinViewModel(storage: storage, action: .create)
     return model
   }()
   
@@ -57,21 +57,15 @@ class PinViewController: UIViewController, ShowAlert {
 //      viewModel.savePin(pin: cells[0].getInputValue())
     }
   }
-  
+
   func validate() -> Bool {
-    let message: String!
-    do {
-      try viewModel.validateNewPin(cells[0].getInputValue(), cells[1].getInputValue())
+    if let pin = cells[0].getInputValue(), let confirmPin = cells[1].getInputValue() {
+      if let message = viewModel.validateNewPin(pin, confirmPin) {
+        displayAlert(with: "Cannot validate the PIN", message: message)
+        return false
+      }
       return true
-    } catch PinError.minLength(let length) {
-      message = "The PIN should have at least \(length) digits."
-    } catch PinError.differentPins {
-      message = "PINs should have the same value."
-    } catch {
-      message = "There is a validation error. Try again."
     }
-    
-    displayAlert(with: "Cannot validate the PIN", message: message)
     return false
   }
 }
@@ -85,7 +79,7 @@ extension PinViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    2
+    return viewModel.getNumberOfSections()
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,16 +87,12 @@ extension PinViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if section == 0 {
-      return Constants.pinScreen.section1
-    } else if section == 1 {
-      return Constants.pinScreen.section2
-    }
-    return ""
+    return viewModel.getSectionTitles()[section]
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: PinInputCell.identifier, for: indexPath) as? PinInputCell else { fatalError("AuthViewCell xib does not exists") }
+    cell.setupCell()
     cells.append(cell)
     return cell
   }

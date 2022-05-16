@@ -12,13 +12,20 @@ enum PinError: Error {
   case differentPins
 }
 
+enum PinAction {
+  case create
+  case change
+}
+
 class PinViewModel {
   
   let storage: SettingsStorage
   let pinStorageKey = Constants.pinScreen.pinStorageKey
+  let action: PinAction
   
-  init(storage: SettingsStorage) {
+  init(storage: SettingsStorage, action: PinAction) {
     self.storage = storage
+    self.action = action
   }
   
   func getPin() -> String! {
@@ -36,15 +43,36 @@ class PinViewModel {
     return switchOn
   }
   
-  func validateNewPin(_ pin1: String, _ pin2: String) throws {
+  func getNumberOfSections() -> Int{
+    switch action {
+      case .create: return 2
+      case .change: return 3
+    }
+  }
+  
+  func getSectionTitles() -> [String] {
+    switch action {
+      case .create:
+        return Constants.pinScreen.createSections
+      case .change:
+        return Constants.pinScreen.changeSections
+    }
+  }
+  
+  func validateNewPin(_ pin: String, _ confirmPin: String) -> String! {
     
-    guard pin1.count >= Constants.pinScreen.pinMinLength else {
-      throw PinError.minLength(Constants.pinScreen.pinMinLength)
+    let message: String!
+    guard pin.count >= Constants.pinScreen.pinMinLength else {
+      message = "The PIN should have at least \(Constants.pinScreen.pinMinLength) digits."
+      return message
     }
     
-    guard pin1 == pin2 else {
-      throw PinError.differentPins
+    guard pin == confirmPin else {
+      message = "PINs should have the same value."
+      return message
     }
+    
+    return nil
   }
   
   func savePin(pin: String) {

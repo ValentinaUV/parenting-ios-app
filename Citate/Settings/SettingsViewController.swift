@@ -84,11 +84,15 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     switch cellType {
       case .auth:
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AuthViewCell.identifier, for: indexPath) as? AuthViewCell else { fatalError("AuthViewCell xib does not exists") }
+        
+        // TODO add here authSwitch from pinCell
+        cell.setupCell(authSwitch: true)
         self.authCell = cell
         self.subscribeToAuthSwitch()
         return cell
       case .pin:
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PinViewCell.identifier, for: indexPath) as? PinViewCell else { fatalError("AuthViewCell xib does not exists") }
+        cell.setupCell()
         self.pinCell = cell
         return cell
     }
@@ -97,7 +101,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
   private func subscribeToAuthSwitch() {
     authCell.$authSwitch
       .sink { auth in
-        if let status = auth {
+        if let status = auth, self.pinCell != nil {
           self.pinCell.changeStatus(status)
           if status {
             self.showPinScreen()

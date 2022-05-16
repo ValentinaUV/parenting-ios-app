@@ -62,6 +62,8 @@
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
 		A7FAC589281B393C00EE85DD /* ThemeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAC588281B393C00EE85DD /* ThemeConfigurator.swift */; };
 		A7FAC58B282B8D4D00EE85DD /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAC58A282B8D4D00EE85DD /* KeychainStorage.swift */; };
+		A7FAC58D28324A6100EE85DD /* PinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAC58C28324A6100EE85DD /* PinModel.swift */; };
+		A7FAC58F28324AC400EE85DD /* AuthSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAC58E28324AC400EE85DD /* AuthSwitchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,8 @@
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A7FAC588281B393C00EE85DD /* ThemeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeConfigurator.swift; sourceTree = "<group>"; };
 		A7FAC58A282B8D4D00EE85DD /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
+		A7FAC58C28324A6100EE85DD /* PinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinModel.swift; sourceTree = "<group>"; };
+		A7FAC58E28324AC400EE85DD /* AuthSwitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSwitchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,8 @@
 				A785946A27FF3B620022AC10 /* PinViewController.swift */,
 				A785946C280096670022AC10 /* PinInputCell.swift */,
 				A7FAC58A282B8D4D00EE85DD /* KeychainStorage.swift */,
+				A7FAC58C28324A6100EE85DD /* PinModel.swift */,
+				A7FAC58E28324AC400EE85DD /* AuthSwitchViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				A731DD782780176C00530EFB /* QuotesManager.swift in Sources */,
 				A731DD76278016DF00530EFB /* Quote.swift in Sources */,
 				A785946727FCA5A60022AC10 /* PinViewModel.swift in Sources */,
+				A7FAC58F28324AC400EE85DD /* AuthSwitchViewModel.swift in Sources */,
 				A728E1D727DBA09200A7656F /* PrivacyProtectionViewController.swift in Sources */,
 				A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */,
 				A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */,
@@ -528,6 +535,7 @@
 				0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */,
 				A728E1E227EC513900A7656F /* AuthViewCell.swift in Sources */,
 				A728E1DE27EA1E5300A7656F /* SettingsViewModel.swift in Sources */,
+				A7FAC58D28324A6100EE85DD /* PinModel.swift in Sources */,
 				A775C31727D0B3A8006BAAC5 /* Notification.swift in Sources */,
 				A700DD3D27A319FF00283AD3 /* ShowAlert.swift in Sources */,
 				A731DD7A278018D400530EFB /* FirestoreQuotesRepository.swift in Sources */,

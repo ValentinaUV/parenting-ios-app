@@ -1,5 +1,5 @@
 //
-//  PinViewCellModel.swift
+//  PinViewModel.swift
 //  Citate
 //
 //  Created by Ungurean Valentina on 05.04.2022.
@@ -17,30 +17,15 @@ enum PinAction {
   case change
 }
 
-class PinViewModel {
+class PinViewModel: PinModel {
   
-  let storage: SettingsStorage
+  var storage: SettingsStorage
   let pinStorageKey = Constants.pinScreen.pinStorageKey
   let action: PinAction
   
   init(storage: SettingsStorage, action: PinAction) {
     self.storage = storage
     self.action = action
-  }
-  
-  func getPin() -> String! {
-    
-    guard let pin = storage.get(by: pinStorageKey) else {return nil}
-    print("get the pin: \(pin)")
-    return pin
-  }
-  
-  func getSwitchOn() -> Bool {
-    var switchOn = false
-    if let _ = getPin() {
-      switchOn = true
-    }
-    return switchOn
   }
   
   func getNumberOfSections() -> Int{

@@ -84,9 +84,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     switch cellType {
       case .auth:
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AuthViewCell.identifier, for: indexPath) as? AuthViewCell else { fatalError("AuthViewCell xib does not exists") }
-        
-        // TODO add here authSwitch from pinCell
-        cell.setupCell(authSwitch: true)
+        cell.setupCell()
         self.authCell = cell
         self.subscribeToAuthSwitch()
         return cell

@@ -11,13 +11,11 @@ class AuthViewCell: UITableViewCell, IdentifiableViewCell {
   
   @Published var authSwitch: Bool!
   
-  
-  //TODO remove model from this class
-//  private lazy var pinViewModel: PinViewModel = {
-//    let storage = KeychainStorage()
-//    let model = PinViewModel(storage: storage)
-//    return model
-//  }()
+  private lazy var viewModel: AuthSwitchViewModel = {
+    let storage = KeychainStorage()
+    let model = AuthSwitchViewModel(storage: storage)
+    return model
+  }()
   
   private let switchView: UISwitch = {
     let switchView = UISwitch(frame: .zero)
@@ -26,16 +24,13 @@ class AuthViewCell: UITableViewCell, IdentifiableViewCell {
     return switchView
   }()
   
-  func setupCell(authSwitch: Bool) {
-    self.authSwitch = authSwitch
+  func setupCell() {
     initView()
   }
   
   private func initView() {
     textLabel?.text = Constants.settingsScreen.authLabel
-    switchView.setOn(authSwitch, animated: true)
-//    switchView.setOn(pinViewModel.getSwitchOn(), animated: true)
-
+    switchView.setOn(viewModel.getSwitchOn(), animated: true)
     switchView.addTarget(self, action: #selector(self.authSwitchChanged(_:)), for: .valueChanged)
     accessoryView = switchView
   }

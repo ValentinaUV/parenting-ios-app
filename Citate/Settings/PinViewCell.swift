@@ -38,10 +38,6 @@ class PinViewCell: UITableViewCell, IdentifiableViewCell {
     isUserInteractionEnabled = status
     textLabel?.isEnabled = status
     
-    // TODO temporary added, delete after adding the modals for new/save pin
-    if status {
-      viewModel.savePin(pin: "qwertty")
-    }
     if !status {
       deletePin()
     }

@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, PinView {
   
   let tableView: UITableView = {
     let table = UITableView(frame: .zero, style: .insetGrouped)
@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController {
   private var authCell: AuthViewCell!
   private var pinCell: PinViewCell!
   private var backFromChildView = false
+  var pinSaved = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,15 +48,17 @@ class SettingsViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationItem.title = Constants.settingsScreen.title
-    if backFromChildView {
-      backFromChildView = false
+    if backFromChildView, !pinSaved {
       authCell.changeAuthSwitchView(authSwitch: false)
       authCell.authSwitch = false
     }
+    backFromChildView = false
+    pinSaved = false
   }
   
   private func showPinScreen() {
     let vc = PinViewController()
+    vc.delegate = self
     if let navigationController = self.navigationController {
       backFromChildView = true
       navigationController.pushViewController(vc, animated: true)

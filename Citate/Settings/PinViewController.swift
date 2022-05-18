@@ -8,6 +8,10 @@
 import UIKit
 import Combine
 
+protocol PinView {
+  var pinSaved: Bool {get set}
+}
+
 class PinViewController: UIViewController, ShowAlert {
   
   let tableView: UITableView = {
@@ -26,6 +30,7 @@ class PinViewController: UIViewController, ShowAlert {
   
   var cells: [PinInputCell] = []
   private var cancellables = Set<AnyCancellable>()
+  var delegate: PinView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,9 +57,9 @@ class PinViewController: UIViewController, ShowAlert {
   
   @objc func saveTapped(_ sender: UIBarButtonItem) {
     if validate() {
-      
-    print("validated")
-//      viewModel.savePin(pin: cells[0].getInputValue())
+      viewModel.savePin(pin: cells[0].getInputValue())
+      delegate?.pinSaved = true
+      _ = navigationController?.popViewController(animated: true)
     }
   }
 

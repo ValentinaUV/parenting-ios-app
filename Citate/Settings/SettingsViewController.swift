@@ -13,7 +13,6 @@ class SettingsViewController: UIViewController, PinView {
   let tableView: UITableView = {
     let table = UITableView(frame: .zero, style: .insetGrouped)
       table.translatesAutoresizingMaskIntoConstraints = false
-      table.allowsSelection = false
       table.register(AuthViewCell.self, forCellReuseIdentifier: AuthViewCell.identifier)
       table.register(PinViewCell.self, forCellReuseIdentifier: PinViewCell.identifier)
     return table
@@ -27,6 +26,7 @@ class SettingsViewController: UIViewController, PinView {
   private var authCell: AuthViewCell!
   private var pinCell: PinViewCell!
   private var backFromChildView = false
+  private var backFromAction: PinAction = .create
   var pinSaved = false
   
   override func viewDidLoad() {
@@ -48,16 +48,19 @@ class SettingsViewController: UIViewController, PinView {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationItem.title = Constants.settingsScreen.title
-    if backFromChildView, !pinSaved {
+    print("backFromAction: \(backFromAction)")
+    
+    if backFromChildView, backFromAction == .create, !pinSaved {
       authCell.changeAuthSwitchView(authSwitch: false)
       authCell.authSwitch = false
+      pinCell.changeStatus(false)
     }
     backFromChildView = false
     pinSaved = false
   }
   
   private func showPinScreen() {
-    let vc = PinViewController()
+    let vc = PinViewController(action: backFromAction)
     vc.delegate = self
     if let navigationController = self.navigationController {
       backFromChildView = true
@@ -74,7 +77,18 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    guard let cellType = viewModel.getCellType(at: indexPath) else { return }
+    print("cellType: \(cellType)")
     tableView.deselectRow(at: indexPath, animated: true)
+
+    switch cellType {
+      case .auth: return
+      case .pin:
+        backFromAction = .change
+        showPinScreen()
+        return
+    }
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,6 +119,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         if let status = auth, self.pinCell != nil {
           self.pinCell.changeStatus(status)
           if status {
+            self.backFromAction = .create
             self.showPinScreen()
           }
         }

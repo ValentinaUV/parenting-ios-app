@@ -14,6 +14,20 @@ protocol PinView {
 
 class PinViewController: UIViewController, ShowAlert {
   
+  var cells: [PinInputCell] = []
+  private var cancellables = Set<AnyCancellable>()
+  var delegate: PinView!
+  var action: PinAction
+  
+  init(action: PinAction) {
+    self.action = action
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   let tableView: UITableView = {
     let table = UITableView(frame: .zero, style: .insetGrouped)
     table.translatesAutoresizingMaskIntoConstraints = false
@@ -24,13 +38,9 @@ class PinViewController: UIViewController, ShowAlert {
   
   private lazy var viewModel: PinViewModel = {
     let storage = KeychainStorage()
-    let model = PinViewModel(storage: storage, action: .create)
+    let model = PinViewModel(storage: storage, action: action)
     return model
   }()
-  
-  var cells: [PinInputCell] = []
-  private var cancellables = Set<AnyCancellable>()
-  var delegate: PinView!
   
   override func viewDidLoad() {
     super.viewDidLoad()

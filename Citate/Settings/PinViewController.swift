@@ -66,16 +66,33 @@ class PinViewController: UIViewController, ShowAlert {
   }
   
   @objc func saveTapped(_ sender: UIBarButtonItem) {
-    if validate() {
-      viewModel.savePin(pin: cells[0].getInputValue())
+    var validated = false
+    switch action {
+      case .create: validated = validateNewPin()
+      case .change: validated = validateChangePin()
+    }
+    
+    if validated {
+      viewModel.savePin(pin: cells[1].getInputValue())
       delegate?.pinSaved = true
       _ = navigationController?.popViewController(animated: true)
     }
   }
 
-  func validate() -> Bool {
+  func validateNewPin() -> Bool {
     if let pin = cells[0].getInputValue(), let confirmPin = cells[1].getInputValue() {
       if let message = viewModel.validateNewPin(pin, confirmPin) {
+        displayAlert(with: "Cannot validate the PIN", message: message)
+        return false
+      }
+      return true
+    }
+    return false
+  }
+  
+  func validateChangePin() -> Bool {
+    if let oldPin = cells[0].getInputValue(), let newPin = cells[1].getInputValue(), let confirmPin = cells[2].getInputValue() {
+      if let message = viewModel.validateChangePin(oldPin, newPin, confirmPin) {
         displayAlert(with: "Cannot validate the PIN", message: message)
         return false
       }
@@ -106,7 +123,7 @@ extension PinViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: PinInputCell.identifier, for: indexPath) as? PinInputCell else { fatalError("AuthViewCell xib does not exists") }
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: PinInputCell.identifier, for: indexPath) as? PinInputCell else { fatalError("PinInputCell xib does not exists") }
     cell.setupCell()
     cells.append(cell)
     return cell

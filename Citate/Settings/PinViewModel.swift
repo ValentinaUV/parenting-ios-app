@@ -60,6 +60,16 @@ class PinViewModel: PinModel {
     return nil
   }
   
+  func validateChangePin(_ oldPin: String, _ newPin: String, _ confirmPin: String) -> String! {
+    let message: String!
+    guard oldPin == getPin() else {
+      message = "Old PIN is not valid."
+      return message
+    }
+    message = validateNewPin(newPin, confirmPin)
+    return message
+  }
+  
   func savePin(pin: String) {
     storage.save(key: pinStorageKey, value: pin)
   }

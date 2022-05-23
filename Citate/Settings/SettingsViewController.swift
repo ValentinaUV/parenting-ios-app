@@ -48,7 +48,6 @@ class SettingsViewController: UIViewController, PinView {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationItem.title = Constants.settingsScreen.title
-    print("backFromAction: \(backFromAction)")
     
     if backFromChildView, backFromAction == .create, !pinSaved {
       authCell.changeAuthSwitchView(authSwitch: false)
@@ -79,7 +78,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
     guard let cellType = viewModel.getCellType(at: indexPath) else { return }
-    print("cellType: \(cellType)")
     tableView.deselectRow(at: indexPath, animated: true)
 
     switch cellType {

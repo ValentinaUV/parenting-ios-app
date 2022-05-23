@@ -8,25 +8,15 @@
 import UIKit
 import Combine
 
-protocol PinView {
+protocol PinViewDelegate {
   var pinSaved: Bool {get set}
 }
 
-class PinViewController: UIViewController, ShowAlert {
+class PinViewController: UIViewController, AlertView {
   
-  var cells: [PinInputCell] = []
   private var cancellables = Set<AnyCancellable>()
-  var delegate: PinView!
-  var action: PinAction
-  
-  init(action: PinAction) {
-    self.action = action
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
+  var delegate: PinViewDelegate!
+  var viewModel: PinViewModel!
   
   let tableView: UITableView = {
     let table = UITableView(frame: .zero, style: .insetGrouped)
@@ -34,12 +24,6 @@ class PinViewController: UIViewController, ShowAlert {
     table.allowsSelection = false
     table.register(PinInputCell.self, forCellReuseIdentifier: PinInputCell.identifier)
     return table
-  }()
-  
-  private lazy var viewModel: PinViewModel = {
-    let storage = KeychainStorage()
-    let model = PinViewModel(storage: storage, action: action)
-    return model
   }()
   
   override func viewDidLoad() {
@@ -66,39 +50,12 @@ class PinViewController: UIViewController, ShowAlert {
   }
   
   @objc func saveTapped(_ sender: UIBarButtonItem) {
-    var validated = false
-    switch action {
-      case .create: validated = validateNewPin()
-      case .change: validated = validateChangePin()
-    }
-    
-    if validated {
-      viewModel.savePin(pin: cells[1].getInputValue())
+    if let message = viewModel.tryToSave() {
+      displayAlert(with: "Cannot validate the PIN", message: message)
+    } else {
       delegate?.pinSaved = true
       _ = navigationController?.popViewController(animated: true)
     }
-  }
-
-  func validateNewPin() -> Bool {
-    if let pin = cells[0].getInputValue(), let confirmPin = cells[1].getInputValue() {
-      if let message = viewModel.validateNewPin(pin, confirmPin) {
-        displayAlert(with: "Cannot validate the PIN", message: message)
-        return false
-      }
-      return true
-    }
-    return false
-  }
-  
-  func validateChangePin() -> Bool {
-    if let oldPin = cells[0].getInputValue(), let newPin = cells[1].getInputValue(), let confirmPin = cells[2].getInputValue() {
-      if let message = viewModel.validateChangePin(oldPin, newPin, confirmPin) {
-        displayAlert(with: "Cannot validate the PIN", message: message)
-        return false
-      }
-      return true
-    }
-    return false
   }
 }
 
@@ -123,9 +80,9 @@ extension PinViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: PinInputCell.identifier, for: indexPath) as? PinInputCell else { fatalError("PinInputCell xib does not exists") }
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: PinInputCell.identifier, for: indexPath) as? PinInputCell else { return UITableViewCell() }
     cell.setupCell()
-    cells.append(cell)
+    viewModel.cells.append(cell)
     return cell
   }
 }

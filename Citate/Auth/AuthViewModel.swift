@@ -17,7 +17,11 @@ class AuthViewModel {
   
   private(set) var authSucceeded : Bool {
     didSet {
-      self.bindAuthViewModelToController()
+      if authSucceeded {
+        self.bindAuthViewModelToControllerSuccess()
+      } else {
+        self.bindAuthViewModelToControllerFail()
+      }
     }
   }
   
@@ -27,8 +31,9 @@ class AuthViewModel {
     authSucceeded = false
     authenticate()
   }
-  
-  var bindAuthViewModelToController : (() -> ()) = {}
+    
+  var bindAuthViewModelToControllerSuccess : (() -> ()) = {}
+  var bindAuthViewModelToControllerFail : (() -> ()) = {}
   
   func authenticate() {
     

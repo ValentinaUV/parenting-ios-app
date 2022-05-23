@@ -1,5 +1,5 @@
 //
-//  ShowAlert.swift
+//  AlertView.swift
 //  Citate
 //
 //  Created by Ungurean Valentina on 27.01.2022.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol ShowAlert {
+protocol AlertView {
   func displayAlert(with title: String, message: String)
   func displayAlert(with title: String, message: String, type: UIAlertController.Style?,  actions: [UIAlertAction]?)
 }
 
-extension ShowAlert where Self: UIViewController {
+extension AlertView where Self: UIViewController {
   
   func displayAlert(with title: String, message: String) {
 

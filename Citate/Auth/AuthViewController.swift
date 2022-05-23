@@ -23,13 +23,14 @@ class AuthViewController: UIViewController {
   func authenticate() {
     
     authViewModel = AuthViewModel()
-    authViewModel.bindAuthViewModelToController = {
-      guard self.authViewModel.authSucceeded else {
-        self.authFailedError()
-        return
-      }
-      
+    authViewModel.bindAuthViewModelToControllerSuccess = {
       self.delegate.didSucceed()
+      return
+    }
+    
+    authViewModel.bindAuthViewModelToControllerFail = {
+      self.authFailedError()
+      return
     }
   }
   

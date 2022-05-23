@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class SettingsViewController: UIViewController, PinView {
+class SettingsViewController: UIViewController, PinViewDelegate {
   
   let tableView: UITableView = {
     let table = UITableView(frame: .zero, style: .insetGrouped)
@@ -59,7 +59,10 @@ class SettingsViewController: UIViewController, PinView {
   }
   
   private func showPinScreen() {
-    let vc = PinViewController(action: backFromAction)
+    let vc = PinViewController()
+    let storage = KeychainStorage()
+    let model = PinViewModel(storage: storage, action: backFromAction)
+    vc.viewModel = model
     vc.delegate = self
     if let navigationController = self.navigationController {
       backFromChildView = true
@@ -98,13 +101,13 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     switch cellType {
       case .auth:
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AuthViewCell.identifier, for: indexPath) as? AuthViewCell else { fatalError("AuthViewCell xib does not exists") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AuthViewCell.identifier, for: indexPath) as? AuthViewCell else { return UITableViewCell() }
         cell.setupCell()
         self.authCell = cell
         self.subscribeToAuthSwitch()
         return cell
       case .pin:
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PinViewCell.identifier, for: indexPath) as? PinViewCell else { fatalError("AuthViewCell xib does not exists") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PinViewCell.identifier, for: indexPath) as? PinViewCell else { return UITableViewCell() }
         cell.setupCell()
         self.pinCell = cell
         return cell

@@ -12,7 +12,7 @@
 		0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */; };
 		1FE024B00BA340E1BD830F0C /* Pods_Citate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38C04212F18D03F65265A7F /* Pods_Citate.framework */; };
 		A700DD3927A3174400283AD3 /* DailyQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */; };
-		A700DD3D27A319FF00283AD3 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3C27A319FF00283AD3 /* ShowAlert.swift */; };
+		A700DD3D27A319FF00283AD3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3C27A319FF00283AD3 /* AlertView.swift */; };
 		A700DD3F27A354F300283AD3 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3E27A354F300283AD3 /* DateFormatter.swift */; };
 		A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */; };
 		A728E1D727DBA09200A7656F /* PrivacyProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */; };
@@ -84,7 +84,7 @@
 		4216A082519FFBCB92FA837F /* Pods-Citate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citate.debug.xcconfig"; path = "Target Support Files/Pods-Citate/Pods-Citate.debug.xcconfig"; sourceTree = "<group>"; };
 		A38C04212F18D03F65265A7F /* Pods_Citate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A700DD3827A3174400283AD3 /* DailyQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuoteViewController.swift; sourceTree = "<group>"; };
-		A700DD3C27A319FF00283AD3 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
+		A700DD3C27A319FF00283AD3 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		A700DD3E27A354F300283AD3 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyProtectionViewController.swift; path = Citate/Auth/PrivacyProtectionViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -197,16 +197,10 @@
 		A728E1D827E1E91E00A7656F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A785946027F994C20022AC10 /* SettingsViewController.swift */,
-				A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */,
-				A728E1E127EC513900A7656F /* AuthViewCell.swift */,
-				A728E1E327EC517600A7656F /* PinViewCell.swift */,
-				A785946627FCA5A60022AC10 /* PinViewModel.swift */,
-				A785946A27FF3B620022AC10 /* PinViewController.swift */,
-				A785946C280096670022AC10 /* PinInputCell.swift */,
+				A7FAC592283B733200EE85DD /* Views */,
+				A7FAC591283B730B00EE85DD /* ViewControllers */,
+				A7FAC590283B72E700EE85DD /* Models */,
 				A7FAC58A282B8D4D00EE85DD /* KeychainStorage.swift */,
-				A7FAC58C28324A6100EE85DD /* PinModel.swift */,
-				A7FAC58E28324AC400EE85DD /* AuthSwitchViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -273,7 +267,7 @@
 				A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */,
 				A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */,
 				A785946E2800D6B40022AC10 /* UITextField.swift */,
-				A700DD3C27A319FF00283AD3 /* ShowAlert.swift */,
+				A700DD3C27A319FF00283AD3 /* AlertView.swift */,
 				A7FAC588281B393C00EE85DD /* ThemeConfigurator.swift */,
 			);
 			path = UIViews;
@@ -366,6 +360,36 @@
 			children = (
 			);
 			path = Documentation;
+			sourceTree = "<group>";
+		};
+		A7FAC590283B72E700EE85DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */,
+				A7FAC58C28324A6100EE85DD /* PinModel.swift */,
+				A785946627FCA5A60022AC10 /* PinViewModel.swift */,
+				A7FAC58E28324AC400EE85DD /* AuthSwitchViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A7FAC591283B730B00EE85DD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A785946027F994C20022AC10 /* SettingsViewController.swift */,
+				A785946A27FF3B620022AC10 /* PinViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A7FAC592283B733200EE85DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A728E1E127EC513900A7656F /* AuthViewCell.swift */,
+				A728E1E327EC517600A7656F /* PinViewCell.swift */,
+				A785946C280096670022AC10 /* PinInputCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -537,7 +561,7 @@
 				A728E1DE27EA1E5300A7656F /* SettingsViewModel.swift in Sources */,
 				A7FAC58D28324A6100EE85DD /* PinModel.swift in Sources */,
 				A775C31727D0B3A8006BAAC5 /* Notification.swift in Sources */,
-				A700DD3D27A319FF00283AD3 /* ShowAlert.swift in Sources */,
+				A700DD3D27A319FF00283AD3 /* AlertView.swift in Sources */,
 				A731DD7A278018D400530EFB /* FirestoreQuotesRepository.swift in Sources */,
 				A728E1E427EC517600A7656F /* PinViewCell.swift in Sources */,
 				A775C2C827B02641006BAAC5 /* UserPreferences.swift in Sources */,

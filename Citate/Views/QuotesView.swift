@@ -7,10 +7,10 @@
 
 import UIKit
 
-protocol AllQuotesView: ShowAlert, UIViewController {
+protocol AllQuotesView: AlertView, UIViewController {
   func reloadQuotes(_ quotes: [Quote])
 }
 
-protocol DailyQuotesView: ShowAlert, UIViewController {
+protocol DailyQuotesView: AlertView, UIViewController {
   func reloadQuote(_ quote: Quote)
 }

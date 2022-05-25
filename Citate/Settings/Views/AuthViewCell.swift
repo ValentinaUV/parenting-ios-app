@@ -10,12 +10,7 @@ import UIKit
 class AuthViewCell: UITableViewCell, IdentifiableViewCell {
   
   @Published var authSwitch: Bool!
-  
-  private lazy var viewModel: AuthSwitchViewModel = {
-    let storage = KeychainStorage()
-    let model = AuthSwitchViewModel(storage: storage)
-    return model
-  }()
+  var viewModel: AuthSwitchViewModel!
   
   private let switchView: UISwitch = {
     let switchView = UISwitch(frame: .zero)
@@ -24,7 +19,8 @@ class AuthViewCell: UITableViewCell, IdentifiableViewCell {
     return switchView
   }()
   
-  func setupCell() {
+  func setupCell(viewModel: AuthSwitchViewModel) {
+    self.viewModel = viewModel
     initView()
   }
   

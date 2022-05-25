@@ -16,7 +16,7 @@ class PinViewController: UIViewController, AlertView {
   
   private var cancellables = Set<AnyCancellable>()
   var delegate: PinViewDelegate!
-  var viewModel: PinViewModel!
+  var viewModel: PinViewModel?
   
   let tableView: UITableView = {
     let table = UITableView(frame: .zero, style: .insetGrouped)
@@ -50,7 +50,7 @@ class PinViewController: UIViewController, AlertView {
   }
   
   @objc func saveTapped(_ sender: UIBarButtonItem) {
-    if let message = viewModel.tryToSave() {
+    if let message = viewModel?.tryToSave() {
       displayAlert(with: "Cannot validate the PIN", message: message)
     } else {
       delegate?.pinSaved = true
@@ -68,7 +68,7 @@ extension PinViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return viewModel.getNumberOfSections()
+    return viewModel?.getNumberOfSections() ?? 0
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,13 +76,13 @@ extension PinViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return viewModel.getSectionTitles()[section]
+    return viewModel?.getSectionTitles()[section]
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: PinInputCell.identifier, for: indexPath) as? PinInputCell else { return UITableViewCell() }
     cell.setupCell()
-    viewModel.cells.append(cell)
+    viewModel?.cells.append(cell)
     return cell
   }
 }

@@ -18,13 +18,7 @@ class SettingsViewController: UIViewController, PinViewDelegate {
     return table
   }()
   
-  lazy var viewModel = {
-    SettingsViewModel()
-  }()
-  
-  private var cancellables = Set<AnyCancellable>()
-  private var authCell: AuthViewCell!
-  private var pinCell: PinViewCell!
+  var viewModel: SettingsViewModel?
   private var backFromChildView = false
   private var backFromAction: PinAction = .create
   var pinSaved = false
@@ -38,6 +32,7 @@ class SettingsViewController: UIViewController, PinViewDelegate {
     tableView.dataSource = self
     tableView.delegate = self
     view.addSubview(tableView)
+    viewModel?.delegate = self
   }
   
   override func viewDidLayoutSubviews() {
@@ -50,18 +45,22 @@ class SettingsViewController: UIViewController, PinViewDelegate {
     navigationItem.title = Constants.settingsScreen.title
     
     if backFromChildView, backFromAction == .create, !pinSaved {
-      authCell.changeAuthSwitchView(authSwitch: false)
-      authCell.authSwitch = false
-      pinCell.changeStatus(false)
+      viewModel?.disableAuthAndPin()
     }
     backFromChildView = false
     pinSaved = false
   }
+}
+
+// MARK: - DisplayPinScreen
+
+extension SettingsViewController: DisplayPinScreen {
   
-  private func showPinScreen() {
+  func showPinScreen(submittedAction: PinAction) {
     let vc = PinViewController()
     let storage = KeychainStorage()
-    let model = PinViewModel(storage: storage, action: backFromAction)
+    backFromAction = submittedAction
+    let model = PinViewModel(storage: storage, action: submittedAction)
     vc.viewModel = model
     vc.delegate = self
     if let navigationController = self.navigationController {
@@ -74,57 +73,29 @@ class SettingsViewController: UIViewController, PinViewDelegate {
 // MARK: - UITableViewDataSource
 
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
+  
   func numberOfSections(in tableView: UITableView) -> Int {
-    return viewModel.cells.count
+    return viewModel?.cells.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-    guard let cellType = viewModel.getCellType(at: indexPath) else { return }
     tableView.deselectRow(at: indexPath, animated: true)
-
-    switch cellType {
-      case .auth: return
-      case .pin:
-        backFromAction = .change
-        showPinScreen()
-        return
-    }
+    viewModel?.rowSelected(at: indexPath)
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.cells[section].count
+    return viewModel?.cells[section].count ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cellType = viewModel.getCellType(at: indexPath) else { return UITableViewCell() }
-    
+    guard let cellType = viewModel?.getCellType(at: indexPath) else { return UITableViewCell() }
     switch cellType {
       case .auth:
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AuthViewCell.identifier, for: indexPath) as? AuthViewCell else { return UITableViewCell() }
-        cell.setupCell()
-        self.authCell = cell
-        self.subscribeToAuthSwitch()
-        return cell
+        return viewModel?.prepareAuthCell(cell: cell) ?? UITableViewCell()
       case .pin:
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PinViewCell.identifier, for: indexPath) as? PinViewCell else { return UITableViewCell() }
-        cell.setupCell()
-        self.pinCell = cell
-        return cell
+        return viewModel?.preparePinCell(cell: cell)  ?? UITableViewCell()
     }
-  }
-  
-  private func subscribeToAuthSwitch() {
-    authCell.$authSwitch
-      .sink { auth in
-        if let status = auth, self.pinCell != nil {
-          self.pinCell.changeStatus(status)
-          if status {
-            self.backFromAction = .create
-            self.showPinScreen()
-          }
-        }
-      }
-      .store(in: &cancellables)
   }
 }

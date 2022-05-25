@@ -13,7 +13,7 @@ protocol AuthDelegate {
 
 class AuthViewController: UIViewController {
   
-  private var authViewModel : AuthViewModel!
+  var viewModel : AuthViewModel?
   var delegate: AuthDelegate!
 
   override func viewDidLoad() {
@@ -21,20 +21,18 @@ class AuthViewController: UIViewController {
   }
     
   func authenticate() {
-    
-    authViewModel = AuthViewModel()
-    authViewModel.bindAuthViewModelToControllerSuccess = {
+    viewModel?.bindAuthViewModelToControllerSuccess = {
       self.delegate.didSucceed()
       return
     }
     
-    authViewModel.bindAuthViewModelToControllerFail = {
+    viewModel?.bindAuthViewModelToControllerFail = {
       self.authFailedError()
       return
     }
   }
   
-  func authFailedError() {
+  private func authFailedError() {
     DispatchQueue.main.async {
       let dialogMessage = UIAlertController(title: "Authentication failed", message: "You could not be verified, please try again.", preferredStyle: .alert)
       let okButton = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
@@ -47,7 +45,7 @@ class AuthViewController: UIViewController {
     }
   }
   
-  func topMostController() -> UIViewController {
+  private func topMostController() -> UIViewController {
     var topController: UIViewController = (UIApplication
       .shared
       .connectedScenes

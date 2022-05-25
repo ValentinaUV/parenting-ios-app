@@ -29,16 +29,11 @@ class KeychainStorage: SettingsStorage {
   }
   
   func save(key: String, value: String) {
-    
     let data = Data(value.utf8)
     KeychainHelper.standard.save(data, service: key, account: accountKey)
-    
-    print("value saved: \(value)")
   }
   
   func delete(by key: String) {
     KeychainHelper.standard.delete(service: key, account: accountKey)
-    
-    print("value deleted")
   }
 }

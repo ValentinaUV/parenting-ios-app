@@ -38,6 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   func sceneWillEnterForeground(_ scene: UIScene) {
 //    let authController = AuthViewController()
 //    authController.delegate = self
+//    authController.viewModel = AuthViewModel()
 //    authController.authenticate()
   }
   

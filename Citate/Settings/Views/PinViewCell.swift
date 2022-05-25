@@ -10,15 +10,11 @@ import UIKit
 class PinViewCell: UITableViewCell, IdentifiableViewCell {
   
   var pin: String!
+  var viewModel: PinViewModel!
   
-  private lazy var viewModel: PinViewModel = {
-    let storage = KeychainStorage()
-    let model = PinViewModel(storage: storage, action: .create)
-    return model
-  }()
-  
-  func setupCell() {
-    pin = viewModel.getPin()
+  func setupCell(viewModel: PinViewModel) {
+    self.viewModel = viewModel
+    pin = self.viewModel.getPin()
     initView()
   }
   

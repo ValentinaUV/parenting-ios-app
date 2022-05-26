@@ -15,6 +15,22 @@ enum PinError: Error {
 enum PinAction {
   case create
   case change
+  
+  var titles: [String] {
+    switch self {
+      case .create:
+        return Constants.pinScreen.createSections
+      case .change:
+        return Constants.pinScreen.changeSections
+    }
+  }
+  
+  var numberOfInputs: Int {
+    switch self {
+      case .create: return 2
+      case .change: return 3
+    }
+  }
 }
 
 class PinViewModel: PinModel {
@@ -30,19 +46,17 @@ class PinViewModel: PinModel {
   }
   
   func getNumberOfSections() -> Int{
-    switch action {
-      case .create: return 2
-      case .change: return 3
-    }
+    return action.numberOfInputs
   }
   
   func getSectionTitles() -> [String] {
-    switch action {
-      case .create:
-        return Constants.pinScreen.createSections
-      case .change:
-        return Constants.pinScreen.changeSections
-    }
+    return action.titles
+  }
+  
+  func preparePinInput(cell: PinInputCell) -> PinInputCell {
+    cell.setupCell()
+    cells.append(cell)
+    return cell
   }
   
   func tryToSave() -> String! {

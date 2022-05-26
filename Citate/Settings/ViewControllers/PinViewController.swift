@@ -81,8 +81,6 @@ extension PinViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: PinInputCell.identifier, for: indexPath) as? PinInputCell else { return UITableViewCell() }
-    cell.setupCell()
-    viewModel?.cells.append(cell)
-    return cell
+    return viewModel?.preparePinInput(cell: cell) ?? UITableViewCell()
   }
 }

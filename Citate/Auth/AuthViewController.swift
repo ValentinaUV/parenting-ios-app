@@ -13,7 +13,7 @@ protocol AuthDelegate {
 
 class AuthViewController: UIViewController {
   
-  var viewModel : AuthViewModel?
+  var viewModel: AuthViewModel!
   var delegate: AuthDelegate!
 
   override func viewDidLoad() {
@@ -22,42 +22,32 @@ class AuthViewController: UIViewController {
     
   func authenticate() {
     viewModel?.bindAuthViewModelToControllerSuccess = {
-      self.delegate.didSucceed()
-      return
+      self.authSucceeded()
     }
-    
     viewModel?.bindAuthViewModelToControllerFail = {
       self.authFailedError()
-      return
     }
+    viewModel?.authenticate()
   }
   
   private func authFailedError() {
     DispatchQueue.main.async {
-      let dialogMessage = UIAlertController(title: "Authentication failed", message: "You could not be verified, please try again.", preferredStyle: .alert)
-      let okButton = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-        self.authenticate()
-      })
-      dialogMessage.addAction(okButton)
-      
-      let topVC = self.topMostController()
-      topVC.present(dialogMessage, animated: true, completion: nil)
+      let vc = AuthPinViewController()
+      vc.viewModel = AuthPinViewModel(storage: KeychainStorage())
+      vc.delegate = self
+      let topVC = UIApplication.topViewController()
+      topVC.present(vc, animated: true, completion: nil)
     }
   }
+}
+
+extension AuthViewController: AuthPinViewDelegate {
   
-  private func topMostController() -> UIViewController {
-    var topController: UIViewController = (UIApplication
-      .shared
-      .connectedScenes
-      .compactMap { $0 as? UIWindowScene }
-      .flatMap { $0.windows }
-      .first { $0.isKeyWindow }?
-      .rootViewController)!
-    
-    while (topController.presentedViewController != nil) {
-      topController = topController.presentedViewController!
+  func authSucceeded() {
+    DispatchQueue.main.async {
+      let topVC = UIApplication.topViewController()
+      topVC.dismiss(animated: true, completion: nil)
     }
-    
-    return topController
+    delegate.didSucceed()
   }
 }

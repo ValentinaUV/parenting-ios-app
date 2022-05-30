@@ -83,8 +83,8 @@ class PinViewModel: PinModel {
   
   private func validateNewPin(_ pin: String, _ confirmPin: String) -> String! {
     
-    guard pin.count >= Constants.pinScreen.pinMinLength else {
-      return "The PIN should have at least \(Constants.pinScreen.pinMinLength) digits."
+    guard pin.count >= Constants.pinScreen.pinLength else {
+      return "The PIN should have at least \(Constants.pinScreen.pinLength) digits."
     }
     guard pin == confirmPin else {
       return "PINs should have the same value."

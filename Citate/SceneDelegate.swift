@@ -26,20 +26,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let tabBarController = TabBarController()
     window?.rootViewController = tabBarController
     window?.makeKeyAndVisible()
-//    showPrivacyProtectionWindow()
+    showPrivacyProtectionWindow()
   }
   
   func sceneDidEnterBackground(_ scene: UIScene) {
+    DispatchQueue.main.async {
+      let topVC = UIApplication.topViewController()
+      print("topVC: \(topVC)")
+      topVC.dismiss(animated: true, completion: nil)
+    }
     showPrivacyProtectionWindow()
     let quoteNotificationManager = QuoteNotificationManager(notificationManager: LocalNotificationManager())
     quoteNotificationManager.addNotification()
   }
   
   func sceneWillEnterForeground(_ scene: UIScene) {
-//    let authController = AuthViewController()
-//    authController.delegate = self
-//    authController.viewModel = AuthViewModel()
-//    authController.authenticate()
+    let authController = AuthViewController()
+    authController.viewModel = AuthViewModel(storage: KeychainStorage())
+    authController.delegate = self
+    authController.authenticate()
   }
   
   // MARK: Privacy Protection

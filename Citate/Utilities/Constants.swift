@@ -51,15 +51,14 @@ struct Constants {
   
   struct pinScreen {
     static let title = "Set new PIN"
-    static let pinMinLength = 4
-    static let pinMaxLength = 6
+    static let pinLength = 4
     static let createSections = [
-      "New PIN (\(pinScreen.pinMinLength)-\(pinScreen.pinMaxLength) digits)",
+      "New PIN (\(pinScreen.pinLength) digits)",
       "Confirm PIN"
     ]
     static let changeSections = [
       "Old Pin",
-      "New PIN (\(pinScreen.pinMinLength)-\(pinScreen.pinMaxLength) digits)",
+      "New PIN (\(pinScreen.pinLength) digits)",
       "Confirm PIN"
     ]
     static let pinStorageKey = "auth-pin"

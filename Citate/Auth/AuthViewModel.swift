@@ -8,56 +8,56 @@
 import LocalAuthentication
 import Foundation
 
-class AuthViewModel {
+class AuthViewModel: PinModel {
   
   var retryAttempts = 0
   let context: LAContext
   var error: NSError?
   let reason: String
+  var storage: SettingsStorage
+  
+  var bindAuthViewModelToControllerSuccess : (() -> ()) = {}
+  var bindAuthViewModelToControllerFail : (() -> ()) = {}
   
   private(set) var authSucceeded : Bool {
     didSet {
       if authSucceeded {
-        self.bindAuthViewModelToControllerSuccess()
+        bindAuthViewModelToControllerSuccess()
       } else {
-        self.bindAuthViewModelToControllerFail()
+        bindAuthViewModelToControllerFail()
       }
     }
   }
   
-  init() {
+  init(storage: SettingsStorage) {
+    self.storage = storage
     context = LAContext()
     reason = "Identify yourself!"
     authSucceeded = false
-    authenticate()
   }
-    
-  var bindAuthViewModelToControllerSuccess : (() -> ()) = {}
-  var bindAuthViewModelToControllerFail : (() -> ()) = {}
   
   func authenticate() {
-    
-    guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
-      authenticateWithPin()
+    if let _ = getPin() {
+      authenticateWithBiometrics()
       return
     }
 
+    authSucceeded = true
+  }
+  
+  private func authenticateWithBiometrics() {
+    guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+      authSucceeded = false
+      return
+    }
     context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
       [weak self] success, authenticationError in
       
       guard success else {
-        self?.authenticateWithPin()
+        self?.authSucceeded = false
         return
       }
-      self?.authSucceeded = true
-    }
-  }
-  
-  
-  func authenticateWithPin() {
-    context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) {
-      [weak self] success, error in
-      self?.authSucceeded = success ? true : false
+      //        self?.authSucceeded = true
     }
   }
 }

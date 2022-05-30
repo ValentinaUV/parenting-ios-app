@@ -16,7 +16,6 @@ extension PinModel {
   
   func getPin() -> String! {
     let pinStorageKey = Constants.pinScreen.pinStorageKey
-    guard let pin = storage.get(by: pinStorageKey) else {return nil}
-    return pin
+    return storage.get(by: pinStorageKey)
   }
 }

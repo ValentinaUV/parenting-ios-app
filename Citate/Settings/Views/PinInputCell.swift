@@ -47,6 +47,6 @@ final class PinInputCell: UITableViewCell, IdentifiableViewCell {
 extension PinInputCell: UITextFieldDelegate {
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     let updatedString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-    return updatedString.count <= Constants.pinScreen.pinMaxLength
+    return updatedString.count <= Constants.pinScreen.pinLength
   }
 }

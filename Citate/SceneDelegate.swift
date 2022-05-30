@@ -32,7 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   func sceneDidEnterBackground(_ scene: UIScene) {
     DispatchQueue.main.async {
       let topVC = UIApplication.topViewController()
-      print("topVC: \(topVC)")
       topVC.dismiss(animated: true, completion: nil)
     }
     showPrivacyProtectionWindow()

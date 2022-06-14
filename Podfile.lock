@@ -1,3 +1,22 @@
-PODFILE CHECKSUM: dc3c759a148a38a6dcb8f83c46fb0554f4814fab
+PODS:
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
+  - SSSpinnerButton (3.0.2)
+
+DEPENDENCIES:
+  - NVActivityIndicatorView
+  - SSSpinnerButton
+
+SPEC REPOS:
+  trunk:
+    - NVActivityIndicatorView
+    - SSSpinnerButton
+
+SPEC CHECKSUMS:
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  SSSpinnerButton: ba9ec6858f2f6fa902a5131d3aec5282588241f8
+
+PODFILE CHECKSUM: 1a27f88bc47bd7fb5f0b3d2e4e4d8ecea589e8fe
 
 COCOAPODS: 1.11.2

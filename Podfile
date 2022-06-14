@@ -6,5 +6,7 @@ target 'Citate' do
   use_frameworks!
 
   # Pods for Citate
+  pod 'NVActivityIndicatorView'
+  pod 'SSSpinnerButton'
 
 end

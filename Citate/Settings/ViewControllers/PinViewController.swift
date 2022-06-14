@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import NVActivityIndicatorView
 
 protocol PinViewDelegate {
   var pinSaved: Bool {get set}
@@ -26,8 +27,17 @@ class PinViewController: UIViewController, AlertView {
     return table
   }()
   
+  lazy var activityIndicatorView: NVActivityIndicatorView = {
+    let xAxis = self.view.center.x
+    let yAxis = self.view.center.y
+    let frame = CGRect(x: (xAxis - 25), y: (yAxis + 70), width: 100, height: 100)
+    let view = NVActivityIndicatorView(frame: frame, type: .ballRotateChase, color: .systemTeal)
+    return view
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     initView()
   }
   
@@ -35,6 +45,7 @@ class PinViewController: UIViewController, AlertView {
     tableView.dataSource = self
     tableView.delegate = self
     view.addSubview(tableView)
+    view.addSubview(activityIndicatorView)
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveTapped))
   }
@@ -53,6 +64,7 @@ class PinViewController: UIViewController, AlertView {
     if let message = viewModel?.tryToSave() {
       displayAlert(with: "Cannot validate the PIN", message: message)
     } else {
+      activityIndicatorView.startAnimating()
       delegate?.pinSaved = true
       _ = navigationController?.popViewController(animated: true)
     }

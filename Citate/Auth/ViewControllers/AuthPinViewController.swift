@@ -21,6 +21,13 @@ class AuthPinViewController: UIViewController {
     return pinView
   }()
   
+  let pinLabel: UILabel = {
+    let label = UILabel()
+    label.text = "Enter your PIN"
+    label.textColor = .systemTeal
+    return label
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     initView()
@@ -28,8 +35,12 @@ class AuthPinViewController: UIViewController {
   
   private func initView() {
     view.addSubview(pinView)
+    view.addSubview(pinLabel)
     pinView.translatesAutoresizingMaskIntoConstraints = false
+    pinLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
+      pinLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+      pinLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       pinView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       pinView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       pinView.heightAnchor.constraint(equalToConstant: CGFloat(44)),

@@ -31,6 +31,8 @@ class AuthViewModel: PinModel {
   func authenticate() {
     if let _ = getPin() {
       biometrics.authenticate()
+    } else {
+      authSucceeded = true
     }
   }
 }

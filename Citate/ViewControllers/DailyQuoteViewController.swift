@@ -10,6 +10,7 @@ import UIKit
 class DailyQuoteViewController: UIViewController {
   
   var presenter: DailyQuotePresenter?
+  var loadingView: LoadingView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,18 +21,11 @@ class DailyQuoteViewController: UIViewController {
     containerView.addSubview(titleLabel)
     containerView.addSubview(authorLabel)
     view.addSubview(containerView)
+    loadingView = LoadingView(frame: view.frame)
+    view.addSubview(loadingView)
     
     setupConstraints()
     loadDailyQuote()
-  }
-  
-  private func loadDailyQuote() {
-    presenter?.getDailyQuote()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    navigationItem.title = Constants.quoteScreen.title
   }
   
   private func setupConstraints() {
@@ -40,13 +34,26 @@ class DailyQuoteViewController: UIViewController {
       containerView.trailingAnchor.constraint(equalTo:view.trailingAnchor, constant:-30),
       containerView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor, constant:20),
       containerView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor, constant:-30),
-      
       titleLabel.centerYAnchor.constraint(equalTo:containerView.centerYAnchor),
       titleLabel.leadingAnchor.constraint(equalTo:containerView.leadingAnchor),
       titleLabel.trailingAnchor.constraint(equalTo:containerView.trailingAnchor),
       authorLabel.trailingAnchor.constraint(equalTo:containerView.trailingAnchor),
-      authorLabel.topAnchor.constraint(equalTo:titleLabel.bottomAnchor, constant:10)
+      authorLabel.topAnchor.constraint(equalTo:titleLabel.bottomAnchor, constant:10),
+      loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+      loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      loadingView.leftAnchor.constraint(equalTo: view.leftAnchor),
+      loadingView.rightAnchor.constraint(equalTo: view.rightAnchor)
     ])
+  }
+  
+  private func loadDailyQuote() {
+    loadingView.start()
+    presenter?.getDailyQuote()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationItem.title = Constants.quoteScreen.title
   }
   
   let titleLabel:UILabel = {
@@ -86,6 +93,7 @@ extension DailyQuoteViewController: DailyQuotesView {
   
   func reloadQuote(_ quote: Quote) {
     DispatchQueue.main.async {
+      self.loadingView.stop()
       self.display(quote: quote)
     }
   }

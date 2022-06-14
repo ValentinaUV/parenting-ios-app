@@ -11,25 +11,38 @@ class QuotesViewController: UIViewController {
   
   var presenter: QuotesPresenter?
   let quotesTableView = UITableView()
+  var loadingView: LoadingView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    loadingView = LoadingView(frame: view.frame)
     view.addSubview(quotesTableView)
-    quotesTableView.translatesAutoresizingMaskIntoConstraints = false
-    quotesTableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
-    quotesTableView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
-    quotesTableView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
-    
+    view.addSubview(loadingView)
+    setupConstraints()
     quotesTableView.dataSource = self
     quotesTableView.delegate = self
     quotesTableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.identifier)
-    quotesTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     
     loadQuotes()
   }
   
+  private func setupConstraints() {
+    quotesTableView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      quotesTableView.topAnchor.constraint(equalTo:view.topAnchor),
+      quotesTableView.leftAnchor.constraint(equalTo:view.leftAnchor),
+      quotesTableView.rightAnchor.constraint(equalTo:view.rightAnchor),
+      quotesTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor),
+      loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+      loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      loadingView.leftAnchor.constraint(equalTo: view.leftAnchor),
+      loadingView.rightAnchor.constraint(equalTo: view.rightAnchor)
+    ])
+  }
+  
   private func loadQuotes() {
+    loadingView.start()
     presenter?.getQuotes()
   }
   
@@ -66,6 +79,7 @@ extension QuotesViewController: AllQuotesView {
   
   func reloadQuotes(_ quotes: [Quote]) {
     DispatchQueue.main.async {
+      self.loadingView.stop()
       self.quotesTableView.reloadData()
     }
   }

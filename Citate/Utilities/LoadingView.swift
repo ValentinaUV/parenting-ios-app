@@ -42,4 +42,11 @@ class LoadingView: UIView {
     spinnerButton.stopAnimate(complete: nil)
     removeFromSuperview()
   }
+  
+  func stopWithSuccess() {
+    spinnerButton.backgroundColor = .white
+    spinnerButton.stopAnimatingWithCompletionType(completionType: .success, complete: {
+      print("stopAnimatingWithCompletionType")
+    })
+  }
 }

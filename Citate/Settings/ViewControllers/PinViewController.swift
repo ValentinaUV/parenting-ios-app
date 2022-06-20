@@ -7,7 +7,6 @@
 
 import UIKit
 import Combine
-import NVActivityIndicatorView
 
 protocol PinViewDelegate {
   var pinSaved: Bool {get set}
@@ -18,6 +17,7 @@ class PinViewController: UIViewController, AlertView {
   private var cancellables = Set<AnyCancellable>()
   var delegate: PinViewDelegate!
   var viewModel: PinViewModel?
+  var loadingView: LoadingView!
   
   let tableView: UITableView = {
     let table = UITableView(frame: .zero, style: .insetGrouped)
@@ -25,14 +25,6 @@ class PinViewController: UIViewController, AlertView {
     table.allowsSelection = false
     table.register(PinInputCell.self, forCellReuseIdentifier: PinInputCell.identifier)
     return table
-  }()
-  
-  lazy var activityIndicatorView: NVActivityIndicatorView = {
-    let xAxis = self.view.center.x
-    let yAxis = self.view.center.y
-    let frame = CGRect(x: (xAxis - 25), y: (yAxis + 70), width: 100, height: 100)
-    let view = NVActivityIndicatorView(frame: frame, type: .ballRotateChase, color: .systemTeal)
-    return view
   }()
   
   override func viewDidLoad() {
@@ -45,9 +37,17 @@ class PinViewController: UIViewController, AlertView {
     tableView.dataSource = self
     tableView.delegate = self
     view.addSubview(tableView)
-    view.addSubview(activityIndicatorView)
-    
+    loadingView = LoadingView(frame: tableView.frame)
+    view.addSubview(loadingView)
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveTapped))
+    setupConstraints()
+  }
+  
+  private func setupConstraints() {
+    NSLayoutConstraint.activate([
+      loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+    ])
   }
   
   override func viewDidLayoutSubviews() {
@@ -64,9 +64,12 @@ class PinViewController: UIViewController, AlertView {
     if let message = viewModel?.tryToSave() {
       displayAlert(with: "Cannot validate the PIN", message: message)
     } else {
-      activityIndicatorView.startAnimating()
-      delegate?.pinSaved = true
-      _ = navigationController?.popViewController(animated: true)
+      loadingView.start()
+      loadingView.stopWithSuccess()
+      _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
+        self.delegate?.pinSaved = true
+        _ = self.navigationController?.popViewController(animated: true)
+      }
     }
   }
 }

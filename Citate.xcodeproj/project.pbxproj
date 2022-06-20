@@ -222,13 +222,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		A70FDCA62860B9780031DB09 /* ViewModels */ = {
+		A70FDCA62860B9780031DB09 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A70FDC9E2860B90E0031DB09 /* AuthPinViewModel.swift */,
 				A70FDC9C2860B90E0031DB09 /* AuthViewModel.swift */,
 			);
-			path = ViewModels;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A70FDCA72860B98A0031DB09 /* Views */ = {
@@ -399,7 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				A70FDCA72860B98A0031DB09 /* Views */,
-				A70FDCA62860B9780031DB09 /* ViewModels */,
+				A70FDCA62860B9780031DB09 /* Models */,
 				A70FDC972860B8980031DB09 /* ViewControllers */,
 				A70FDC8328609FF90031DB09 /* BiometricsHelper.swift */,
 			);

@@ -15,7 +15,18 @@
 		A700DD3D27A319FF00283AD3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3C27A319FF00283AD3 /* AlertView.swift */; };
 		A700DD3F27A354F300283AD3 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD3E27A354F300283AD3 /* DateFormatter.swift */; };
 		A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */; };
-		A728E1D727DBA09200A7656F /* PrivacyProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */; };
+		A70FDC8828609FF90031DB09 /* BiometricsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDC8328609FF90031DB09 /* BiometricsHelper.swift */; };
+		A70FDC8E2860A0A10031DB09 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDC8D2860A0A10031DB09 /* LoadingView.swift */; };
+		A70FDC922860B86F0031DB09 /* PrivacyProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDC912860B86F0031DB09 /* PrivacyProtectionViewController.swift */; };
+		A70FDC942860B8810031DB09 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDC932860B8810031DB09 /* AuthViewController.swift */; };
+		A70FDC962860B8890031DB09 /* AuthPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDC952860B8890031DB09 /* AuthPinViewController.swift */; };
+		A70FDC9F2860B90E0031DB09 /* AuthPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDC982860B90E0031DB09 /* AuthPinView.swift */; };
+		A70FDCA22860B90E0031DB09 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDC9B2860B90E0031DB09 /* Pin.swift */; };
+		A70FDCA32860B90E0031DB09 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDC9C2860B90E0031DB09 /* AuthViewModel.swift */; };
+		A70FDCA52860B90E0031DB09 /* AuthPinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDC9E2860B90E0031DB09 /* AuthPinViewModel.swift */; };
+		A70FDCAB286110700031DB09 /* UIView+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDCA82861106F0031DB09 /* UIView+shake.swift */; };
+		A70FDCAC286110700031DB09 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDCA92861106F0031DB09 /* UIStackView.swift */; };
+		A70FDCAD286110700031DB09 /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FDCAA286110700031DB09 /* UIApplication+topViewController.swift */; };
 		A728E1DE27EA1E5300A7656F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */; };
 		A728E1E027EA459C00A7656F /* IdentifiableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1DF27EA459C00A7656F /* IdentifiableViewCell.swift */; };
 		A728E1E227EC513900A7656F /* AuthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A728E1E127EC513900A7656F /* AuthViewCell.swift */; };
@@ -51,8 +62,6 @@
 		A775C31827D0BB1F006BAAC5 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31627D0B3A8006BAAC5 /* Notification.swift */; };
 		A775C31D27D0DE58006BAAC5 /* QuotesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31C27D0DE58006BAAC5 /* QuotesPresenterTests.swift */; };
 		A775C31F27D0DFBD006BAAC5 /* MockAllQuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C31E27D0DFBD006BAAC5 /* MockAllQuotesView.swift */; };
-		A775C32227D24F26006BAAC5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C32127D24F26006BAAC5 /* AuthViewController.swift */; };
-		A775C32427D61230006BAAC5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C32327D61230006BAAC5 /* AuthViewModel.swift */; };
 		A785946127F994C20022AC10 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946027F994C20022AC10 /* SettingsViewController.swift */; };
 		A785946727FCA5A60022AC10 /* PinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946627FCA5A60022AC10 /* PinViewModel.swift */; };
 		A785946927FD90E70022AC10 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946827FD90E70022AC10 /* KeychainHelper.swift */; };
@@ -87,7 +96,18 @@
 		A700DD3C27A319FF00283AD3 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		A700DD3E27A354F300283AD3 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
-		A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyProtectionViewController.swift; path = Citate/Auth/PrivacyProtectionViewController.swift; sourceTree = SOURCE_ROOT; };
+		A70FDC8328609FF90031DB09 /* BiometricsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsHelper.swift; sourceTree = "<group>"; };
+		A70FDC8D2860A0A10031DB09 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		A70FDC912860B86F0031DB09 /* PrivacyProtectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyProtectionViewController.swift; sourceTree = "<group>"; };
+		A70FDC932860B8810031DB09 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		A70FDC952860B8890031DB09 /* AuthPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPinViewController.swift; sourceTree = "<group>"; };
+		A70FDC982860B90E0031DB09 /* AuthPinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPinView.swift; sourceTree = "<group>"; };
+		A70FDC9B2860B90E0031DB09 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		A70FDC9C2860B90E0031DB09 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		A70FDC9E2860B90E0031DB09 /* AuthPinViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPinViewModel.swift; sourceTree = "<group>"; };
+		A70FDCA82861106F0031DB09 /* UIView+shake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+shake.swift"; sourceTree = "<group>"; };
+		A70FDCA92861106F0031DB09 /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		A70FDCAA286110700031DB09 /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
 		A728E1DD27EA1E5300A7656F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A728E1DF27EA459C00A7656F /* IdentifiableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableViewCell.swift; sourceTree = "<group>"; };
 		A728E1E127EC513900A7656F /* AuthViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewCell.swift; sourceTree = "<group>"; };
@@ -123,8 +143,6 @@
 		A775C31627D0B3A8006BAAC5 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		A775C31C27D0DE58006BAAC5 /* QuotesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesPresenterTests.swift; sourceTree = "<group>"; };
 		A775C31E27D0DFBD006BAAC5 /* MockAllQuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAllQuotesView.swift; sourceTree = "<group>"; };
-		A775C32127D24F26006BAAC5 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		A775C32327D61230006BAAC5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A785946027F994C20022AC10 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A785946627FCA5A60022AC10 /* PinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewModel.swift; sourceTree = "<group>"; };
 		A785946827FD90E70022AC10 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
@@ -192,6 +210,34 @@
 				A38C04212F18D03F65265A7F /* Pods_Citate.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A70FDC972860B8980031DB09 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A70FDC952860B8890031DB09 /* AuthPinViewController.swift */,
+				A70FDC932860B8810031DB09 /* AuthViewController.swift */,
+				A70FDC912860B86F0031DB09 /* PrivacyProtectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A70FDCA62860B9780031DB09 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A70FDC9E2860B90E0031DB09 /* AuthPinViewModel.swift */,
+				A70FDC9C2860B90E0031DB09 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A70FDCA72860B98A0031DB09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A70FDC982860B90E0031DB09 /* AuthPinView.swift */,
+				A70FDC9B2860B90E0031DB09 /* Pin.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A728E1D827E1E91E00A7656F /* Settings */ = {
@@ -264,6 +310,9 @@
 		A731DD74278016A900530EFB /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				A70FDCAA286110700031DB09 /* UIApplication+topViewController.swift */,
+				A70FDCA92861106F0031DB09 /* UIStackView.swift */,
+				A70FDCA82861106F0031DB09 /* UIView+shake.swift */,
 				A700DD4227A4A9E400283AD3 /* UIView+Gradient.swift */,
 				A731DD892788D63C00530EFB /* QuoteTableViewCell.swift */,
 				A785946E2800D6B40022AC10 /* UITextField.swift */,
@@ -276,6 +325,7 @@
 		A775C2C527B02518006BAAC5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A70FDC8D2860A0A10031DB09 /* LoadingView.swift */,
 				A785946827FD90E70022AC10 /* KeychainHelper.swift */,
 				0A4BAAB32796F05D0073149D /* AppDelegate+LocalNotifications.swift */,
 				A700DD3E27A354F300283AD3 /* DateFormatter.swift */,
@@ -348,9 +398,10 @@
 		A775C32027D24E7E006BAAC5 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				A775C32127D24F26006BAAC5 /* AuthViewController.swift */,
-				A775C32327D61230006BAAC5 /* AuthViewModel.swift */,
-				A728E1D627DBA09200A7656F /* PrivacyProtectionViewController.swift */,
+				A70FDCA72860B98A0031DB09 /* Views */,
+				A70FDCA62860B9780031DB09 /* ViewModels */,
+				A70FDC972860B8980031DB09 /* ViewControllers */,
+				A70FDC8328609FF90031DB09 /* BiometricsHelper.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -403,6 +454,7 @@
 				A731DD50277A0B9700530EFB /* Sources */,
 				A731DD51277A0B9700530EFB /* Frameworks */,
 				A731DD52277A0B9700530EFB /* Resources */,
+				05B9E2DCBF1836244BD545CB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -498,6 +550,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		05B9E2DCBF1836244BD545CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Citate/Pods-Citate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Citate/Pods-Citate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Citate/Pods-Citate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8A0BBE2AD3ED7709874B68DE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -527,24 +596,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A775C32227D24F26006BAAC5 /* AuthViewController.swift in Sources */,
 				A700DD3927A3174400283AD3 /* DailyQuoteViewController.swift in Sources */,
+				A70FDC8828609FF90031DB09 /* BiometricsHelper.swift in Sources */,
+				A70FDC9F2860B90E0031DB09 /* AuthPinView.swift in Sources */,
 				A7FAC589281B393C00EE85DD /* ThemeConfigurator.swift in Sources */,
 				A731DD782780176C00530EFB /* QuotesManager.swift in Sources */,
 				A731DD76278016DF00530EFB /* Quote.swift in Sources */,
+				A70FDCA52860B90E0031DB09 /* AuthPinViewModel.swift in Sources */,
 				A785946727FCA5A60022AC10 /* PinViewModel.swift in Sources */,
 				A7FAC58F28324AC400EE85DD /* AuthSwitchViewModel.swift in Sources */,
-				A728E1D727DBA09200A7656F /* PrivacyProtectionViewController.swift in Sources */,
 				A731DD8A2788D63C00530EFB /* QuoteTableViewCell.swift in Sources */,
+				A70FDC922860B86F0031DB09 /* PrivacyProtectionViewController.swift in Sources */,
 				A731DD58277A0B9700530EFB /* AppDelegate.swift in Sources */,
 				A731DD7C2780195500530EFB /* Constants.swift in Sources */,
 				A785946127F994C20022AC10 /* SettingsViewController.swift in Sources */,
 				A700DD3F27A354F300283AD3 /* DateFormatter.swift in Sources */,
+				A70FDCAB286110700031DB09 /* UIView+shake.swift in Sources */,
 				A785946B27FF3B620022AC10 /* PinViewController.swift in Sources */,
+				A70FDC962860B8890031DB09 /* AuthPinViewController.swift in Sources */,
 				A731DD862787453A00530EFB /* LocalNotificationManager.swift in Sources */,
+				A70FDCAC286110700031DB09 /* UIStackView.swift in Sources */,
 				A7FAC58B282B8D4D00EE85DD /* KeychainStorage.swift in Sources */,
 				0A4BAAB42796F05D0073149D /* AppDelegate+LocalNotifications.swift in Sources */,
+				A70FDC8E2860A0A10031DB09 /* LoadingView.swift in Sources */,
 				A700DD4327A4A9E400283AD3 /* UIView+Gradient.swift in Sources */,
+				A70FDCA22860B90E0031DB09 /* Pin.swift in Sources */,
 				A785946F2800D6B40022AC10 /* UITextField.swift in Sources */,
 				A775C2C427B022E4006BAAC5 /* DailyQuotePresenter.swift in Sources */,
 				A785946927FD90E70022AC10 /* KeychainHelper.swift in Sources */,
@@ -555,13 +631,15 @@
 				A731DD882788A55700530EFB /* QuotesViewController.swift in Sources */,
 				A731DD5A277A0B9700530EFB /* SceneDelegate.swift in Sources */,
 				A728E1E027EA459C00A7656F /* IdentifiableViewCell.swift in Sources */,
-				A775C32427D61230006BAAC5 /* AuthViewModel.swift in Sources */,
 				0A4BAAB02796EEA00073149D /* QuotesPresenter.swift in Sources */,
 				A728E1E227EC513900A7656F /* AuthViewCell.swift in Sources */,
 				A728E1DE27EA1E5300A7656F /* SettingsViewModel.swift in Sources */,
 				A7FAC58D28324A6100EE85DD /* PinModel.swift in Sources */,
 				A775C31727D0B3A8006BAAC5 /* Notification.swift in Sources */,
+				A70FDCAD286110700031DB09 /* UIApplication+topViewController.swift in Sources */,
+				A70FDC942860B8810031DB09 /* AuthViewController.swift in Sources */,
 				A700DD3D27A319FF00283AD3 /* AlertView.swift in Sources */,
+				A70FDCA32860B90E0031DB09 /* AuthViewModel.swift in Sources */,
 				A731DD7A278018D400530EFB /* FirestoreQuotesRepository.swift in Sources */,
 				A728E1E427EC517600A7656F /* PinViewCell.swift in Sources */,
 				A775C2C827B02641006BAAC5 /* UserPreferences.swift in Sources */,

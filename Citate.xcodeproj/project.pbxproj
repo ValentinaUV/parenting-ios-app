@@ -67,7 +67,10 @@
 		A785946D280096670022AC10 /* PinInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946C280096670022AC10 /* PinInputCell.swift */; };
 		A785946F2800D6B40022AC10 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785946E2800D6B40022AC10 /* UITextField.swift */; };
 		A787DAE82789ED290050CA44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A787DAE72789ED290050CA44 /* README.md */; };
-		A7A0FD882861CB0B002DA823 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A7A0FD872861CB0B002DA823 /* FirebaseFirestore */; };
+		A7CEFE8C28747CF70014B37C /* MockSettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CEFE8A28747CF70014B37C /* MockSettingsStorage.swift */; };
+		A7CEFE8D28747CF70014B37C /* MockPinInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CEFE8B28747CF70014B37C /* MockPinInputCell.swift */; };
+		A7CEFE9A28748DCD0014B37C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A7CEFE9928748DCD0014B37C /* FirebaseFirestore */; };
+		A7CEFE9C287497830014B37C /* PinViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CEFE95287480B40014B37C /* PinViewModelTests.swift */; };
 		A7FAC589281B393C00EE85DD /* ThemeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAC588281B393C00EE85DD /* ThemeConfigurator.swift */; };
 		A7FAC58B282B8D4D00EE85DD /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAC58A282B8D4D00EE85DD /* KeychainStorage.swift */; };
 		A7FAC58D28324A6100EE85DD /* PinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAC58C28324A6100EE85DD /* PinModel.swift */; };
@@ -149,6 +152,9 @@
 		A785946C280096670022AC10 /* PinInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinInputCell.swift; sourceTree = "<group>"; };
 		A785946E2800D6B40022AC10 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		A787DAE72789ED290050CA44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A7CEFE8A28747CF70014B37C /* MockSettingsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSettingsStorage.swift; sourceTree = "<group>"; };
+		A7CEFE8B28747CF70014B37C /* MockPinInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPinInputCell.swift; sourceTree = "<group>"; };
+		A7CEFE95287480B40014B37C /* PinViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinViewModelTests.swift; sourceTree = "<group>"; };
 		A7FAC588281B393C00EE85DD /* ThemeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeConfigurator.swift; sourceTree = "<group>"; };
 		A7FAC58A282B8D4D00EE85DD /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		A7FAC58C28324A6100EE85DD /* PinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinModel.swift; sourceTree = "<group>"; };
@@ -161,7 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FE024B00BA340E1BD830F0C /* Pods_Citate.framework in Frameworks */,
-				A7A0FD882861CB0B002DA823 /* FirebaseFirestore in Frameworks */,
+				A7CEFE9A28748DCD0014B37C /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +352,7 @@
 		A775C2D027C57F8E006BAAC5 /* CitateTests */ = {
 			isa = PBXGroup;
 			children = (
+				A7CEFE93287480B40014B37C /* Settings */,
 				A775C2E227CE17D6006BAAC5 /* Mocks */,
 				A775C31127CFA002006BAAC5 /* Presenters */,
 				A775C2E327CE1828006BAAC5 /* Models */,
@@ -357,6 +364,8 @@
 		A775C2E227CE17D6006BAAC5 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				A7CEFE8B28747CF70014B37C /* MockPinInputCell.swift */,
+				A7CEFE8A28747CF70014B37C /* MockSettingsStorage.swift */,
 				A775C2DE27CCFB5A006BAAC5 /* MockUserStorage.swift */,
 				A775C2E727CE1A08006BAAC5 /* MockFirestoreQuotesRepository.swift */,
 				A775C31E27D0DFBD006BAAC5 /* MockAllQuotesView.swift */,
@@ -411,6 +420,22 @@
 			path = Documentation;
 			sourceTree = "<group>";
 		};
+		A7CEFE93287480B40014B37C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A7CEFE94287480B40014B37C /* Models */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A7CEFE94287480B40014B37C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A7CEFE95287480B40014B37C /* PinViewModelTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A7FAC590283B72E700EE85DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,7 +485,7 @@
 			);
 			name = Citate;
 			packageProductDependencies = (
-				A7A0FD872861CB0B002DA823 /* FirebaseFirestore */,
+				A7CEFE9928748DCD0014B37C /* FirebaseFirestore */,
 			);
 			productName = Citate;
 			productReference = A731DD54277A0B9700530EFB /* Citate.app */;
@@ -513,7 +538,7 @@
 			);
 			mainGroup = A731DD4B277A0B9700530EFB;
 			packageReferences = (
-				A7A0FD862861CB0B002DA823 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				A7CEFE9828748DCD0014B37C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = A731DD55277A0B9700530EFB /* Products */;
 			projectDirPath = "";
@@ -651,11 +676,14 @@
 				A775C31F27D0DFBD006BAAC5 /* MockAllQuotesView.swift in Sources */,
 				A775C2DF27CCFB5A006BAAC5 /* MockUserStorage.swift in Sources */,
 				A775C2E827CE1A08006BAAC5 /* MockFirestoreQuotesRepository.swift in Sources */,
+				A7CEFE8D28747CF70014B37C /* MockPinInputCell.swift in Sources */,
 				A775C2D927C5815B006BAAC5 /* DateFormatterTests.swift in Sources */,
 				A775C31D27D0DE58006BAAC5 /* QuotesPresenterTests.swift in Sources */,
+				A7CEFE9C287497830014B37C /* PinViewModelTests.swift in Sources */,
 				A775C31327D0204F006BAAC5 /* MockNotificationManager.swift in Sources */,
 				A775C30E27CF9851006BAAC5 /* MockDailyQuotesView.swift in Sources */,
 				A775C31827D0BB1F006BAAC5 /* Notification.swift in Sources */,
+				A7CEFE8C28747CF70014B37C /* MockSettingsStorage.swift in Sources */,
 				A775C31027CF9981006BAAC5 /* MockQuotesManager.swift in Sources */,
 				A775C2DB27CCF210006BAAC5 /* DailyQuotePresenterTests.swift in Sources */,
 				A775C31527D021EC006BAAC5 /* QuoteNotificationManagerTests.swift in Sources */,
@@ -811,6 +839,7 @@
 				DEVELOPMENT_TEAM = 99HLL2MZ5J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Citate/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock with Face ID";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -820,7 +849,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.valentinaungurean.citate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.valentinaungurean.citate1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -839,6 +868,7 @@
 				DEVELOPMENT_TEAM = 99HLL2MZ5J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Citate/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock with Face ID";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -848,7 +878,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.valentinaungurean.citate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.valentinaungurean.citate1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -935,7 +965,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A7A0FD862861CB0B002DA823 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		A7CEFE9828748DCD0014B37C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -946,9 +976,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A7A0FD872861CB0B002DA823 /* FirebaseFirestore */ = {
+		A7CEFE9928748DCD0014B37C /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A7A0FD862861CB0B002DA823 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = A7CEFE9828748DCD0014B37C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */

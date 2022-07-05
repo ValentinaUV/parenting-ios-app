@@ -9,7 +9,7 @@ import XCTest
 @testable import Citate
 
 class DailyQuotePresenterTests: XCTestCase {
-
+  
   var view: MockDailyQuotesView!
   var repository: MockFirestoreQuotesRepository!
   var manager: MockQuotesManager!
@@ -23,7 +23,7 @@ class DailyQuotePresenterTests: XCTestCase {
     manager = MockQuotesManager(repository: repository)
     preferences = MockUserStorage()
   }
-
+  
   override func tearDownWithError() throws {
     view = nil
     repository = nil
@@ -33,7 +33,7 @@ class DailyQuotePresenterTests: XCTestCase {
     
     try super.tearDownWithError()
   }
-
+  
   func testGetDailyQuoteDefaultOrderAndDate() throws {
     presenter = DailyQuotePresenter(
       view: view,
@@ -64,14 +64,14 @@ class DailyQuotePresenterTests: XCTestCase {
       view: view,
       quotesManager: manager,
       preferences: preferences)
-
+    
     presenter.getDailyQuote()
-
+    
     XCTAssertEqual(
       manager.order,
       5,
       "getQuotesBy method should be called with order=5")
-
+    
     XCTAssertEqual(
       manager.limit,
       1,
@@ -86,13 +86,13 @@ class DailyQuotePresenterTests: XCTestCase {
     
     let error = NSError(domain: "", code: 401,
                         userInfo: [ NSLocalizedDescriptionKey: "Error message"])
-
+    
     presenter.didFailWithError(error: error)
     
     XCTAssertEqual(
-      view.showAlertCalled,
+      view.displayAlertCalled,
       1,
-      "showAlert method should be called once")
+      "displayAlert method should be called once")
     
     XCTAssertEqual(
       view.alertTitle,

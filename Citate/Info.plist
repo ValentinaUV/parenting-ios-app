@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Unlock with Face ID</string>
+	<string>Allow Face ID</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

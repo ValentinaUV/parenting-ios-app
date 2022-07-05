@@ -9,7 +9,7 @@ import XCTest
 @testable import Citate
 
 class QuotesPresenterTests: XCTestCase {
-
+  
   var view: MockAllQuotesView!
   var repository: MockFirestoreQuotesRepository!
   var manager: MockQuotesManager!
@@ -30,7 +30,7 @@ class QuotesPresenterTests: XCTestCase {
     presenter = nil
     try super.tearDownWithError()
   }
-
+  
   func testGetQuotes() throws {
     presenter.getQuotes()
     XCTAssertEqual(
@@ -76,8 +76,8 @@ class QuotesPresenterTests: XCTestCase {
     presenter.didFailWithError(error: error)
     
     XCTAssertEqual(
-      view.showAlertCalled,
+      view.displayAlertCalled,
       1,
-      "showAlert method should be called once")
+      "displayAlert method should be called once")
   }
 }

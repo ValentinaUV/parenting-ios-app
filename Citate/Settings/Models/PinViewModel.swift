@@ -75,7 +75,9 @@ class PinViewModel: PinModel {
   }
   
   private func validateOnCreate() -> String! {
-    if let pin = cells[0].getInputValue(), let confirmPin = cells[1].getInputValue() {
+    if cells.count > 1,
+       let pin = cells[0].getInputValue(),
+       let confirmPin = cells[1].getInputValue() {
       return validateNewPin(pin, confirmPin)
     }
     return "Missing PIN input values"
@@ -103,7 +105,7 @@ class PinViewModel: PinModel {
     return "Missing PIN input values"
   }
   
-  func savePin(pin: String) {
+  private func savePin(pin: String) {
     storage.save(key: pinStorageKey, value: pin)
   }
   

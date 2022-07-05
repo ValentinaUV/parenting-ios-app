@@ -9,7 +9,7 @@ import UIKit
 import SSSpinnerButton
 
 class LoadingView: UIView {
-
+  
   lazy var spinnerButton: SSSpinnerButton = {
     let button = SSSpinnerButton(title: "")
     button.frame = CGRect(x: (center.x - 30), y: (center.y - 30), width: 60, height: 60)
@@ -45,8 +45,6 @@ class LoadingView: UIView {
   
   func stopWithSuccess() {
     spinnerButton.backgroundColor = .white
-    spinnerButton.stopAnimatingWithCompletionType(completionType: .success, complete: {
-      print("stopAnimatingWithCompletionType")
-    })
+    spinnerButton.stopAnimatingWithCompletionType(completionType: .success, complete: nil)
   }
 }

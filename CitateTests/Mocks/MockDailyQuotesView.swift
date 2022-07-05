@@ -8,11 +8,11 @@
 import XCTest
 @testable import Citate
 
-class MockDailyQuotesView: DailyQuotesView {
+class MockDailyQuotesView: UIViewController, DailyQuotesView {
   
   var reloadQuoteCalled = 0
   var receivedQuote: Quote?
-  var showAlertCalled = 0
+  var displayAlertCalled = 0
   var alertTitle: String?
   var alertMessage: String?
   
@@ -21,8 +21,8 @@ class MockDailyQuotesView: DailyQuotesView {
     receivedQuote = quote
   }
   
-  func showAlert(title: String, message: String) {
-    showAlertCalled += 1
+  func displayAlert(with title: String, message: String) {
+    displayAlertCalled += 1
     alertTitle = title
     alertMessage = message
   }

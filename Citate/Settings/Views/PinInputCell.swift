@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class PinInputCell: UITableViewCell, IdentifiableViewCell {
-    
-  private let textField:UITextField = {
+class PinInputCell: UITableViewCell, IdentifiableViewCell {
+  
+  internal let textField:UITextField = {
     let field = UITextField()
     field.isSecureTextEntry = true
     field.translatesAutoresizingMaskIntoConstraints = false

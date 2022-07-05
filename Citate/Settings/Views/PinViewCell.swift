@@ -42,8 +42,4 @@ class PinViewCell: UITableViewCell, IdentifiableViewCell {
   private func deletePin() {
     viewModel.deletePin()
   }
-  
-  func savePin(_ pin: String) {
-    viewModel.savePin(pin: pin)
-  }
 }
